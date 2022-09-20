@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rm -rf dist && npx tsc && cp -r public ./dist && cp -r src/views ./dist/src",
-    "dev": "rm -rf dist && nodemon --config nodemon.json --exec \"npx tsc && cp -r public ./dist && cp -r src/views ./dist/src && yarn start\"",
+    "build": "rm -rf dist && npx tsc",
+    "dev": "rm -rf dist && nodemon --config nodemon.json --exec \"npx tsc && yarn start\"",
     "start": "node dist/src/app.js",
 		"build:prod": "rm -rf node_modules && yarn install && yarn build && rm -rf node_modules && yarn install --production",
 		"paketo": "node node_modules/@gsiou/paketo"

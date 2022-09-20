@@ -7,5 +7,5 @@
     "watch": [
         "."
     ],
-    "ext": "ts,js,pug,css"
+    "ext": "ts,js"
 }
