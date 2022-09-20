@@ -1,0 +1,10 @@
+.vscode
+.gitignore
+.git
+public
+src
+node_modules
+nodemon.json
+README.md
+tsconfig.json
+*.tar.gz
