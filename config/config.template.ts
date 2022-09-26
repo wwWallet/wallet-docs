@@ -1,6 +1,8 @@
-const config: any = {
+const config = {
 	host: "",
-  port: 8000,
+  port: 8001,
+	appSecret: "dmvkkj34jo42rfkvdsfgerogmo3dsf",
+	appTokenExpiration: "24h", // "1h", "1d" 
 	db: {
 			host: "",
 			port: 3306,
@@ -8,15 +10,7 @@ const config: any = {
 			password: "",
 			dbname: ""
 	},
-	oauth: {
-			clientId: "",
-			clientSecret: "",
-			authorizationUrl: "",
-			tokenUrl: "",
-			redirectUrl: "",
-			profileUrl: "",
-			scopes: []
-	}
+
 }
 
 export default config;

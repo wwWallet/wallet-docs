@@ -1,10 +1,26 @@
+import { FetchUserErrors, RegisterUserErrors } from "../types/errors/user.errors";
 
 // the format of a request from the frontend
-export interface CreateUserRequestDTO {
-	email: string;
+
+// Register User
+export type RegisterRequestDTO = {
+	password: string;
 }
 
 // what is the response our controller will return
-export interface CreateUserResponseDTO {
-	error?: string;
+export type RegisterResponseDTO = {
+	did: string;
+	error?: RegisterUserErrors;
+}
+
+
+// Login User
+
+export type LoginUserRequestDTO = {
+	did: string;
+	password: string;
+}
+
+export type LoginUserResponseDTO = {
+	error?: FetchUserErrors
 }
