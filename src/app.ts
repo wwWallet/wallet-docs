@@ -6,6 +6,7 @@ import cors from 'cors';
 import userController from './controllers/user.controller';
 import storageController from './controllers/storage.controller';
 import issuanceController from './controllers/issuance.controller';
+import crossDeviceWalletSyncController from './controllers/crossDeviceWalletSync.controller';
 
 const app: Express = express();
 
@@ -25,6 +26,7 @@ app.use(cors({ credentials: true, origin: true }));
 app.use('/user', userController);
 app.use('/storage', storageController);
 app.use('/issuance', issuanceController);
+app.use('/sync', crossDeviceWalletSyncController);
 
 app.listen(config.port, () => {
   console.log(`⚡️[server]: Server is running at http://${config.host}:${config.port}`);

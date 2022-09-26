@@ -14,24 +14,86 @@ storageController.use(AuthMiddleware);
 // store a VC
 storageController.post('/vc', async (req: Request, res: Response) => {
 	const body: StoreVcRequestDTO = req.body;
-	if (req.user != undefined && req.user.did != undefined) {
-		console.log("Did = ", req.user.did);
+
+	let did: string = "";
+	if (req.user === undefined || req.user.did === undefined) {
+		res.status(400).send({error: "DID not found"});
+		return;
 	}
-	res.send({});
+	else {
+		did = req.user.did;
+	}
+
+	let vcjwt: string = "";
+	if (body.vcjwt != undefined) {
+		res.status(400).send({error: "VC not found"});
+		return;
+	}
+	else {
+		vcjwt = body.vcjwt;
+	}
+
+	const storeVCRes = await storageService.storeVC(did, vcjwt);
+
+	if (storeVCRes.ok) {
+		res.status(200).send({});
+	}
+	else {
+		res.status(400).send({error: storeVCRes.err});
+	}
+
 });
 
 // get all VCs
 storageController.get('/vc', async (req: Request, res: Response) => {
-	const vcId = req.params.id;
-	res.send({'shit': 'dd'});
+
+	let did: string = "";
+	if (req.user === undefined || req.user.did === undefined) {
+		res.status(400).send({error: "DID not found"});
+		return;
+	}
+	else {
+		did = req.user.did;
+	}
+
+	const getAllVCsRes = await storageService.getAllVCs(did);
+	if (getAllVCsRes.ok) {
+		res.status(200).send({"vcs": getAllVCsRes.val});
+	}
+	else {
+		res.status(400).send({error: getAllVCsRes.err});
+	}
+
 });
 
 
 
 // get a specific VC
 storageController.get('/vc/:id', async (req: Request, res: Response) => {
+
 	const vcId = req.params.id;
-	res.send({});
+	if (vcId === undefined || vcId === "") {
+		res.status(400).send({error: "VC ID not found"});
+		return;
+	}
+
+	let did: string = "";
+	if (req.user === undefined || req.user.did === undefined) {
+		res.status(400).send({error: "DID not found"});
+		return;
+	}
+	else {
+		did = req.user.did;
+	}
+
+	const getVcRes = await storageService.getVC(did,vcId);
+	if (getVcRes.ok) {
+		res.status(200).send({"vc": getVcRes.val});
+	}
+	else {
+		res.status(400).send({error: getVcRes.err});
+	}
+
 });
 
 export default storageController;

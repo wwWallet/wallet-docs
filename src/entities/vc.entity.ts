@@ -10,4 +10,7 @@ export class Vc {
 
 	@Column({ type: 'blob', nullable: false })
 	jwt: string = "";
+
+	@Column({ nullable: false })
+	holderDID: string = "";
 }

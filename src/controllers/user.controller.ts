@@ -20,7 +20,7 @@ userController.post('/register', async (req: Request, res: Response) => {
 		res.status(400).send({error: registerUserResult.val});
 		return;
 	}
-	
+
 	const { did } = registerUserResult.val;
 
 	const payload = {
