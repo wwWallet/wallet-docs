@@ -3,14 +3,14 @@
 
 
 "@cef-ebsi/ebsi-did-resolver@^2.0.0":
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/@cef-ebsi/ebsi-did-resolver/-/ebsi-did-resolver-2.1.1.tgz#7de1c26b3217c2e30a3c9fa69bd0b9a0b52c9240"
-  integrity sha512-cUaAPbCCbbZMZpV1gnrZS7dzjqntMf/BjyhgGmkJnNWVuhelpreayvBwOW55vkkpzF+0HG68CTb6+9nvL5lqEA==
+  version "2.1.2"
+  resolved "https://registry.yarnpkg.com/@cef-ebsi/ebsi-did-resolver/-/ebsi-did-resolver-2.1.2.tgz#0c5302679cae69794772eba996f1e714ee8763de"
+  integrity sha512-dJRfoN4hk40Ua/tFIkwoneDAjqjmeEkFUuabdKGEWrOO+CfYHr+blUCd+V1BrDPJ/xdLCvJkGGMhSjD6hQAz2w==
   dependencies:
     "@cef-ebsi/problem-details-errors" "^2.0.1"
     axios "^0.27.2"
     did-resolver "^4.0.0"
-    jose "^4.9.0"
+    jose "^4.9.3"
     multiformats "^9.7.1"
 
 "@cef-ebsi/problem-details-errors@^2.0.1":
@@ -251,10 +251,10 @@
   resolved "https://registry.yarnpkg.com/@gsiou/paketo/-/paketo-0.0.1.tgz#a06473bd247ff74b915f8657d0bfe751e44d28ac"
   integrity sha512-UouhkiqAzyALZQH9Z69UYYDNU45zTTEAF1HiFhKYkLoQTCgyvxPj5c/R0Gxqt9TDsmp/OF1sxbNYXWaXMtKUQg==
 
-"@gunet/ssi-pack@^1.0.21":
-  version "1.0.21"
-  resolved "https://npm.pkg.github.com/download/@gunet/ssi-pack/1.0.21/ec35889f0de9818057dffaaeb8b6012e28122801#ec35889f0de9818057dffaaeb8b6012e28122801"
-  integrity sha512-AdgvLaaOoYZ5DRn+Yh3u/BipSseAllc4g2vp2irlM+H9LADMWXS+wEgAnO/m/4+cOVJ18sOkHOoF2dV5sNj55Q==
+"@gunet/ssi-pack@^1.0.23":
+  version "1.0.23"
+  resolved "https://npm.pkg.github.com/download/@gunet/ssi-pack/1.0.23/34b94a06fd87ad3f5e5c11bf33e0f7d3fec7d606#34b94a06fd87ad3f5e5c11bf33e0f7d3fec7d606"
+  integrity sha512-79ZA89mfLXf42mPAEldi0bn0E4m+deoL/0RyUPjlN9HPRZg80uLoRPGfFo7oYCnOWz3p/CY+nMRhD0QYBSZgUw==
   dependencies:
     "@cef-ebsi/wallet-lib" "2.0.0"
     ajv "^8.11.0"
@@ -1238,9 +1238,9 @@ isarray@~1.0.0:
   integrity sha512-VLghIWNM6ELQzo7zwmcg0NmTVyWKYjvIeM83yjp0wRDTmUnrM678fQbcKBo6n2CJEF0szoG//ytg+TKla89ALQ==
 
 joi@^17.6.0:
-  version "17.6.0"
-  resolved "https://registry.yarnpkg.com/joi/-/joi-17.6.0.tgz#0bb54f2f006c09a96e75ce687957bd04290054b2"
-  integrity sha512-OX5dG6DTbcr/kbMFj0KGYxuew69HPcAE3K/sZpEV2nP6e/j/C0HV+HNiBPCASxdx5T7DMoa0s8UeHWMnb6n2zw==
+  version "17.6.1"
+  resolved "https://registry.yarnpkg.com/joi/-/joi-17.6.1.tgz#e77422f277091711599634ac39a409e599d7bdaa"
+  integrity sha512-Hl7/iBklIX345OCM1TiFSCZRVaAOLDGlWCp0Df2vWYgBgjkezaR7Kvm3joBciBHQjZj5sxXs859r6eqsRSlG8w==
   dependencies:
     "@hapi/hoek" "^9.0.0"
     "@hapi/topo" "^5.0.0"
@@ -1248,7 +1248,7 @@ joi@^17.6.0:
     "@sideway/formula" "^3.0.0"
     "@sideway/pinpoint" "^2.0.0"
 
-jose@^4.8.1, jose@^4.9.0, jose@^4.9.3:
+jose@^4.8.1, jose@^4.9.3:
   version "4.9.3"
   resolved "https://registry.yarnpkg.com/jose/-/jose-4.9.3.tgz#890abd3f26725fe0f2aa720bc2f7835702b624db"
   integrity sha512-f8E/z+T3Q0kA9txzH2DKvH/ds2uggcw0m3vVPSB9HrSkrQ7mojjifvS7aR8cw+lQl2Fcmx9npwaHpM/M3GD8UQ==

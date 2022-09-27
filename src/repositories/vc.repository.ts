@@ -2,7 +2,7 @@ import { Err, Ok, Result } from "ts-results";
 import { DataSource, Repository } from "typeorm";
 import AppDataSource from "../AppDataSource";
 import { Vc } from "../entities/vc.entity";
-import { GetAllVcByDidErrors, GetVcErrors, StoreVcErrors } from "../types/errors/storage.errors";
+import { GetAllVcByDidErrors, GetAllVcByIssErrors, GetVcErrors, StoreVcErrors } from "../types/errors/storage.errors";
 
 
 class VcRepository {
@@ -10,11 +10,15 @@ class VcRepository {
 
 	constructor(dataSource: DataSource) {
 		this.repo = dataSource.getRepository(Vc);
-		console.log("Vc repository has just been created");
+		console.log("VC repository has just been created");
 	}
 
-	async createVc(vcIdentifier: string, vcjwt: string, holderDID: string): Promise<Result<null, StoreVcErrors>> {
-		const vcCredentialRecord = {vcIdentifier: vcIdentifier, jwt: vcjwt, holderDID: holderDID};
+	// Insert given VC to repository
+	async createVc(vcjwt: string, holderDID: string, vcIdentifier: string,
+		issuerDID: string): Promise<Result<null, StoreVcErrors>> {
+		const vcCredentialRecord = {vcIdentifier: vcIdentifier, jwt: vcjwt,
+			holderDID: holderDID, issuerDID: issuerDID};
+
 		try {
 			await this.repo.insert(vcCredentialRecord);
 			return Ok(null);
@@ -25,6 +29,7 @@ class VcRepository {
 		}
 	}
 
+	// Get All VCs belonging to a holder with given DID
 	async getAllVcsByDid(holderDID: string): Promise<Result<Vc[], GetAllVcByDidErrors>> {
 
 		try {
@@ -33,8 +38,6 @@ class VcRepository {
 					holderDID: holderDID
 				}
 			});
-
-			console.log(vcs);
 			return Ok(vcs);
 		}
 		catch(e) {
@@ -43,6 +46,7 @@ class VcRepository {
 		}
 	}
 
+	// Get a VC with a given ID, provided it belongs to given holder
 	async getVcById(holderDID: string, vcIdentifier: string): Promise<Result<Vc, GetVcErrors>> {
 
 		try {
@@ -57,6 +61,24 @@ class VcRepository {
 			else {
 				return Err('VC_NOT_FOUND_ERROR')
 			}
+		}
+		catch(e) {
+			console.log(e);
+			return Err('DB_ERROR');
+		}
+	}
+
+	// Get all VCs from a given issuer, provided they belong to given holder
+	async getVcsByIssuer(holderDID: string, issuerDID: string): Promise<Result<Vc[], GetAllVcByIssErrors>> {
+
+		try {
+			const vcs = await this.repo.find({
+				where: {
+					holderDID: holderDID,
+					issuerDID: issuerDID
+				}
+			});
+			return Ok(vcs);
 		}
 		catch(e) {
 			console.log(e);

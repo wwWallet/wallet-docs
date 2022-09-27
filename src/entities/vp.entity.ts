@@ -11,8 +11,13 @@ export class Vp {
 	@Column({ type: 'blob', nullable: false })
 	jwt: string = "";
 
-	// audience in did format
-	@Column()
-	aud: string = "";
+	@Column({ nullable: false })
+	audienceDID: string = "";
+
+	@Column({ nullable: false })
+	holderDID: string = "";
+
+	@Column( { nullable: false } )
+	issuerDID: string = "";
 
 }

@@ -1,5 +1,5 @@
 import express, { Request, Response, Router } from 'express';
-import { StoreVcRequestDTO } from '../dto/storage.dto';
+import { StoreVcRequestDTO, StoreVpRequestDTO } from '../dto/storage.dto';
 import { AuthMiddleware } from '../middlewares/auth.middleware';
 import storageService from '../services/storage.service';
 
@@ -25,7 +25,7 @@ storageController.post('/vc', async (req: Request, res: Response) => {
 	}
 
 	let vcjwt: string = "";
-	if (body.vcjwt != undefined) {
+	if ( body.vcjwt !== undefined ) {
 		res.status(400).send({error: "VC not found"});
 		return;
 	}
@@ -92,6 +92,88 @@ storageController.get('/vc/:id', async (req: Request, res: Response) => {
 	}
 	else {
 		res.status(400).send({error: getVcRes.err});
+	}
+
+});
+
+// store a VP
+storageController.post('/vp', async (req: Request, res: Response) => {
+	const body: StoreVpRequestDTO = req.body;
+
+	let did: string = "";
+	if (req.user === undefined || req.user.did === undefined) {
+		res.status(400).send({error: "DID not found"});
+		return;
+	}
+	else {
+		did = req.user.did;
+	}
+
+	let vpjwt: string = "";
+	if( body.vpjwt !== undefined ) {
+		res.status(400).send({error: "VP not found"});
+		return;
+	}
+	else {
+		vpjwt = body.vpjwt;
+	}
+
+	const storeVPRes = await storageService.storeVP(did, vpjwt);
+
+	if (storeVPRes.ok) {
+		res.status(200).send({});
+	}
+	else {
+		res.status(400).send({errir: storeVPRes.err});
+	}
+});
+
+// get all VPs
+storageController.get('/vp', async (req: Request, res: Response) => {
+
+	let did: string = "";
+	if (req.user === undefined || req.user.did === undefined) {
+		res.status(400).send({error: "DID not found"});
+		return;
+	}
+	else {
+		did = req.user.did;
+	}
+
+	const getAllVPsRes = await storageService.getAllVPs(did);
+	if (getAllVPsRes.ok) {
+		res.status(200).send({"vcs": getAllVPsRes.val});
+	}
+	else {
+		res.status(400).send({error: getAllVPsRes.err});
+	}
+
+});
+
+// get a specific VP
+storageController.get('/vp/:id', async (req: Request, res: Response) => {
+
+	const vpId = req.params.id;
+	if (vpId === undefined || vpId === "") {
+		res.status(400).send({error: "VP ID not found"});
+		return;
+	}
+
+	let did: string = "";
+	if (req.user === undefined || req.user.did === undefined) {
+		res.status(400).send({error: "DID not found"});
+		return;
+	}
+	else {
+		did = req.user.did;
+	}
+
+	const getVpRes = await storageService.getVC(did,vpId);
+	if (getVpRes.ok) {
+		res.status(200).send({"vp": getVpRes.val});
+	}
+	else {
+		res.status(400).send({error: getVpRes.err});
 	}
 
 });

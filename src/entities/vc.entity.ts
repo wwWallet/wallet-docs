@@ -13,4 +13,7 @@ export class Vc {
 
 	@Column({ nullable: false })
 	holderDID: string = "";
+
+	@Column({ nullable: false })
+	issuerDID: string = "";
 }
