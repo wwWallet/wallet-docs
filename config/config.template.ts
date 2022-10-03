@@ -10,7 +10,7 @@ const config = {
 			password: "",
 			dbname: ""
 	},
-
+	tirURL: "",
 }
 
 export default config;

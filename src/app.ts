@@ -7,6 +7,7 @@ import userController from './controllers/user.controller';
 import storageController from './controllers/storage.controller';
 import issuanceController from './controllers/issuance.controller';
 import crossDeviceWalletSyncController from './controllers/crossDeviceWalletSync.controller';
+import tirManagementController from './controllers/tirManagement.controller';
 
 const app: Express = express();
 
@@ -27,6 +28,7 @@ app.use('/user', userController);
 app.use('/storage', storageController);
 app.use('/issuance', issuanceController);
 app.use('/sync', crossDeviceWalletSyncController);
+app.use('/tir', tirManagementController);
 
 app.listen(config.port, () => {
   console.log(`⚡️[server]: Server is running at http://${config.host}:${config.port}`);
