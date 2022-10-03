@@ -10,4 +10,8 @@ export class User {
 
   @Column({ nullable: false })
   passwordHash: string = "";
+
+
+	// @Column({ type: 'blob', nullable: false })
+	// keys: string = "";
 }

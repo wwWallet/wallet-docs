@@ -27,5 +27,5 @@ app.use('/storage', storageController);
 app.use('/issuance', issuanceController);
 
 app.listen(config.port, () => {
-  console.log(`⚡️[server]: Server is running at http://${config.host}:${config.port}`);
+  console.log(`⚡️[server]: Server is running at ${config.url}`);
 });

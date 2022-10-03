@@ -6,6 +6,7 @@ import fs from 'fs';
 import path from "path";
 import crypto from 'crypto';
 import { importJWK, SignJWT } from "jose";
+import { User } from "../entities/user.entity";
 
 
 
@@ -16,49 +17,14 @@ class KeyManagementService {
 	private didQueue: string[] = [];
 	private maxQueueSize = 1000;
 
-	constructor() {
-		// load keys from keys/ directory to registeredKeys map
-		const keysDirectory = path.join(__dirname, '../../../keys');
-		try {
-			fs.mkdirSync(keysDirectory);
-		}
-		catch(e) {
-			if ((e as any).code === 'EEXIST')
-				console.log("[-] Directory alread exists");
-			else {
-				throw new Error("[-] Application did not have the correct permissions to create keys directory");
-			}
-		}
-		fs.readdir(keysDirectory, (err, files: string[]) => {
-			if (err) {
-				console.log('[-] Unable to scan directory: ', err);
-				return;
-			}
-
-			for (const filename of files) {
-				// dont exceed the max queue size
-				if (this.didQueue.length > this.maxQueueSize)
-					break;
-				const keyFilepath = path.join(keysDirectory, filename);
-				const fileContaints: string = fs.readFileSync(keyFilepath, 'utf-8');
-				const did = filename.split('.')[0];
-				const keys = JSON.parse(fileContaints);
-				this.registeredKeys.set(did, keys);
-				this.didQueue.push(did);
-			}
-		});
-	}
+	constructor() { }
 
 	// will be used to set the {key: did, value: Wallet} back on the map and return it.
-	private updateQueue(did: string): NaturalPersonWalletI {
-
-		const keysDirectory = path.join(__dirname, '../../../keys');
-		const filename = did + '.keys';
-
+	private async updateQueue(did: string): Promise<Result<NaturalPersonWalletI, FetchUserErrors | "KEYS_NOT_FOUND">> {
 		const mapResult = this.registeredKeys.get(did);
 		// if found on map, return it
 		if (mapResult != undefined)
-			return mapResult;
+			return Ok(mapResult);
 
 		// if cannot be added, then remove a Wallet from the queue & map
 		if (this.didQueue.length >= this.maxQueueSize) {
@@ -69,12 +35,17 @@ class KeyManagementService {
 				this.registeredKeys.delete(deletedDID);
 		}
 		// add the new did keys from the filesystem to the queue & queue
-		const keyFilepath = path.join(keysDirectory, filename);
-		const fileContaints: string = fs.readFileSync(keyFilepath, 'utf-8');
-		const keys = JSON.parse(fileContaints);
+		const result = await userRepository.getUserKeysByDid(did);
+		if (!result.ok) {
+			return Err(result.val);
+		}
+		const user = result.val;
+		if (user.keys == undefined)
+			return Err("KEYS_NOT_FOUND");
+		const keys = JSON.parse(user.keys) as NaturalPersonWalletI;
 		this.registeredKeys.set(did, keys);
 		this.didQueue.push(did);
-		return keys;
+		return Ok(keys);
 	}
 
 	/**
@@ -87,23 +58,13 @@ class KeyManagementService {
 		password: string
 	): Promise<Result<{did: string}, RegisterUserErrors>> {
 
-		const naturalPersonWallet: NaturalPersonWalletI = await createNaturalPersonWallet();
+		const naturalPersonWallet: NaturalPersonWalletI = await createNaturalPersonWallet('ES256K');
 
 		// queue management
 		const keysStringified = JSON.stringify(naturalPersonWallet);
-		const newKeyPath = path.join(__dirname, '../../../keys', `${naturalPersonWallet.did}.keys`);
-		try {
-			fs.writeFileSync(newKeyPath, keysStringified);
-			this.updateQueue(naturalPersonWallet.did);
-		}
-		catch (e) {
-			console.log('[-] Unable to store the keys on the filesystem');
-			return Err('FILESYSTEM_ERROR');
-		}
-
 
 		const passwordHash = crypto.createHash('sha256').update(password).digest('base64');
-		const result = await userRepository.createUser(naturalPersonWallet.did, passwordHash);
+		const result = await userRepository.createUser(naturalPersonWallet.did, passwordHash, keysStringified);
 		if (result.ok)
 			return Ok({did: naturalPersonWallet.did});
 		else
@@ -119,7 +80,7 @@ class KeyManagementService {
 		// this.updateQueue(did);
 
 		const passwordInputHash = crypto.createHash('sha256').update(password).digest('base64');
-		const userResult = await userRepository.fetchUser(did, passwordInputHash);
+		const userResult = await userRepository.getUserByHash(did, passwordInputHash);
 		if (!userResult.ok) {
 			return Err(userResult.val);
 		}
@@ -130,7 +91,9 @@ class KeyManagementService {
 
 	async createVP(holderDID: string, vcIdentifiersList: string[]): Promise<Result<null, null>> {
 
-		const wallet: NaturalPersonWalletI = this.updateQueue(holderDID);
+		const result = await this.updateQueue(holderDID);
+		if (!result.ok)
+			return Err(null);
 		return Ok(null);
 	}
 
@@ -162,9 +125,13 @@ class KeyManagementService {
 		holderDID: string,
 		tempRsaPublicKey: string,
 		c_nonce: string,
-		issuerDID: string): Promise<{encryptedProof: string}> {
+		issuerDID: string): Promise<Result<{encryptedProof: string}, FetchUserErrors | "KEYS_NOT_FOUND">> {
 
-		const wallet: NaturalPersonWalletI = this.updateQueue(holderDID);
+		const result = await this.updateQueue(holderDID);
+		if (!result.ok)
+			return Err(result.val);
+		
+		const wallet: NaturalPersonWalletI = result.val;
 		const proofBasedOnNonce = await new SignJWT({c_nonce: c_nonce})
 			.setIssuedAt()
 			.setSubject(wallet.did)
@@ -183,7 +150,7 @@ class KeyManagementService {
 		console.log("Encrypted proof")
 		// const buffer = Buffer.from(encryptedProof, 'utf-8');
 		console.log("Buffer base64 = ", encryptedProof)
-		return { encryptedProof: encryptedProof };
+		return Ok({ encryptedProof: encryptedProof });
 	}
 
 }

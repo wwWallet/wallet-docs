@@ -17,13 +17,13 @@ storageController.post('/vc', async (req: Request, res: Response) => {
 	if (req.user != undefined && req.user.did != undefined) {
 		console.log("Did = ", req.user.did);
 	}
-	res.send({});
+	res.send({vc_list: []});
 });
 
 // get all VCs
 storageController.get('/vc', async (req: Request, res: Response) => {
 	const vcId = req.params.id;
-	res.send({'shit': 'dd'});
+	res.send({vc_list: []});
 });
 
 

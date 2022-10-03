@@ -19,11 +19,17 @@ issuanceController.post('/construct/proof', async (req: Request, res: Response) 
 	const user = {did: "did:ebsi:znKvDSfGzg1iFnfGbvnQGMLAna49LcaGvZNrdnAzqUoYZ"}
 	const body: ConstructProofRequestDTO = req.body;
 
-	const { encryptedProof } = await keyManagementService.constructProof(
+	const result = await keyManagementService.constructProof(
 		user.did,
 		body.rsaPublicKey,
 		body.c_nonce,
 		body.issuerDID);
+	if (!result.ok) {
+		res.status(500).send({err: result.val});
+		return;
+	}
+	const { encryptedProof } = result.val;
+		
 	res.status(200).send({ encryptedProof });
 });
 

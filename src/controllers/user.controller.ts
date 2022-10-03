@@ -12,6 +12,7 @@ const userController: Router = express.Router();
 userController.post('/register', async (req: Request, res: Response) => {
 	const body: RegisterRequestDTO = req.body;
 	if (body.password == undefined) {
+		console.log("[-] Missing password")
 		res.status(401).send("Missing password from body");
 		return;
 	}
@@ -34,7 +35,7 @@ userController.post('/register', async (req: Request, res: Response) => {
     .setExpirationTime(config.appTokenExpiration)
     .sign(secret);
 
-	res.cookie('token', appToken);
+	
 	res.send({did: did, appToken: appToken});
 });
 
@@ -58,7 +59,6 @@ userController.post('/login', async (req: Request, res: Response) => {
     .setExpirationTime(config.appTokenExpiration)
     .sign(secret);
 
-	res.cookie('token', appToken);
 	res.send({appToken});
 });
 export default userController;
