@@ -1,5 +1,4 @@
 import express, { Request, Response, Router } from "express";
-import { AuthMiddleware } from "../middlewares/auth.middleware";
 import tirManagementService from "../services/tirManagement.service";
 
 
@@ -7,7 +6,6 @@ import tirManagementService from "../services/tirManagement.service";
  * "/tir"
  */
 const tirManagementController: Router = express.Router();
-tirManagementController.use(AuthMiddleware);
 
 // update TIR
 tirManagementController.get('/fetch', async (req: Request, res: Response) => {

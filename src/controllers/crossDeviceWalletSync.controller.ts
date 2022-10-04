@@ -1,5 +1,4 @@
 import express, { Request, Response, Router } from 'express';
-import { AppTokenUser, AuthMiddleware } from '../middlewares/auth.middleware';
 import crossDeviceWalletSyncService from '../services/crossDeviceWalletSync.service';
 
 
@@ -9,7 +8,6 @@ import crossDeviceWalletSyncService from '../services/crossDeviceWalletSync.serv
  * This controller will be used for Cross-Device Wallet Syncing
  */
 const crossDeviceWalletSyncController: Router = express.Router();
-crossDeviceWalletSyncController.use(AuthMiddleware);
 
 crossDeviceWalletSyncController.get('/import', async (req: Request, res: Response) => {
 

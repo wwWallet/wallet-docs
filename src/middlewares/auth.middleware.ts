@@ -34,31 +34,24 @@ async function verifyApptoken(jwt: string): Promise<{valid: boolean, payload: an
 
 export function AuthMiddleware(req: Request, res: Response, next: NextFunction) {
 	let cookieDict;
-	let jwt: any;
-	const cookie = req.headers.cookie;
-	console.log("Cookie = ", cookie)
-  if (req.headers != undefined && cookie != undefined) {
-    cookieDict = getCookieDictionary(req.headers.cookie);
-    if (cookieDict['token'] == undefined) {
-			console.log("Unauthorized access to ", jwt);
-			res.status(401).send(); // Unauthorized
-      return;
-    }
-    // // store invitation as a session variable
-    // if (cookieDict['invitation'] != undefined) {
-    //   req.invitation = cookieDict['invitation'];
-    // }
-    jwt = cookieDict['token'];
+	let token: string;
+	const authorizationHeader = req.headers.authorization;
+  if (req.headers != undefined && authorizationHeader != undefined) {
+		if (authorizationHeader.split(' ')[0] !== 'Bearer') {
+			res.status(401).send();
+			return;
+		}
+		token = authorizationHeader.split(' ')[1];
   }
   else {
-		console.log("Unauthorized access to ", jwt);
+		console.log("Unauthorized access to token: ", authorizationHeader?.split(' ')[1]);
 		res.status(401).send(); // Unauthorized
     return;
   }
 
-	verifyApptoken(jwt).then(({valid, payload}) => {
+	verifyApptoken(token).then(({valid, payload}) => {
 		if (valid === false) {
-			console.log("Unauthorized access to ", jwt);
+			console.log("Unauthorized access to ", token);
 			res.status(401).send(); // Unauthorized
 			return;
 		}
@@ -71,7 +64,7 @@ export function AuthMiddleware(req: Request, res: Response, next: NextFunction) 
 		return next();
 	})
 	.catch(e => {
-		console.log("Unauthorized access to ", jwt);
+		console.log("Unauthorized access to ", token);
 		res.status(401).send(); // Unauthorized
 		return;
 	});

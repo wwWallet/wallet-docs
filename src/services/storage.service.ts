@@ -43,12 +43,11 @@ class StorageService {
 	}
 
 	// Get all VCs of a holder with a specific DID
-	async getAllVCs(holderDID: string): Promise<Result<Vc[], GetAllVcByDidErrors>> {
+	async getAllVCs(holderDID: string): Promise<Result<Partial<Vc>[], GetAllVcByDidErrors>> {
 
 		const getAllVCsRes = await vcRepository.getAllVcsByDid(holderDID);
-
 		if(getAllVCsRes.ok) {
-			return Ok(getAllVCsRes.val);
+			return Ok(getAllVCsRes.val)
 		}
 		else {
 			console.log(getAllVCsRes.err);
@@ -57,7 +56,7 @@ class StorageService {
 	}
 
 	// Get a specific VC using its Identifier
-	async getVC(holderDID: string, vcIdentifier: string): Promise<Result<Vc, GetVcErrors>> {
+	async getVC(holderDID: string, vcIdentifier: string): Promise<Result<Partial<Vc>, GetVcErrors>> {
 
 		const getVCRes = await vcRepository.getVcById(holderDID, vcIdentifier);
 

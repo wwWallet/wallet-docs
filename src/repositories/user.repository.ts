@@ -19,7 +19,7 @@ class UserRepository {
 
 		const user = {
 			did: did,
-			passwordHash: passwordHash
+			passwordHash: passwordHash,
 		};
 		try {
 			await this.repo.insert(user);
@@ -31,7 +31,27 @@ class UserRepository {
 		}
 	}
 
-	async fetchUser(
+	async getAllUsersKeys(limit?: number): Promise<Result<Partial<User>[], FetchUserErrors>> {
+		try {
+			let users: User[];
+			if (limit != undefined)
+				users = await this.repo.createQueryBuilder("User")
+					.select("did", "keys")
+					.limit(limit)
+					.getMany();
+			else
+				users = await this.repo.createQueryBuilder("User")
+					.select("did", "keys")
+					.getMany();
+			return Ok(users);
+		}	
+		catch(e) {
+			console.log(e);
+			return Err("DB_ERROR");
+		}
+	}
+
+	async getUserByHash(
 		did: string,
 		passwordHash: string
 	): Promise<Result<User, FetchUserErrors>> {
@@ -48,6 +68,24 @@ class UserRepository {
 		}
 	}
 
+	async getUserKeysByDid(
+		did: string
+	): Promise<Result<Partial<User>, FetchUserErrors>> {
+		try {
+			const user: Partial<User> | null  = await this.repo.createQueryBuilder()
+				.from(User, "user")
+				.select("keys")
+				.where("user.did = :did", { did: did })
+				.getOne();
+			if (user == null)
+				return Err("NOT_FOUND")
+			return Ok(user);
+		}
+		catch(e) {
+			console.log(e);
+			return Err("DB_ERROR");
+		}
+	}
 }
 
 const userRepository = new UserRepository(AppDataSource);

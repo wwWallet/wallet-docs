@@ -5,9 +5,9 @@ import cookieParser from 'cookie-parser';
 import cors from 'cors';
 import userController from './controllers/user.controller';
 import storageController from './controllers/storage.controller';
-import issuanceController from './controllers/issuance.controller';
 import crossDeviceWalletSyncController from './controllers/crossDeviceWalletSync.controller';
 import tirManagementController from './controllers/tirManagement.controller';
+import { AuthMiddleware } from './middlewares/auth.middleware';
 
 const app: Express = express();
 
@@ -23,13 +23,17 @@ app.use(bodyParser.json());
 app.use(cors({ credentials: true, origin: true }));
 
 
-// define routes and middleware here
+// define routes here
 app.use('/user', userController);
+
+
+app.use(AuthMiddleware);
+
+// all the following endpoints are guarded by the AuthMiddleware
 app.use('/storage', storageController);
-app.use('/issuance', issuanceController);
 app.use('/sync', crossDeviceWalletSyncController);
 app.use('/tir', tirManagementController);
 
 app.listen(config.port, () => {
-  console.log(`⚡️[server]: Server is running at http://${config.host}:${config.port}`);
+  console.log(`⚡️[server]: Server is running at ${config.url}`);
 });

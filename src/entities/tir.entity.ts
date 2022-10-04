@@ -13,4 +13,6 @@ export class TIR {
 
 	@Column( { type: 'blob', nullable: false } )
 	data: string = "";
+
+	// add country
 }

@@ -1,6 +1,5 @@
 import express, { Request, Response, Router } from 'express';
-import { StoreVcRequestDTO, StoreVpRequestDTO } from '../dto/storage.dto';
-import { AuthMiddleware } from '../middlewares/auth.middleware';
+import { GetAllVcResponseDTO, GetOneVcResponseDTO, StoreVcRequestDTO, StoreVpRequestDTO } from '../dto/storage.dto';
 import storageService from '../services/storage.service';
 
 
@@ -9,7 +8,6 @@ import storageService from '../services/storage.service';
  * "/storage"
  */
 const storageController: Router = express.Router();
-storageController.use(AuthMiddleware);
 
 // store a VC
 storageController.post('/vc', async (req: Request, res: Response) => {
@@ -49,7 +47,7 @@ storageController.get('/vc', async (req: Request, res: Response) => {
 
 	let did: string = "";
 	if (req.user === undefined || req.user.did === undefined) {
-		res.status(400).send({error: "DID not found"});
+		res.status(400).send({err: "DID not found"});
 		return;
 	}
 	else {
@@ -58,10 +56,10 @@ storageController.get('/vc', async (req: Request, res: Response) => {
 
 	const getAllVCsRes = await storageService.getAllVCs(did);
 	if (getAllVCsRes.ok) {
-		res.status(200).send({"vcs": getAllVCsRes.val});
+		res.status(200).send({ vc_list: getAllVCsRes.val } as GetAllVcResponseDTO);
 	}
 	else {
-		res.status(400).send({error: getAllVCsRes.err});
+		res.status(400).send({err: getAllVCsRes.val});
 	}
 
 });
@@ -72,14 +70,14 @@ storageController.get('/vc', async (req: Request, res: Response) => {
 storageController.get('/vc/:id', async (req: Request, res: Response) => {
 
 	const vcId = req.params.id;
-	if (vcId === undefined || vcId === "") {
-		res.status(400).send({error: "VC ID not found"});
+	if (vcId == undefined || vcId == "") {
+		res.status(400).send({err: "VC_ID_NOT_FOUND"});
 		return;
 	}
 
 	let did: string = "";
-	if (req.user === undefined || req.user.did === undefined) {
-		res.status(400).send({error: "DID not found"});
+	if (req.user == undefined || req.user.did == undefined) {
+		res.status(400).send({err: "DID_NOT_FOUND"});
 		return;
 	}
 	else {
@@ -88,10 +86,10 @@ storageController.get('/vc/:id', async (req: Request, res: Response) => {
 
 	const getVcRes = await storageService.getVC(did,vcId);
 	if (getVcRes.ok) {
-		res.status(200).send({"vc": getVcRes.val});
+		res.status(200).send({ vc: getVcRes.val} as GetOneVcResponseDTO);
 	}
 	else {
-		res.status(400).send({error: getVcRes.err});
+		res.status(400).send({err: getVcRes.err});
 	}
 
 });
@@ -101,8 +99,8 @@ storageController.post('/vp', async (req: Request, res: Response) => {
 	const body: StoreVpRequestDTO = req.body;
 
 	let did: string = "";
-	if (req.user === undefined || req.user.did === undefined) {
-		res.status(400).send({error: "DID not found"});
+	if (req.user == undefined || req.user.did == undefined) {
+		res.status(400).send({err: "DID_NOT_FOUND"});
 		return;
 	}
 	else {
@@ -110,8 +108,8 @@ storageController.post('/vp', async (req: Request, res: Response) => {
 	}
 
 	let vpjwt: string = "";
-	if( body.vpjwt !== undefined ) {
-		res.status(400).send({error: "VP not found"});
+	if( body.vpjwt != undefined ) {
+		res.status(400).send({err: "VPJWT_NOT_FOUND"});
 		return;
 	}
 	else {
@@ -124,7 +122,7 @@ storageController.post('/vp', async (req: Request, res: Response) => {
 		res.status(200).send({});
 	}
 	else {
-		res.status(400).send({errir: storeVPRes.err});
+		res.status(400).send({err: storeVPRes.val});
 	}
 });
 
@@ -132,8 +130,8 @@ storageController.post('/vp', async (req: Request, res: Response) => {
 storageController.get('/vp', async (req: Request, res: Response) => {
 
 	let did: string = "";
-	if (req.user === undefined || req.user.did === undefined) {
-		res.status(400).send({error: "DID not found"});
+	if (req.user == undefined || req.user.did == undefined) {
+		res.status(400).send({err: "DID_NOT_FOUND"});
 		return;
 	}
 	else {
@@ -145,7 +143,7 @@ storageController.get('/vp', async (req: Request, res: Response) => {
 		res.status(200).send({"vcs": getAllVPsRes.val});
 	}
 	else {
-		res.status(400).send({error: getAllVPsRes.err});
+		res.status(400).send({err: getAllVPsRes.err});
 	}
 
 });
@@ -154,14 +152,14 @@ storageController.get('/vp', async (req: Request, res: Response) => {
 storageController.get('/vp/:id', async (req: Request, res: Response) => {
 
 	const vpId = req.params.id;
-	if (vpId === undefined || vpId === "") {
-		res.status(400).send({error: "VP ID not found"});
+	if (vpId == undefined || vpId == "") {
+		res.status(400).send({err: "VP_ID_NOT_FOUND"});
 		return;
 	}
 
 	let did: string = "";
-	if (req.user === undefined || req.user.did === undefined) {
-		res.status(400).send({error: "DID not found"});
+	if (req.user == undefined || req.user.did == undefined) {
+		res.status(400).send({err: "DID_NOT_FOUND"});
 		return;
 	}
 	else {
@@ -173,7 +171,7 @@ storageController.get('/vp/:id', async (req: Request, res: Response) => {
 		res.status(200).send({"vp": getVpRes.val});
 	}
 	else {
-		res.status(400).send({error: getVpRes.err});
+		res.status(400).send({err: getVpRes.err});
 	}
 
 });

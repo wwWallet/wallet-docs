@@ -30,15 +30,15 @@ class VcRepository {
 	}
 
 	// Get All VCs belonging to a holder with given DID
-	async getAllVcsByDid(holderDID: string): Promise<Result<Vc[], GetAllVcByDidErrors>> {
+	async getAllVcsByDid(holderDID: string): Promise<Result<Partial<Vc>[], GetAllVcByDidErrors>> {
 
 		try {
-			const vcs = await this.repo.find({
-				where: {
-					holderDID: holderDID
-				}
-			});
-			return Ok(vcs);
+			const vcJwtList: Partial<Vc>[] = await this.repo
+				.createQueryBuilder("vc")
+				.select(["vc.jwt"])
+				.where("vc.holderDID = :did", {did: holderDID})
+				.getMany();
+			return Ok(vcJwtList);
 		}
 		catch(e) {
 			console.log(e);
@@ -47,14 +47,13 @@ class VcRepository {
 	}
 
 	// Get a VC with a given ID, provided it belongs to given holder
-	async getVcById(holderDID: string, vcIdentifier: string): Promise<Result<Vc, GetVcErrors>> {
-
+	async getVcById(holderDID: string, vcIdentifier: string): Promise<Result<Partial<Vc>, GetVcErrors>> {
 		try {
-			const vc = await this.repo.findOneBy({
-				holderDID: holderDID,
-				vcIdentifier: vcIdentifier
-			});
-
+			const vc: Partial<Vc> | null = await this.repo
+				.createQueryBuilder("vc")
+				.select(["vc.jwt"])
+				.where("vc.holderDID = :did and vc.vcIdentifier = :vcId", {did: holderDID, vcId: vcIdentifier})
+				.getOne();
 			if(vc !== null) {
 				return Ok(vc);
 			}

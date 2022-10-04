@@ -1,5 +1,5 @@
 {
-  "name": "wallet-backend",
+  "name": "wallet-store-backend",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -15,8 +15,9 @@
   "author": "",
   "description": "",
   "dependencies": {
-    "@gunet/ssi-pack": "^1.0.23",
+    "@gunet/ssi-pack": "^1.0.30",
     "axios": "^0.27.2",
+    "base64url": "^3.0.1",
     "body-parser": "^1.20.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
