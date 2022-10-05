@@ -51,7 +51,7 @@ class UserService {
 		const appToken = await new SignJWT(payload)
 			.setProtectedHeader({ alg: 'HS256' })
 			.setIssuedAt()
-			.setIssuer("urn:StoreNode")
+			.setIssuer(config.url)
 			.setExpirationTime(config.appTokenExpiration)
 			.sign(secret);
 
@@ -76,7 +76,7 @@ class UserService {
 		const appToken = await new SignJWT({did: did})
 			.setProtectedHeader({ alg: 'HS256' })
 			.setIssuedAt()
-			.setIssuer("urn:StoreNode")
+			.setIssuer(config.url)
 			.setExpirationTime(config.appTokenExpiration)
 			.sign(secret);
 		return Ok({ appToken });
