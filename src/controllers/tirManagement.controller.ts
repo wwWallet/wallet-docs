@@ -30,16 +30,14 @@ tirManagementController.get('/clear', async (req: Request, res: Response) => {
 // query saved TIR
 tirManagementController.get('/search', async (req: Request, res: Response) => {
 
-	var query: string = "";
-	if( req.query.institution === undefined || typeof req.query.institution !== 'string' ) {
-		res.status(400).send({error: 'Invalid Issuer Institution Search'})
-		return;
-	}
-	else {
-		query = req.query.institution;
-	}
+	var institution: string = "";
+	if( req.query.institution !== undefined && typeof req.query.institution === 'string' )
+		institution = req.query.institution;
+	var country: string = "";
+	if( req.query.country !== undefined && typeof req.query.country === 'string' )
+		country = req.query.country;
 
-	const searchIssuerRes = await tirManagementService.getIssuersByInstitutionName(query);
+	const searchIssuerRes = await tirManagementService.getIssuersByInstitutionName(institution, country);
 
 	if(searchIssuerRes.ok)
 		res.status(200).send({issuers: searchIssuerRes.val});

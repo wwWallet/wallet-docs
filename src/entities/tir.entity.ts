@@ -11,8 +11,10 @@ export class TIR {
 	@Column({nullable: false})
 	institution: string = "";
 
+	@Column()
+	country: string = "";
+
 	@Column( { type: 'blob', nullable: false } )
 	data: string = "";
 
-	// add country
 }

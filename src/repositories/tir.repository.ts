@@ -13,9 +13,9 @@ class TIRRepository {
 	}
 
 	// insert an Issuer record in the TIR
-	async insertIssuer(did: string, institution: string, data: string): Promise<Result<null, TIRErrors>> {
+	async insertIssuer(did: string, institution: string, country: string, data: string): Promise<Result<null, TIRErrors>> {
 
-		const trustedIssuer = {did: did, institution: institution, data: data};
+		const trustedIssuer = {did: did, institution: institution, country: country, data: data};
 
 		try {
 			await this.repo.insert(trustedIssuer);
@@ -41,12 +41,13 @@ class TIRRepository {
 	}
 
 	// return Trusted Issuers filtered by Institution Name
-	async getIssuersByInstitutionName(query: string): Promise<Result<TIR[], GetIssuerByNameErrors>> {
+	async getIssuersByInstitutionName(institution: string, country: string): Promise<Result<TIR[], GetIssuerByNameErrors>> {
 
 		try {
 			const results: TIR[] = await this.repo.find({
 				where: {
-					institution: Like(`%${query}%`)
+					institution: Like(`%${institution}%`),
+					country: Like(`%${country}%`)
 				}
 			});
 			return Ok(results);

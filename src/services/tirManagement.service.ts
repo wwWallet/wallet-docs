@@ -14,7 +14,7 @@ class TIRManagementService {
 
 
 	// Store a Trusted Issuer in the db
-	async storeTIR(did: string, institution: string, data: string): Promise<Result<null, StoreTIRErrors>> {
+	async storeTIR(did: string, institution: string, country: string, data: string): Promise<Result<null, StoreTIRErrors>> {
 		
 		if(did === "")
 			return Err('INVALID_DID_ERROR');
@@ -25,7 +25,7 @@ class TIRManagementService {
 		if(data === "")
 			return Err('INVALID_DATA_ERROR');
 
-		const storeIssuerRes = await tirRepository.insertIssuer(did, institution, data);
+		const storeIssuerRes = await tirRepository.insertIssuer(did, institution, country, data);
 
 		if(storeIssuerRes.ok) {
 			return Ok(null);
@@ -77,7 +77,7 @@ class TIRManagementService {
 			}
 
 			for (const trustedIssuer of trustedIssuers) {
-				await tirRepository.insertIssuer(trustedIssuer.did, trustedIssuer.institution, trustedIssuer.data);
+				await tirRepository.insertIssuer(trustedIssuer.did, trustedIssuer.institution, trustedIssuer.country, trustedIssuer.data);
 			}
 
 		}
@@ -115,7 +115,7 @@ class TIRManagementService {
 		else
 			return Err(getInstitutionRes.val);
 
-		const trustedIssuer: TrustedIssuer = {did: did, data: data, institution: institution};
+		const trustedIssuer: TrustedIssuer = {did: did, data: data, institution: institution, country: "Greece"};
 		console.log(trustedIssuer);
 
 		return Ok(trustedIssuer);
@@ -200,9 +200,9 @@ class TIRManagementService {
 	}
 
 
-	async getIssuersByInstitutionName(query: string): Promise<Result<SearchTIRResponseDTO[], GetIssuerByNameErrors>> {
+	async getIssuersByInstitutionName(institution: string, country: string): Promise<Result<SearchTIRResponseDTO[], GetIssuerByNameErrors>> {
 
-		const getIssuersRes = await tirRepository.getIssuersByInstitutionName(query);
+		const getIssuersRes = await tirRepository.getIssuersByInstitutionName(institution, country);
 		if(!getIssuersRes.ok) {
 			console.log(getIssuersRes.err);
 			return Err(getIssuersRes.val);
