@@ -86,7 +86,7 @@ storageController.get('/vc/:id', async (req: Request, res: Response) => {
 
 	const getVcRes = await storageService.getVC(did,vcId);
 	if (getVcRes.ok) {
-		res.status(200).send({ vc: getVcRes.val} as GetOneVcResponseDTO);
+		res.status(200).send({vc: getVcRes.val} as GetOneVcResponseDTO);
 	}
 	else {
 		res.status(400).send({err: getVcRes.err});
@@ -140,7 +140,7 @@ storageController.get('/vp', async (req: Request, res: Response) => {
 
 	const getAllVPsRes = await storageService.getAllVPs(did);
 	if (getAllVPsRes.ok) {
-		res.status(200).send({"vcs": getAllVPsRes.val});
+		res.status(200).send({vcs: getAllVPsRes.val});
 	}
 	else {
 		res.status(400).send({err: getAllVPsRes.err});
@@ -168,7 +168,7 @@ storageController.get('/vp/:id', async (req: Request, res: Response) => {
 
 	const getVpRes = await storageService.getVC(did,vpId);
 	if (getVpRes.ok) {
-		res.status(200).send({"vp": getVpRes.val});
+		res.status(200).send({vp: getVpRes.val});
 	}
 	else {
 		res.status(400).send({err: getVpRes.err});
