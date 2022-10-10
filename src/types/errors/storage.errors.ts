@@ -1,4 +1,4 @@
-export type StoreVcErrors = 'DB_ERROR' | 'VC_ID_ERR' | 'VC_ISS_ERR';
+export type StoreVcErrors = 'DB_ERROR' | 'VC_ID_ERR' | 'VC_ISS_ERR' | 'ISSUER_NOT_FOUND';
 export type GetAllVcByDidErrors = 'DB_ERROR';
 export type GetAllVcByIssErrors = 'DB_ERROR';
 export type GetVcErrors = 'DB_ERROR' | 'VC_NOT_FOUND_ERROR';

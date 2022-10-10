@@ -6,7 +6,7 @@ export class Vc {
 	id: number = -1;
 
 	@Column({ unique: true })
-	vcIdentifier: string = "";
+	identifier: string = "";
 
 	@Column({ type: 'blob', nullable: false })
 	jwt: string = "";
@@ -16,4 +16,10 @@ export class Vc {
 
 	@Column({ nullable: false })
 	issuerDID: string = "";
+
+	@Column()
+	issuerInstitution: string = "";
+
+	@Column()
+	type: string = "";
 }

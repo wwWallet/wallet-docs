@@ -15,7 +15,7 @@ storageController.post('/vc', async (req: Request, res: Response) => {
 
 	let did: string = "";
 	if (req.user === undefined || req.user.did === undefined) {
-		res.status(400).send({error: "DID not found"});
+		res.status(400).send({err: "DID not found"});
 		return;
 	}
 	else {
@@ -23,8 +23,9 @@ storageController.post('/vc', async (req: Request, res: Response) => {
 	}
 
 	let vcjwt: string = "";
-	if ( body.vcjwt !== undefined ) {
-		res.status(400).send({error: "VC not found"});
+	console.log('vc jwt = ', body.vcjwt)
+	if (body.vcjwt == undefined) {
+		res.status(400).send({err: "VC not found"});
 		return;
 	}
 	else {
@@ -37,7 +38,7 @@ storageController.post('/vc', async (req: Request, res: Response) => {
 		res.status(200).send({});
 	}
 	else {
-		res.status(400).send({error: storeVCRes.err});
+		res.status(400).send({err: storeVCRes.val});
 	}
 
 });

@@ -1,7 +1,9 @@
 import { getAudienceDID, getIssuerDID, getVCIdentifier } from "@gunet/ssi-pack";
+import { base64url } from "jose";
 import { Err, Ok, Result } from "ts-results";
 import { Vc } from "../entities/vc.entity";
 import { Vp } from "../entities/vp.entity";
+import { tirRepository } from "../repositories/tir.repository";
 import { vcRepository } from "../repositories/vc.repository";
 import { vpRepository } from "../repositories/vp.repository";
 import { GetAllVcByDidErrors, GetAllVpByDidErrors, GetVcErrors, GetVpErrors, StoreVcErrors, StoreVpErrors } from "../types/errors/storage.errors";
@@ -31,7 +33,14 @@ class StorageService {
 			return Err('VC_ISS_ERR');
 		}
 		
-		const createVcRes = await vcRepository.createVc(vcIdentifier, holderDID, issuerDID, vcjwt);
+		const issuerFetchRes = await tirRepository.getIssuerInstitutionByDID(issuerDID);
+		if (!issuerFetchRes.ok) {
+			return Err(issuerFetchRes.val);
+		}
+		const { institution } = issuerFetchRes.val;
+		const type: string[] = JSON.parse(new TextDecoder().decode(base64url.decode(vcjwt.split('.')[1]))).vc.type;
+		const vcType = decideVerifiableCredentialType(type);
+		const createVcRes = await vcRepository.createVc(vcjwt, holderDID, vcIdentifier, issuerDID, vcType, institution);
 
 		if(createVcRes.ok) {
 			return Ok(null);

@@ -58,6 +58,39 @@ class TIRRepository {
 		}
 	}
 
+
+	async getIssuerByDID(did: string): Promise<Result<TIR, 'ISSUER_NOT_FOUND' | 'DB_ERROR'>> {
+		try {
+			const result: TIR | null = await this.repo.createQueryBuilder('tir')
+				.where('tir.did = :did', {did: did})
+				.getOne();
+			if (result == null) {
+				return Err('ISSUER_NOT_FOUND');
+			}
+			return Ok(result);
+		}
+		catch(e) {
+			console.log(e);
+			return Err('DB_ERROR');
+		}
+	}
+
+	async getIssuerInstitutionByDID(did: string): Promise<Result<{institution: string}, 'ISSUER_NOT_FOUND' | 'DB_ERROR'>> {
+		try {
+			const result: TIR | null = await this.repo.createQueryBuilder('tir')
+				.select(["tir.institution"])
+				.where('tir.did = :did', {did: did})
+				.getOne();
+			if (result == null) {
+				return Err('ISSUER_NOT_FOUND');
+			}
+			return Ok(result);
+		}
+		catch(e) {
+			console.log(e);
+			return Err('DB_ERROR');
+		}
+	}
 }
 
 const tirRepository = new TIRRepository(AppDataSource);

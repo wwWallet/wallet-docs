@@ -1,3 +1,4 @@
+import { base64url } from "jose";
 import { Err, Ok, Result } from "ts-results";
 import { DataSource, Repository } from "typeorm";
 import AppDataSource from "../AppDataSource";
@@ -14,10 +15,21 @@ class VcRepository {
 	}
 
 	// Insert given VC to repository
-	async createVc(vcjwt: string, holderDID: string, vcIdentifier: string,
-		issuerDID: string): Promise<Result<null, StoreVcErrors>> {
-		const vcCredentialRecord = {vcIdentifier: vcIdentifier, jwt: vcjwt,
-			holderDID: holderDID, issuerDID: issuerDID};
+	async createVc(vcjwt: string,
+		holderDID: string,
+		vcIdentifier: string,
+		issuerDID: string,
+		vcType: string,
+		issuerInstitution: string): Promise<Result<null, StoreVcErrors>> {
+		
+		const vcCredentialRecord = {
+			identifier: vcIdentifier,
+			jwt: vcjwt,
+			holderDID: holderDID,
+			issuerDID: issuerDID,
+			issuerInstitution: issuerInstitution,
+			type: vcType 
+		} as Vc;
 
 		try {
 			await this.repo.insert(vcCredentialRecord);
@@ -35,9 +47,12 @@ class VcRepository {
 		try {
 			const vcJwtList: Partial<Vc>[] = await this.repo
 				.createQueryBuilder("vc")
-				.select(["vc.jwt"])
 				.where("vc.holderDID = :did", {did: holderDID})
 				.getMany();
+			for (const vc of vcJwtList) {
+				if (vc.jwt != undefined)
+					vc.jwt = vc.jwt.toString();
+			}
 			return Ok(vcJwtList);
 		}
 		catch(e) {
@@ -51,10 +66,13 @@ class VcRepository {
 		try {
 			const vc: Partial<Vc> | null = await this.repo
 				.createQueryBuilder("vc")
-				.select(["vc.jwt"])
-				.where("vc.holderDID = :did and vc.vcIdentifier = :vcId", {did: holderDID, vcId: vcIdentifier})
+				.where("vc.holderDID = :did and vc.identifier = :vcId", {did: holderDID, vcId: vcIdentifier})
 				.getOne();
 			if(vc !== null) {
+
+				if (vc.jwt != undefined) {
+					vc.jwt = vc.jwt.toString();
+				}
 				return Ok(vc);
 			}
 			else {
@@ -77,6 +95,10 @@ class VcRepository {
 					issuerDID: issuerDID
 				}
 			});
+			for (const vc of vcs) {
+				if (vc.jwt != undefined)
+					vc.jwt = vc.jwt.toString();
+			}
 			return Ok(vcs);
 		}
 		catch(e) {
