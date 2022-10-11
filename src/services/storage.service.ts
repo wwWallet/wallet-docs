@@ -6,6 +6,7 @@ import { Vp } from "../entities/vp.entity";
 import { tirRepository } from "../repositories/tir.repository";
 import { vcRepository } from "../repositories/vc.repository";
 import { vpRepository } from "../repositories/vp.repository";
+import { decideVerifiableCredentialType } from "../util/util";
 import { GetAllVcByDidErrors, GetAllVpByDidErrors, GetVcErrors, GetVpErrors, StoreVcErrors, StoreVpErrors } from "../types/errors/storage.errors";
 
 
