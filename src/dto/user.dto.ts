@@ -4,7 +4,9 @@ import { FetchUserErrors, RegisterUserErrors } from "../types/errors/user.errors
 
 // Register User
 export type RegisterRequestDTO = {
+	username: string;
 	password: string;
+	repeatpw: string;
 }
 
 // what is the response our controller will return
@@ -17,7 +19,7 @@ export type RegisterResponseDTO = {
 // Login User
 
 export type LoginUserRequestDTO = {
-	did: string;
+	username: string;
 	password: string;
 }
 

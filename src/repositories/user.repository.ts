@@ -14,10 +14,12 @@ class UserRepository {
 	}
 
 	async createUser(
+		username: string,
 		did: string,
 		passwordHash: string): Promise<Result<null, "ALREADY_EXISTS">> {
 
 		const user = {
+			username: username,
 			did: did,
 			passwordHash: passwordHash,
 		};
@@ -51,13 +53,13 @@ class UserRepository {
 		}
 	}
 
-	async getUserByHash(
-		did: string,
+	async getUserByUsernameAndHash(
+		username: string,
 		passwordHash: string
 	): Promise<Result<User, FetchUserErrors>> {
 
 		try {
-			const user = await this.repo.findOne({where: {did: did, passwordHash: passwordHash}});
+			const user = await this.repo.findOne({where: {username: username, passwordHash: passwordHash}});
 			if (user == null)
 				return Err("NOT_FOUND");
 			return Ok(user);
@@ -80,6 +82,21 @@ class UserRepository {
 			if (user == null)
 				return Err("NOT_FOUND")
 			return Ok(user);
+		}
+		catch(e) {
+			console.log(e);
+			return Err("DB_ERROR");
+		}
+	}
+
+	async userExists(
+		username: string,
+	): Promise<Result<boolean, "DB_ERROR">> {
+		try {
+			const user = await this.repo.findOne({where: {username: username}});
+			if (user == null)
+				return Ok(false);
+			return Ok(true);
 		}
 		catch(e) {
 			console.log(e);
