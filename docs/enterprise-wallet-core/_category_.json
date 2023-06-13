@@ -1,0 +1,8 @@
+{
+  "label": "Enterprise Wallet Core",
+  "position": 2,
+  "link": {
+    "type": "generated-index",
+    "description": "Describing the architecture and use cases of the Enterprise Wallet Core with examples"
+  }
+}
