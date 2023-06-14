@@ -69,10 +69,10 @@ const config = {
           {
             position: 'left',
             label: 'Documentation',
-						href: "/docs/docs/category/enterprise-issuer"
+						href: "/docs/docs/category/development-environment-setup"
           },
           {
-            href: 'https://github.com/gunet/enterprise-issuer',
+            href: 'https://github.com/gunet/wallet-start',
             label: 'GitHub',
             position: 'right',
           },
@@ -86,16 +86,7 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs/docs/enterprise-issuer/getting-started',
-              },
-            ],
-          },
-          {
-            title: 'More',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/gunet/enterprise-issuer',
+                to: '/docs/docs/category/development-environment-setup',
               },
             ],
           },
@@ -104,7 +95,7 @@ const config = {
       },
       prism: {
         theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
+        darkTheme: lightCodeTheme,
       },
     }),
 };

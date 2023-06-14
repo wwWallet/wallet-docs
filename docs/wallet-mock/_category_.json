@@ -1,8 +1,0 @@
-{
-  "label": "Wallet Mock Server",
-  "position": 2,
-  "link": {
-    "type": "generated-index",
-    "description": "Setting up a wallet mock server to test the Enterprise Issuer"
-  }
-}
