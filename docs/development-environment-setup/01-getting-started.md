@@ -63,9 +63,12 @@ For demonstration purposes, we are going to set up a small ecosystem with:
 The steps we are going to follow are:
 
 1. [Wallet: Create a Wallet Provider DID](#create-a-wallet-provider-did)
-2. [Wallet: Register the University of Athens as an Issuer in the Wallet Provider's private Trusted Issuers Registry](#wallet-register-the-university-of-athens-as-an-issuer-in-the-wallet-providers-private-trusted-issuers-registry)
-3. [University of Athens Issuer: Register the Wallet Provider that we created as an OIDC client](#university-of-athens-issuer-register-the-wallet-provider-that-we-created-as-an-oidc-client)
-4. [Enterprise Wallet Core: Create schemas and presentation definitions in order for the University of Athens Issuer to authenticate the users with VID](#enterprise-wallet-core-create-schemas-and-presentation-definitions-in-order-for-the-university-of-athens-issuer-to-authenticate-the-users-with-vid)
+2. [Wallet: Register National VID Issuer as an Issuer in the Wallet Provider's private Trusted Issuers Registry](#wallet-register-national-vid-issuer-as-an-issuer-in-the-wallet-providers-private-trusted-issuers-registry)
+3. [Wallet: Register the University of Athens as an Issuer in the Wallet Provider's private Trusted Issuers Registry](#wallet-register-the-university-of-athens-as-an-issuer-in-the-wallet-providers-private-trusted-issuers-registry)
+
+4. [National VID Issuer: Register the Wallet Provider that we created as an OIDC client](#national-vid-issuer-register-the-wallet-provider-that-we-created-as-an-oidc-client)
+5. [University of Athens Issuer: Register the Wallet Provider that we created as an OIDC client](#university-of-athens-issuer-register-the-wallet-provider-that-we-created-as-an-oidc-client)
+6. [Enterprise Wallet Core: Create schemas and presentation definitions in order for the University of Athens Issuer to authenticate the users with VID](#enterprise-wallet-core-create-schemas-and-presentation-definitions-in-order-for-the-university-of-athens-issuer-to-authenticate-the-users-with-vid)
 
 ### Wallet: Create a Wallet Provider DID
 
@@ -133,6 +136,29 @@ The `client_id` and `did` must be the DID of the issuer
 
 Now that the DID of the Wallet Provider has been generated, the Wallet Provider must provide this DID through a secure off-bound process to an Enterprise Issuer who will trust client assertions issued with the corresponding public key in the /jwks endpoint.
 
+### National VID Issuer: Register the Wallet Provider that we created as an OIDC client
+
+:::note Warning
+The `client_id` must be the DID of the Wallet Provider. `redirect_uri` must be the URI which points to the wallet client. For demonstration purposes,
+the `redirect_uri` will be a wallet mock server that we set up, but on production phase it will be "openid://". The `jwks_uri` is a URL in which all public keys of the wallet clients are available.
+:::
+
+On the `wallet-start/` directory, run the following commands:
+
+
+```sh
+chmod +x $PWD/enterprise-vid-issuer/cli/configiss
+export PATH="$PWD/enterprise-vid-issuer/cli:$PATH"
+export DB_HOST="127.0.0.1"
+export DB_PORT=3307
+export DB_USER=root
+export DB_PASSWORD=root
+export DB_NAME=vidissuer
+configiss client remove --client_id did:key:dsfddfdf233e
+configiss client create --client_id did:key:dsfddfdf233e --client_secret wallet-secret --redirect_uri http://127.0.0.1:7777 --jwks_uri http://127.0.0.1:8002/jwks
+```
+
+
 ### University of Athens Issuer: Register the Wallet Provider that we created as an OIDC client
 
 On the `wallet-start/` directory, run the following commands:
@@ -155,27 +181,7 @@ configiss client remove --client_id did:key:dsfddfdf233e
 configiss client create --client_id did:key:dsfddfdf233e --client_secret wallet-secret --redirect_uri http://127.0.0.1:7777 --jwks_uri http://127.0.0.1:8002/jwks
 ```
 
-### National VID Issuer: Register the Wallet Provider that we created as an OIDC client
 
-:::note Warning
-The `client_id` must be the DID of the Wallet Provider. `redirect_uri` must be the URI which points to the wallet client. For demonstration purposes,
-the `redirect_uri` will be a wallet mock server that we set up, but on production phase it will be "openid://". The `jwks_uri` is a URL in which all public keys of the wallet clients are available.
-:::
-
-On the `wallet-start/` directory, run the following commands:
-
-
-```sh
-chmod +x $PWD/enterprise-vid-issuer/cli/configiss
-export PATH="$PWD/enterprise-vid-issuer/cli:$PATH"
-export DB_HOST="127.0.0.1"
-export DB_PORT=3307
-export DB_USER=root
-export DB_PASSWORD=root
-export DB_NAME=vidissuer
-configiss client remove --client_id did:key:dsfddfdf233e
-configiss client create --client_id did:key:dsfddfdf233e --client_secret wallet-secret --redirect_uri http://127.0.0.1:7777 --jwks_uri http://127.0.0.1:8002/jwks
-```
 
 
 ### Enterprise Wallet Core: Create schemas and presentation definitions in order for the University of Athens Issuer to authenticate the users with VID
