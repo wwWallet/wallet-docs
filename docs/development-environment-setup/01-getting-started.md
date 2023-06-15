@@ -88,6 +88,25 @@ You can now use this generated DID on the `config/config.development.ts` as **pr
 
 
 
+### Wallet: Register National VID Issuer as an Issuer in the Wallet Provider's private Trusted Issuers Registry
+
+In the `wallet-start/` directory, run the following commands:
+
+```sh
+chmod +x $PWD/wallet-backend/cli/configwallet
+export PATH="$PWD/wallet-backend/cli:$PATH"
+export DB_HOST="127.0.0.1"
+export DB_PORT="3307"
+export DB_USER="root"
+export DB_PASSWORD="root"
+export DB_NAME="wallet"
+configwallet create issuer \
+	--friendlyName 'National VID Issuer' \
+	--url http://127.0.0.1:8003 \
+	--did did:ebsi:zyhE5cJ7VVqYT4gZmoKadFt \
+	--client_id did:ebsi:zyhE5cJ7VVqYT4gZmoKadFt
+```
+
 ### Wallet: Register the University of Athens as an Issuer in the Wallet Provider's private Trusted Issuers Registry
 
 In the `wallet-start/` directory, run the following commands:
@@ -103,9 +122,11 @@ export DB_NAME="wallet"
 configwallet create issuer \
 	--friendlyName 'University of Athens' \
 	--url http://127.0.0.1:8000 \
-	--did did:ebsi:zc6MhmU4NbKSAtAHx8XgpEW \
-	--client_id did:ebsi:zc6MhmU4NbKSAtAHx8XgpEW
+	--did did:ebsi:zpq1XFkNWgsGB6MuvJp21vA \
+	--client_id did:ebsi:zpq1XFkNWgsGB6MuvJp21vA
 ```
+
+
 
 
 The `client_id` and `did` must be the DID of the issuer
@@ -134,6 +155,28 @@ configiss client remove --client_id did:key:dsfddfdf233e
 configiss client create --client_id did:key:dsfddfdf233e --client_secret wallet-secret --redirect_uri http://127.0.0.1:7777 --jwks_uri http://127.0.0.1:8002/jwks
 ```
 
+### National VID Issuer: Register the Wallet Provider that we created as an OIDC client
+
+:::note Warning
+The `client_id` must be the DID of the Wallet Provider. `redirect_uri` must be the URI which points to the wallet client. For demonstration purposes,
+the `redirect_uri` will be a wallet mock server that we set up, but on production phase it will be "openid://". The `jwks_uri` is a URL in which all public keys of the wallet clients are available.
+:::
+
+On the `wallet-start/` directory, run the following commands:
+
+
+```sh
+chmod +x $PWD/enterprise-vid-issuer/cli/configiss
+export PATH="$PWD/enterprise-vid-issuer/cli:$PATH"
+export DB_HOST="127.0.0.1"
+export DB_PORT=3307
+export DB_USER=root
+export DB_PASSWORD=root
+export DB_NAME=vidissuer
+configiss client remove --client_id did:key:dsfddfdf233e
+configiss client create --client_id did:key:dsfddfdf233e --client_secret wallet-secret --redirect_uri http://127.0.0.1:7777 --jwks_uri http://127.0.0.1:8002/jwks
+```
+
 
 ### Enterprise Wallet Core: Create schemas and presentation definitions in order for the University of Athens Issuer to authenticate the users with VID
 
@@ -153,6 +196,14 @@ schemas:
       id:
         path: credentialSubject.id
 
+  VID:
+    title: Verifiable ID
+    uri: https://api-pilot.ebsi.eu/trusted-schemas-registry/v2/schemas/z8Y6JJnebU2UuQQNc2R8GYqkEiAMj3Hd861rQhsoNWxsM
+    scopes:
+      personalIdentifier:
+        path: credentialSubject.personalIdentifier
+
+
 presentation_definitions:
   MyEuropassId:
     title: Diploma Europass
@@ -163,6 +214,17 @@ presentation_definitions:
           - id
     visibility: true
     expirationDate: "1-1-2030"
+
+  VIDwithPersonalID:
+    title: VID with Personal Identifier
+    description: Requesting VID with Personal Identifier as Required
+    requirements:
+      VID:
+        scopes:
+          - personalIdentifier
+    visibility: true
+    expirationDate: "1-1-2030"
+
 ```
 
 Run the following commands in `wallet-start/` directory in order to register the Schemas and Presentation Definitions:
@@ -173,5 +235,6 @@ export PATH="$PWD/enterprise-wallet-core/cli:$PATH"
 export SERVICE_URL=http://127.0.0.1:9000
 export ENTERPRISE_CORE_USER=""
 export ENTERPRISE_CORE_SECRET=""
-configver
+configver clear  # clear old configuration
+configver       # send the new configuration
 ```
