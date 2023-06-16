@@ -1,0 +1,22 @@
+{
+  "unversionedId": "showcase/showcase",
+  "id": "showcase/showcase",
+  "title": "Showcase",
+  "description": "TODO: Add videos",
+  "source": "@site/docs/showcase/showcase.md",
+  "sourceDirName": "showcase",
+  "slug": "/showcase/",
+  "permalink": "/docs/docs/showcase/",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 9,
+  "frontMatter": {
+    "sidebar_position": 9
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Showcase",
+    "permalink": "/docs/docs/category/showcase"
+  }
+}

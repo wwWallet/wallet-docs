@@ -1,0 +1,26 @@
+{
+  "unversionedId": "enterprise-issuer/authentication",
+  "id": "enterprise-issuer/authentication",
+  "title": "Configuring the authentication mechanism",
+  "description": "Adding Authentication Methods",
+  "source": "@site/docs/enterprise-issuer/04-authentication.md",
+  "sourceDirName": "enterprise-issuer",
+  "slug": "/enterprise-issuer/authentication",
+  "permalink": "/docs/docs/enterprise-issuer/authentication",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Configuring the supported credentials for an issuer",
+    "permalink": "/docs/docs/enterprise-issuer/configuring-credentials"
+  },
+  "next": {
+    "title": "Enterprise Wallet Core",
+    "permalink": "/docs/docs/category/enterprise-wallet-core"
+  }
+}

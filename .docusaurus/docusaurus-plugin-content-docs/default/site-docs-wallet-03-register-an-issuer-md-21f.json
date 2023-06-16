@@ -1,0 +1,26 @@
+{
+  "unversionedId": "wallet/register-an-issuer",
+  "id": "wallet/register-an-issuer",
+  "title": "How to add a new Issuer in the Trusted Issuers local registry of the Wallet",
+  "description": "In the wallet-start/ directory, run the following:",
+  "source": "@site/docs/wallet/03-register-an-issuer.md",
+  "sourceDirName": "wallet",
+  "slug": "/wallet/register-an-issuer",
+  "permalink": "/docs/docs/wallet/register-an-issuer",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Creating Provider DID",
+    "permalink": "/docs/docs/wallet/creating-provider-did"
+  },
+  "next": {
+    "title": "Enterprise Issuer",
+    "permalink": "/docs/docs/category/enterprise-issuer"
+  }
+}

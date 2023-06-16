@@ -1,0 +1,16 @@
+{
+  "title": "Wallet",
+  "description": "Setting up a wallet mock server to test the Enterprise Issuer",
+  "slug": "/category/wallet",
+  "permalink": "/docs/docs/category/wallet",
+  "navigation": {
+    "previous": {
+      "title": "Specification",
+      "permalink": "/docs/docs/enterprise-wallet-core/specification"
+    },
+    "next": {
+      "title": "Application Setup",
+      "permalink": "/docs/docs/wallet/application-setup"
+    }
+  }
+}

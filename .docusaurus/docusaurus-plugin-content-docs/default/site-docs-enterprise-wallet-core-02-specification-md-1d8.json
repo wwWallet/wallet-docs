@@ -1,0 +1,26 @@
+{
+  "unversionedId": "enterprise-wallet-core/specification",
+  "id": "enterprise-wallet-core/specification",
+  "title": "Specification",
+  "description": "Overview",
+  "source": "@site/docs/enterprise-wallet-core/02-specification.md",
+  "sourceDirName": "enterprise-wallet-core",
+  "slug": "/enterprise-wallet-core/specification",
+  "permalink": "/docs/docs/enterprise-wallet-core/specification",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Application Setup",
+    "permalink": "/docs/docs/enterprise-wallet-core/application-setup"
+  },
+  "next": {
+    "title": "Showcase",
+    "permalink": "/docs/docs/category/showcase"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "unversionedId": "wallet/application-setup",
+  "id": "wallet/application-setup",
+  "title": "Application Setup",
+  "description": "",
+  "source": "@site/docs/wallet/01-application-setup.md",
+  "sourceDirName": "wallet",
+  "slug": "/wallet/application-setup",
+  "permalink": "/docs/docs/wallet/application-setup",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Natural Persons Wallet",
+    "permalink": "/docs/docs/category/natural-persons-wallet"
+  },
+  "next": {
+    "title": "Creating Provider DID",
+    "permalink": "/docs/docs/wallet/creating-provider-did"
+  }
+}

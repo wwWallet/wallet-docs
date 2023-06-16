@@ -1,0 +1,26 @@
+{
+  "unversionedId": "enterprise-issuer/configuring-issuer",
+  "id": "enterprise-issuer/configuring-issuer",
+  "title": "Configuring an issuer",
+  "description": "Initialize a legal person wallet",
+  "source": "@site/docs/enterprise-issuer/02-configuring-issuer.md",
+  "sourceDirName": "enterprise-issuer",
+  "slug": "/enterprise-issuer/configuring-issuer",
+  "permalink": "/docs/docs/enterprise-issuer/configuring-issuer",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Application Setup",
+    "permalink": "/docs/docs/enterprise-issuer/application-setup"
+  },
+  "next": {
+    "title": "Configuring the supported credentials for an issuer",
+    "permalink": "/docs/docs/enterprise-issuer/configuring-credentials"
+  }
+}

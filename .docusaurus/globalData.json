@@ -1,0 +1,88 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs/docs",
+          "mainDocId": "development-environment-setup/getting-started",
+          "docs": [
+            {
+              "id": "development-environment-setup/getting-started",
+              "path": "/docs/docs/development-environment-setup/getting-started",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "enterprise-issuer/application-setup",
+              "path": "/docs/docs/enterprise-issuer/application-setup",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "enterprise-issuer/authentication",
+              "path": "/docs/docs/enterprise-issuer/authentication",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "enterprise-issuer/configuring-credentials",
+              "path": "/docs/docs/enterprise-issuer/configuring-credentials",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "enterprise-issuer/configuring-issuer",
+              "path": "/docs/docs/enterprise-issuer/configuring-issuer",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "enterprise-wallet-core/application-setup",
+              "path": "/docs/docs/enterprise-wallet-core/application-setup",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "enterprise-wallet-core/specification",
+              "path": "/docs/docs/enterprise-wallet-core/specification",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "showcase/showcase",
+              "path": "/docs/docs/showcase/",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/development-environment-setup",
+              "path": "/docs/docs/category/development-environment-setup",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/enterprise-issuer",
+              "path": "/docs/docs/category/enterprise-issuer",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/enterprise-wallet-core",
+              "path": "/docs/docs/category/enterprise-wallet-core",
+              "sidebar": "tutorialSidebar"
+            },
+            {
+              "id": "/category/showcase",
+              "path": "/docs/docs/category/showcase",
+              "sidebar": "tutorialSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "tutorialSidebar": {
+              "link": {
+                "path": "/docs/docs/category/development-environment-setup",
+                "label": "Development Environment Setup"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

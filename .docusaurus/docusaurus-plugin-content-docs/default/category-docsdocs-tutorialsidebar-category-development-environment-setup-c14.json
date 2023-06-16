@@ -1,0 +1,12 @@
+{
+  "title": "Development Environment Setup",
+  "description": "Guidelines for setting up  the development environment",
+  "slug": "/category/development-environment-setup",
+  "permalink": "/docs/docs/category/development-environment-setup",
+  "navigation": {
+    "next": {
+      "title": "Getting started",
+      "permalink": "/docs/docs/development-environment-setup/getting-started"
+    }
+  }
+}

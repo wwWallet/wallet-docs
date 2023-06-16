@@ -1,0 +1,355 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "loadedVersions": [
+        {
+          "versionName": "current",
+          "label": "Next",
+          "banner": null,
+          "badge": false,
+          "noIndex": false,
+          "className": "docs-version-current",
+          "path": "/docs/docs",
+          "tagsPath": "/docs/docs/tags",
+          "isLast": true,
+          "routePriority": -1,
+          "sidebarFilePath": "/home/node/app/sidebars.js",
+          "contentPath": "/home/node/app/docs",
+          "contentPathLocalized": "/home/node/app/i18n/en/docusaurus-plugin-content-docs/current",
+          "docs": [
+            {
+              "unversionedId": "development-environment-setup/getting-started",
+              "id": "development-environment-setup/getting-started",
+              "title": "Getting started",
+              "description": "Prerequisites",
+              "source": "@site/docs/development-environment-setup/01-getting-started.md",
+              "sourceDirName": "development-environment-setup",
+              "slug": "/development-environment-setup/getting-started",
+              "permalink": "/docs/docs/development-environment-setup/getting-started",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 1,
+              "frontMatter": {
+                "sidebar_position": 1
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Development Environment Setup",
+                "permalink": "/docs/docs/category/development-environment-setup"
+              },
+              "next": {
+                "title": "Enterprise Issuer",
+                "permalink": "/docs/docs/category/enterprise-issuer"
+              }
+            },
+            {
+              "unversionedId": "enterprise-issuer/application-setup",
+              "id": "enterprise-issuer/application-setup",
+              "title": "Application Setup",
+              "description": "In the config directory, create a new file named config.development.ts by copying the config.template.ts template file and fill each field with the appropriate value.",
+              "source": "@site/docs/enterprise-issuer/01-application-setup.md",
+              "sourceDirName": "enterprise-issuer",
+              "slug": "/enterprise-issuer/application-setup",
+              "permalink": "/docs/docs/enterprise-issuer/application-setup",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 1,
+              "frontMatter": {
+                "sidebar_position": 1
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Enterprise Issuer",
+                "permalink": "/docs/docs/category/enterprise-issuer"
+              },
+              "next": {
+                "title": "Configuring an issuer",
+                "permalink": "/docs/docs/enterprise-issuer/configuring-issuer"
+              }
+            },
+            {
+              "unversionedId": "enterprise-issuer/authentication",
+              "id": "enterprise-issuer/authentication",
+              "title": "Configuring the authentication mechanism",
+              "description": "Adding Authentication Methods",
+              "source": "@site/docs/enterprise-issuer/04-authentication.md",
+              "sourceDirName": "enterprise-issuer",
+              "slug": "/enterprise-issuer/authentication",
+              "permalink": "/docs/docs/enterprise-issuer/authentication",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 4,
+              "frontMatter": {
+                "sidebar_position": 4
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Configuring the supported credentials for an issuer",
+                "permalink": "/docs/docs/enterprise-issuer/configuring-credentials"
+              },
+              "next": {
+                "title": "Enterprise Wallet Core",
+                "permalink": "/docs/docs/category/enterprise-wallet-core"
+              }
+            },
+            {
+              "unversionedId": "enterprise-issuer/configuring-credentials",
+              "id": "enterprise-issuer/configuring-credentials",
+              "title": "Configuring the supported credentials for an issuer",
+              "description": "Create a configurable supported credential using the SupportedCredentialProtocol",
+              "source": "@site/docs/enterprise-issuer/03-configuring-credentials.md",
+              "sourceDirName": "enterprise-issuer",
+              "slug": "/enterprise-issuer/configuring-credentials",
+              "permalink": "/docs/docs/enterprise-issuer/configuring-credentials",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 3,
+              "frontMatter": {
+                "sidebar_position": 3
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Configuring an issuer",
+                "permalink": "/docs/docs/enterprise-issuer/configuring-issuer"
+              },
+              "next": {
+                "title": "Configuring the authentication mechanism",
+                "permalink": "/docs/docs/enterprise-issuer/authentication"
+              }
+            },
+            {
+              "unversionedId": "enterprise-issuer/configuring-issuer",
+              "id": "enterprise-issuer/configuring-issuer",
+              "title": "Configuring an issuer",
+              "description": "Initialize a legal person wallet",
+              "source": "@site/docs/enterprise-issuer/02-configuring-issuer.md",
+              "sourceDirName": "enterprise-issuer",
+              "slug": "/enterprise-issuer/configuring-issuer",
+              "permalink": "/docs/docs/enterprise-issuer/configuring-issuer",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 2,
+              "frontMatter": {
+                "sidebar_position": 2
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Application Setup",
+                "permalink": "/docs/docs/enterprise-issuer/application-setup"
+              },
+              "next": {
+                "title": "Configuring the supported credentials for an issuer",
+                "permalink": "/docs/docs/enterprise-issuer/configuring-credentials"
+              }
+            },
+            {
+              "unversionedId": "enterprise-wallet-core/application-setup",
+              "id": "enterprise-wallet-core/application-setup",
+              "title": "Application Setup",
+              "description": "In the config directory, create a new file named config.development.ts by copying the config.template.ts template file and fill each field with the appropriate value.",
+              "source": "@site/docs/enterprise-wallet-core/01-application-setup.md",
+              "sourceDirName": "enterprise-wallet-core",
+              "slug": "/enterprise-wallet-core/application-setup",
+              "permalink": "/docs/docs/enterprise-wallet-core/application-setup",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 1,
+              "frontMatter": {
+                "sidebar_position": 1
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Enterprise Wallet Core",
+                "permalink": "/docs/docs/category/enterprise-wallet-core"
+              },
+              "next": {
+                "title": "Specification",
+                "permalink": "/docs/docs/enterprise-wallet-core/specification"
+              }
+            },
+            {
+              "unversionedId": "enterprise-wallet-core/specification",
+              "id": "enterprise-wallet-core/specification",
+              "title": "Specification",
+              "description": "Overview",
+              "source": "@site/docs/enterprise-wallet-core/02-specification.md",
+              "sourceDirName": "enterprise-wallet-core",
+              "slug": "/enterprise-wallet-core/specification",
+              "permalink": "/docs/docs/enterprise-wallet-core/specification",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 2,
+              "frontMatter": {
+                "sidebar_position": 2
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Application Setup",
+                "permalink": "/docs/docs/enterprise-wallet-core/application-setup"
+              },
+              "next": {
+                "title": "Showcase",
+                "permalink": "/docs/docs/category/showcase"
+              }
+            },
+            {
+              "unversionedId": "showcase/showcase",
+              "id": "showcase/showcase",
+              "title": "Showcase",
+              "description": "TODO: Add videos",
+              "source": "@site/docs/showcase/showcase.md",
+              "sourceDirName": "showcase",
+              "slug": "/showcase/",
+              "permalink": "/docs/docs/showcase/",
+              "draft": false,
+              "tags": [],
+              "version": "current",
+              "sidebarPosition": 9,
+              "frontMatter": {
+                "sidebar_position": 9
+              },
+              "sidebar": "tutorialSidebar",
+              "previous": {
+                "title": "Showcase",
+                "permalink": "/docs/docs/category/showcase"
+              }
+            }
+          ],
+          "drafts": [],
+          "sidebars": {
+            "tutorialSidebar": [
+              {
+                "type": "category",
+                "label": "Development Environment Setup",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "development-environment-setup/getting-started"
+                  }
+                ],
+                "link": {
+                  "type": "generated-index",
+                  "description": "Guidelines for setting up  the development environment",
+                  "slug": "/category/development-environment-setup",
+                  "permalink": "/docs/docs/category/development-environment-setup"
+                }
+              },
+              {
+                "type": "category",
+                "label": "Enterprise Issuer",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "enterprise-issuer/application-setup"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "enterprise-issuer/configuring-issuer"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "enterprise-issuer/configuring-credentials"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "enterprise-issuer/authentication"
+                  }
+                ],
+                "link": {
+                  "type": "generated-index",
+                  "description": "Describing the architecture and setup of the Enterprise Issuer",
+                  "slug": "/category/enterprise-issuer",
+                  "permalink": "/docs/docs/category/enterprise-issuer"
+                }
+              },
+              {
+                "type": "category",
+                "label": "Enterprise Wallet Core",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "enterprise-wallet-core/application-setup"
+                  },
+                  {
+                    "type": "doc",
+                    "id": "enterprise-wallet-core/specification"
+                  }
+                ],
+                "link": {
+                  "type": "generated-index",
+                  "description": "Describing the architecture and use cases of the Enterprise Wallet Core with examples",
+                  "slug": "/category/enterprise-wallet-core",
+                  "permalink": "/docs/docs/category/enterprise-wallet-core"
+                }
+              },
+              {
+                "type": "category",
+                "label": "Showcase",
+                "collapsible": true,
+                "collapsed": true,
+                "items": [
+                  {
+                    "type": "doc",
+                    "id": "showcase/showcase"
+                  }
+                ],
+                "link": {
+                  "type": "generated-index",
+                  "description": "Showcase the flows",
+                  "slug": "/category/showcase",
+                  "permalink": "/docs/docs/category/showcase"
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "docusaurus-plugin-content-blog": {
+    "default": {
+      "blogSidebarTitle": "Recent posts",
+      "blogPosts": [],
+      "blogListPaginated": [],
+      "blogTags": {},
+      "blogTagsListPath": "/docs/blog/tags",
+      "blogTagsPaginated": []
+    }
+  },
+  "docusaurus-plugin-content-pages": {
+    "default": [
+      {
+        "type": "jsx",
+        "permalink": "/docs/",
+        "source": "@site/src/pages/index.js"
+      },
+      {
+        "type": "mdx",
+        "permalink": "/docs/markdown-page",
+        "source": "@site/src/pages/markdown-page.md",
+        "title": "Markdown page example",
+        "description": "You don't need React to write simple standalone pages.",
+        "frontMatter": {
+          "title": "Markdown page example"
+        }
+      }
+    ]
+  },
+  "docusaurus-plugin-debug": {},
+  "docusaurus-theme-classic": {},
+  "docusaurus-bootstrap-plugin": {},
+  "docusaurus-mdx-fallback-plugin": {}
+}

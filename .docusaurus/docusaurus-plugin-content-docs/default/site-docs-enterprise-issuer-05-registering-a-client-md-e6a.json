@@ -1,0 +1,26 @@
+{
+  "unversionedId": "enterprise-issuer/registering-a-client",
+  "id": "enterprise-issuer/registering-a-client",
+  "title": "Registering a Client",
+  "description": "The Enterprise Issuer application uses OpenID for Verifiable Credential Issuance to issue Verifiable Credentials",
+  "source": "@site/docs/enterprise-issuer/05-registering-a-client.md",
+  "sourceDirName": "enterprise-issuer",
+  "slug": "/enterprise-issuer/registering-a-client",
+  "permalink": "/docs/docs/enterprise-issuer/registering-a-client",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "sidebar_position": 5
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Configuring the authentication mechanism",
+    "permalink": "/docs/docs/enterprise-issuer/authentication"
+  },
+  "next": {
+    "title": "Enterprise Wallet Core",
+    "permalink": "/docs/docs/category/enterprise-wallet-core"
+  }
+}

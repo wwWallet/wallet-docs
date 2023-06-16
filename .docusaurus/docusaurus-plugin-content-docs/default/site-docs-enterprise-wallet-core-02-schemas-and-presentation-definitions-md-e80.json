@@ -1,0 +1,26 @@
+{
+  "unversionedId": "enterprise-wallet-core/schemas-and-presentation-definitions",
+  "id": "enterprise-wallet-core/schemas-and-presentation-definitions",
+  "title": "Defining Schemas and Presentation Definitions",
+  "description": "Creating Schemas and Presentation Definitions using configver cli",
+  "source": "@site/docs/enterprise-wallet-core/02-schemas-and-presentation-definitions.md",
+  "sourceDirName": "enterprise-wallet-core",
+  "slug": "/enterprise-wallet-core/schemas-and-presentation-definitions",
+  "permalink": "/docs/docs/enterprise-wallet-core/schemas-and-presentation-definitions",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Application Setup",
+    "permalink": "/docs/docs/enterprise-wallet-core/application-setup"
+  },
+  "next": {
+    "title": "Specification",
+    "permalink": "/docs/docs/enterprise-wallet-core/specification"
+  }
+}
