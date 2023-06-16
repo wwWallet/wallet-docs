@@ -2,6 +2,7 @@
   "name": "docs",
   "version": "0.0.0",
   "private": true,
+	"homepage": "https://open.gunet.gr/wallet-docs/",
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start --port 8001",

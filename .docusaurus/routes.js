@@ -3,48 +3,13 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
-    path: '/docs/__docusaurus/debug',
-    component: ComponentCreator('/docs/__docusaurus/debug', 'b3f'),
-    exact: true
-  },
-  {
-    path: '/docs/__docusaurus/debug/config',
-    component: ComponentCreator('/docs/__docusaurus/debug/config', '24a'),
-    exact: true
-  },
-  {
-    path: '/docs/__docusaurus/debug/content',
-    component: ComponentCreator('/docs/__docusaurus/debug/content', 'e11'),
-    exact: true
-  },
-  {
-    path: '/docs/__docusaurus/debug/globalData',
-    component: ComponentCreator('/docs/__docusaurus/debug/globalData', 'f8f'),
-    exact: true
-  },
-  {
-    path: '/docs/__docusaurus/debug/metadata',
-    component: ComponentCreator('/docs/__docusaurus/debug/metadata', 'b74'),
-    exact: true
-  },
-  {
-    path: '/docs/__docusaurus/debug/registry',
-    component: ComponentCreator('/docs/__docusaurus/debug/registry', '486'),
-    exact: true
-  },
-  {
-    path: '/docs/__docusaurus/debug/routes',
-    component: ComponentCreator('/docs/__docusaurus/debug/routes', '0c7'),
-    exact: true
-  },
-  {
     path: '/docs/markdown-page',
-    component: ComponentCreator('/docs/markdown-page', '17a'),
+    component: ComponentCreator('/docs/markdown-page', '96e'),
     exact: true
   },
   {
     path: '/docs/docs',
-    component: ComponentCreator('/docs/docs', '55d'),
+    component: ComponentCreator('/docs/docs', '938'),
     routes: [
       {
         path: '/docs/docs/category/development-environment-setup',
@@ -122,7 +87,7 @@ export default [
   },
   {
     path: '/docs/',
-    component: ComponentCreator('/docs/', 'f03'),
+    component: ComponentCreator('/docs/', '597'),
     exact: true
   },
   {
