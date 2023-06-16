@@ -3,91 +3,91 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
-    path: '/docs/markdown-page',
-    component: ComponentCreator('/docs/markdown-page', '96e'),
+    path: '/wallet-docs/markdown-page',
+    component: ComponentCreator('/wallet-docs/markdown-page', '181'),
     exact: true
   },
   {
-    path: '/docs/docs',
-    component: ComponentCreator('/docs/docs', '938'),
+    path: '/wallet-docs/docs',
+    component: ComponentCreator('/wallet-docs/docs', '2ee'),
     routes: [
       {
-        path: '/docs/docs/category/development-environment-setup',
-        component: ComponentCreator('/docs/docs/category/development-environment-setup', '335'),
+        path: '/wallet-docs/docs/category/development-environment-setup',
+        component: ComponentCreator('/wallet-docs/docs/category/development-environment-setup', 'fcf'),
         exact: true,
         sidebar: "tutorialSidebar"
       },
       {
-        path: '/docs/docs/category/enterprise-issuer',
-        component: ComponentCreator('/docs/docs/category/enterprise-issuer', 'dd7'),
+        path: '/wallet-docs/docs/category/enterprise-issuer',
+        component: ComponentCreator('/wallet-docs/docs/category/enterprise-issuer', 'd44'),
         exact: true,
         sidebar: "tutorialSidebar"
       },
       {
-        path: '/docs/docs/category/enterprise-wallet-core',
-        component: ComponentCreator('/docs/docs/category/enterprise-wallet-core', 'ed6'),
+        path: '/wallet-docs/docs/category/enterprise-wallet-core',
+        component: ComponentCreator('/wallet-docs/docs/category/enterprise-wallet-core', 'aa6'),
         exact: true,
         sidebar: "tutorialSidebar"
       },
       {
-        path: '/docs/docs/category/showcase',
-        component: ComponentCreator('/docs/docs/category/showcase', 'e40'),
+        path: '/wallet-docs/docs/category/showcase',
+        component: ComponentCreator('/wallet-docs/docs/category/showcase', 'e76'),
         exact: true,
         sidebar: "tutorialSidebar"
       },
       {
-        path: '/docs/docs/development-environment-setup/getting-started',
-        component: ComponentCreator('/docs/docs/development-environment-setup/getting-started', 'ac8'),
+        path: '/wallet-docs/docs/development-environment-setup/getting-started',
+        component: ComponentCreator('/wallet-docs/docs/development-environment-setup/getting-started', '36c'),
         exact: true,
         sidebar: "tutorialSidebar"
       },
       {
-        path: '/docs/docs/enterprise-issuer/application-setup',
-        component: ComponentCreator('/docs/docs/enterprise-issuer/application-setup', '406'),
+        path: '/wallet-docs/docs/enterprise-issuer/application-setup',
+        component: ComponentCreator('/wallet-docs/docs/enterprise-issuer/application-setup', '567'),
         exact: true,
         sidebar: "tutorialSidebar"
       },
       {
-        path: '/docs/docs/enterprise-issuer/authentication',
-        component: ComponentCreator('/docs/docs/enterprise-issuer/authentication', '838'),
+        path: '/wallet-docs/docs/enterprise-issuer/authentication',
+        component: ComponentCreator('/wallet-docs/docs/enterprise-issuer/authentication', '0cb'),
         exact: true,
         sidebar: "tutorialSidebar"
       },
       {
-        path: '/docs/docs/enterprise-issuer/configuring-credentials',
-        component: ComponentCreator('/docs/docs/enterprise-issuer/configuring-credentials', '6c3'),
+        path: '/wallet-docs/docs/enterprise-issuer/configuring-credentials',
+        component: ComponentCreator('/wallet-docs/docs/enterprise-issuer/configuring-credentials', 'b32'),
         exact: true,
         sidebar: "tutorialSidebar"
       },
       {
-        path: '/docs/docs/enterprise-issuer/configuring-issuer',
-        component: ComponentCreator('/docs/docs/enterprise-issuer/configuring-issuer', '34a'),
+        path: '/wallet-docs/docs/enterprise-issuer/configuring-issuer',
+        component: ComponentCreator('/wallet-docs/docs/enterprise-issuer/configuring-issuer', '617'),
         exact: true,
         sidebar: "tutorialSidebar"
       },
       {
-        path: '/docs/docs/enterprise-wallet-core/application-setup',
-        component: ComponentCreator('/docs/docs/enterprise-wallet-core/application-setup', '990'),
+        path: '/wallet-docs/docs/enterprise-wallet-core/application-setup',
+        component: ComponentCreator('/wallet-docs/docs/enterprise-wallet-core/application-setup', '14b'),
         exact: true,
         sidebar: "tutorialSidebar"
       },
       {
-        path: '/docs/docs/enterprise-wallet-core/specification',
-        component: ComponentCreator('/docs/docs/enterprise-wallet-core/specification', 'a0c'),
+        path: '/wallet-docs/docs/enterprise-wallet-core/specification',
+        component: ComponentCreator('/wallet-docs/docs/enterprise-wallet-core/specification', 'd8f'),
         exact: true,
         sidebar: "tutorialSidebar"
       },
       {
-        path: '/docs/docs/showcase/',
-        component: ComponentCreator('/docs/docs/showcase/', '8c2'),
+        path: '/wallet-docs/docs/showcase/',
+        component: ComponentCreator('/wallet-docs/docs/showcase/', '7ae'),
         exact: true,
         sidebar: "tutorialSidebar"
       }
     ]
   },
   {
-    path: '/docs/',
-    component: ComponentCreator('/docs/', '597'),
+    path: '/wallet-docs/',
+    component: ComponentCreator('/wallet-docs/', '99f'),
     exact: true
   },
   {

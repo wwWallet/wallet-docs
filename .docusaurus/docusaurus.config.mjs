@@ -7,8 +7,8 @@ export default {
   "title": "eDiplomas Wallet Ecosystem",
   "tagline": "Get started with Issuing and Verifying credentials today!",
   "favicon": "img/ediplomasLogo.png",
-  "url": "https://your-docusaurus-test-site.com",
-  "baseUrl": "/docs/",
+  "url": "https://open.gunet.gr",
+  "baseUrl": "/wallet-docs/",
   "organizationName": "gunet",
   "projectName": "wallet-start",
   "onBrokenLinks": "throw",
@@ -49,7 +49,7 @@ export default {
         {
           "position": "left",
           "label": "Documentation",
-          "href": "/docs/docs/category/development-environment-setup"
+          "href": "/wallet-docs/docs/category/development-environment-setup"
         },
         {
           "href": "https://github.com/gunet/wallet-start",
@@ -67,7 +67,7 @@ export default {
           "items": [
             {
               "label": "Tutorial",
-              "to": "/docs/docs/category/development-environment-setup"
+              "to": "/wallet-docs/docs/category/development-environment-setup"
             }
           ]
         }

@@ -6,7 +6,7 @@
   "source": "@site/docs/enterprise-issuer/04-authentication.md",
   "sourceDirName": "enterprise-issuer",
   "slug": "/enterprise-issuer/authentication",
-  "permalink": "/docs/docs/enterprise-issuer/authentication",
+  "permalink": "/wallet-docs/docs/enterprise-issuer/authentication",
   "draft": false,
   "tags": [],
   "version": "current",
@@ -17,10 +17,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Configuring the supported credentials for an issuer",
-    "permalink": "/docs/docs/enterprise-issuer/configuring-credentials"
+    "permalink": "/wallet-docs/docs/enterprise-issuer/configuring-credentials"
   },
   "next": {
     "title": "Enterprise Wallet Core",
-    "permalink": "/docs/docs/category/enterprise-wallet-core"
+    "permalink": "/wallet-docs/docs/category/enterprise-wallet-core"
   }
 }

@@ -6,7 +6,7 @@
   "source": "@site/docs/showcase/showcase.md",
   "sourceDirName": "showcase",
   "slug": "/showcase/",
-  "permalink": "/docs/docs/showcase/",
+  "permalink": "/wallet-docs/docs/showcase/",
   "draft": false,
   "tags": [],
   "version": "current",
@@ -17,6 +17,6 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Showcase",
-    "permalink": "/docs/docs/category/showcase"
+    "permalink": "/wallet-docs/docs/category/showcase"
   }
 }

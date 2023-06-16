@@ -1,67 +1,67 @@
 {
-  "/docs/markdown-page-96e": {
+  "/wallet-docs/markdown-page-181": {
     "__comp": "1f391b9e",
     "__context": {
       "plugin": "2825d4a9"
     },
     "content": "393be207"
   },
-  "/docs/docs-938": {
+  "/wallet-docs/docs-2ee": {
     "__comp": "1be78505",
     "__context": {
       "plugin": "876c9005"
     },
     "versionMetadata": "935f2afb"
   },
-  "/docs/docs/category/development-environment-setup-335": {
+  "/wallet-docs/docs/category/development-environment-setup-fcf": {
     "__comp": "14eb3368",
-    "categoryGeneratedIndex": "aec1615d"
+    "categoryGeneratedIndex": "f1e181a6"
   },
-  "/docs/docs/category/enterprise-issuer-dd7": {
+  "/wallet-docs/docs/category/enterprise-issuer-d44": {
     "__comp": "14eb3368",
-    "categoryGeneratedIndex": "3aa17a71"
+    "categoryGeneratedIndex": "992a87ad"
   },
-  "/docs/docs/category/enterprise-wallet-core-ed6": {
+  "/wallet-docs/docs/category/enterprise-wallet-core-aa6": {
     "__comp": "14eb3368",
-    "categoryGeneratedIndex": "39dd875b"
+    "categoryGeneratedIndex": "7c308d30"
   },
-  "/docs/docs/category/showcase-e40": {
+  "/wallet-docs/docs/category/showcase-e76": {
     "__comp": "14eb3368",
-    "categoryGeneratedIndex": "284f6a5d"
+    "categoryGeneratedIndex": "4efa2546"
   },
-  "/docs/docs/development-environment-setup/getting-started-ac8": {
+  "/wallet-docs/docs/development-environment-setup/getting-started-36c": {
     "__comp": "17896441",
     "content": "2777d86d"
   },
-  "/docs/docs/enterprise-issuer/application-setup-406": {
+  "/wallet-docs/docs/enterprise-issuer/application-setup-567": {
     "__comp": "17896441",
     "content": "2169526d"
   },
-  "/docs/docs/enterprise-issuer/authentication-838": {
+  "/wallet-docs/docs/enterprise-issuer/authentication-0cb": {
     "__comp": "17896441",
     "content": "4816b248"
   },
-  "/docs/docs/enterprise-issuer/configuring-credentials-6c3": {
+  "/wallet-docs/docs/enterprise-issuer/configuring-credentials-b32": {
     "__comp": "17896441",
     "content": "bbc298f3"
   },
-  "/docs/docs/enterprise-issuer/configuring-issuer-34a": {
+  "/wallet-docs/docs/enterprise-issuer/configuring-issuer-617": {
     "__comp": "17896441",
     "content": "bd118772"
   },
-  "/docs/docs/enterprise-wallet-core/application-setup-990": {
+  "/wallet-docs/docs/enterprise-wallet-core/application-setup-14b": {
     "__comp": "17896441",
     "content": "1f421085"
   },
-  "/docs/docs/enterprise-wallet-core/specification-a0c": {
+  "/wallet-docs/docs/enterprise-wallet-core/specification-d8f": {
     "__comp": "17896441",
     "content": "1d8b8c04"
   },
-  "/docs/docs/showcase/-8c2": {
+  "/wallet-docs/docs/showcase/-7ae": {
     "__comp": "17896441",
     "content": "ba71eeef"
   },
-  "/docs/-597": {
+  "/wallet-docs/-99f": {
     "__comp": "c4f5d8e4",
     "__context": {
       "plugin": "2825d4a9"

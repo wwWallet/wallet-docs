@@ -18,11 +18,11 @@
           {
             "type": "link",
             "label": "Getting started",
-            "href": "/docs/docs/development-environment-setup/getting-started",
+            "href": "/wallet-docs/docs/development-environment-setup/getting-started",
             "docId": "development-environment-setup/getting-started"
           }
         ],
-        "href": "/docs/docs/category/development-environment-setup"
+        "href": "/wallet-docs/docs/category/development-environment-setup"
       },
       {
         "type": "category",
@@ -33,29 +33,29 @@
           {
             "type": "link",
             "label": "Application Setup",
-            "href": "/docs/docs/enterprise-issuer/application-setup",
+            "href": "/wallet-docs/docs/enterprise-issuer/application-setup",
             "docId": "enterprise-issuer/application-setup"
           },
           {
             "type": "link",
             "label": "Configuring an issuer",
-            "href": "/docs/docs/enterprise-issuer/configuring-issuer",
+            "href": "/wallet-docs/docs/enterprise-issuer/configuring-issuer",
             "docId": "enterprise-issuer/configuring-issuer"
           },
           {
             "type": "link",
             "label": "Configuring the supported credentials for an issuer",
-            "href": "/docs/docs/enterprise-issuer/configuring-credentials",
+            "href": "/wallet-docs/docs/enterprise-issuer/configuring-credentials",
             "docId": "enterprise-issuer/configuring-credentials"
           },
           {
             "type": "link",
             "label": "Configuring the authentication mechanism",
-            "href": "/docs/docs/enterprise-issuer/authentication",
+            "href": "/wallet-docs/docs/enterprise-issuer/authentication",
             "docId": "enterprise-issuer/authentication"
           }
         ],
-        "href": "/docs/docs/category/enterprise-issuer"
+        "href": "/wallet-docs/docs/category/enterprise-issuer"
       },
       {
         "type": "category",
@@ -66,17 +66,17 @@
           {
             "type": "link",
             "label": "Application Setup",
-            "href": "/docs/docs/enterprise-wallet-core/application-setup",
+            "href": "/wallet-docs/docs/enterprise-wallet-core/application-setup",
             "docId": "enterprise-wallet-core/application-setup"
           },
           {
             "type": "link",
             "label": "Specification",
-            "href": "/docs/docs/enterprise-wallet-core/specification",
+            "href": "/wallet-docs/docs/enterprise-wallet-core/specification",
             "docId": "enterprise-wallet-core/specification"
           }
         ],
-        "href": "/docs/docs/category/enterprise-wallet-core"
+        "href": "/wallet-docs/docs/category/enterprise-wallet-core"
       },
       {
         "type": "category",
@@ -87,11 +87,11 @@
           {
             "type": "link",
             "label": "Showcase",
-            "href": "/docs/docs/showcase/",
+            "href": "/wallet-docs/docs/showcase/",
             "docId": "showcase/showcase"
           }
         ],
-        "href": "/docs/docs/category/showcase"
+        "href": "/wallet-docs/docs/category/showcase"
       }
     ]
   },

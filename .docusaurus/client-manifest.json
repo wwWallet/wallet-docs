@@ -59,29 +59,26 @@
     "2825d4a9": [
       464
     ],
-    "284f6a5d": [
-      222
-    ],
     "393be207": [
       414
     ],
-    "39dd875b": [
-      585
-    ],
-    "3aa17a71": [
-      53
-    ],
     "4816b248": [
       912
+    ],
+    "4efa2546": [
+      513
+    ],
+    "7c308d30": [
+      51
     ],
     "876c9005": [
       696
     ],
     "935f2afb": [
-      197
+      53
     ],
-    "aec1615d": [
-      661
+    "992a87ad": [
+      58
     ],
     "ba71eeef": [
       68,
@@ -97,6 +94,9 @@
       532,
       195
     ],
+    "f1e181a6": [
+      718
+    ],
     "styles": [
       85,
       179,
@@ -110,12 +110,30 @@
     ]
   },
   "assets": {
+    "51": {
+      "js": [
+        {
+          "file": "assets/js/7c308d30.21fe966e.js",
+          "hash": "47fb2ad1bca4856e",
+          "publicPath": "/wallet-docs/assets/js/7c308d30.21fe966e.js"
+        }
+      ]
+    },
     "53": {
       "js": [
         {
-          "file": "assets/js/3aa17a71.09ed44c4.js",
-          "hash": "4b69587b035df2ea",
-          "publicPath": "/docs/assets/js/3aa17a71.09ed44c4.js"
+          "file": "assets/js/935f2afb.db9ad682.js",
+          "hash": "1e5375d23087cda8",
+          "publicPath": "/wallet-docs/assets/js/935f2afb.db9ad682.js"
+        }
+      ]
+    },
+    "58": {
+      "js": [
+        {
+          "file": "assets/js/992a87ad.986f6ad0.js",
+          "hash": "1596af6657f123fd",
+          "publicPath": "/wallet-docs/assets/js/992a87ad.986f6ad0.js"
         }
       ]
     },
@@ -124,7 +142,7 @@
         {
           "file": "assets/js/68.6561e31e.js",
           "hash": "09c6dd10d6a4b3fe",
-          "publicPath": "/docs/assets/js/68.6561e31e.js"
+          "publicPath": "/wallet-docs/assets/js/68.6561e31e.js"
         }
       ]
     },
@@ -133,106 +151,88 @@
         {
           "file": "assets/js/1f391b9e.88f464bf.js",
           "hash": "203e2bcc619ee902",
-          "publicPath": "/docs/assets/js/1f391b9e.88f464bf.js"
+          "publicPath": "/wallet-docs/assets/js/1f391b9e.88f464bf.js"
         }
       ]
     },
     "153": {
       "js": [
         {
-          "file": "assets/js/2777d86d.1f98315f.js",
-          "hash": "1ef7ad8e8194518e",
-          "publicPath": "/docs/assets/js/2777d86d.1f98315f.js"
+          "file": "assets/js/2777d86d.676140cb.js",
+          "hash": "91f1fad1c6853685",
+          "publicPath": "/wallet-docs/assets/js/2777d86d.676140cb.js"
         }
       ]
     },
     "179": {
       "js": [
         {
-          "file": "assets/js/main.06685d2f.js",
-          "hash": "6d05b685845a9044",
-          "publicPath": "/docs/assets/js/main.06685d2f.js"
+          "file": "assets/js/main.efbec215.js",
+          "hash": "d1ad250a2f686927",
+          "publicPath": "/wallet-docs/assets/js/main.efbec215.js"
         }
       ]
     },
     "195": {
       "js": [
         {
-          "file": "assets/js/c4f5d8e4.a1bd2da5.js",
-          "hash": "e0e3b1668e178268",
-          "publicPath": "/docs/assets/js/c4f5d8e4.a1bd2da5.js"
-        }
-      ]
-    },
-    "197": {
-      "js": [
-        {
-          "file": "assets/js/935f2afb.e388f54d.js",
-          "hash": "13cae00a499de8d6",
-          "publicPath": "/docs/assets/js/935f2afb.e388f54d.js"
-        }
-      ]
-    },
-    "222": {
-      "js": [
-        {
-          "file": "assets/js/284f6a5d.13a8a067.js",
-          "hash": "1c07e2a2e9f8706e",
-          "publicPath": "/docs/assets/js/284f6a5d.13a8a067.js"
+          "file": "assets/js/c4f5d8e4.b54fc4e3.js",
+          "hash": "8638f989987342dc",
+          "publicPath": "/wallet-docs/assets/js/c4f5d8e4.b54fc4e3.js"
         }
       ]
     },
     "303": {
       "js": [
         {
-          "file": "assets/js/runtime~main.f84bb7dd.js",
-          "hash": "7d09062cf21a1142",
-          "publicPath": "/docs/assets/js/runtime~main.f84bb7dd.js"
+          "file": "assets/js/runtime~main.c9cb7f3b.js",
+          "hash": "b8ad908e1c1ad01c",
+          "publicPath": "/wallet-docs/assets/js/runtime~main.c9cb7f3b.js"
         }
       ]
     },
     "324": {
       "js": [
         {
-          "file": "assets/js/bd118772.c6ffba9d.js",
-          "hash": "6a34e4151a3ab08b",
-          "publicPath": "/docs/assets/js/bd118772.c6ffba9d.js"
+          "file": "assets/js/bd118772.35464608.js",
+          "hash": "d853e1295e70e655",
+          "publicPath": "/wallet-docs/assets/js/bd118772.35464608.js"
         }
       ]
     },
     "355": {
       "js": [
         {
-          "file": "assets/js/1f421085.9649e065.js",
-          "hash": "2b0819a3b8623fdd",
-          "publicPath": "/docs/assets/js/1f421085.9649e065.js"
+          "file": "assets/js/1f421085.b5a980f1.js",
+          "hash": "c95ce1546929c986",
+          "publicPath": "/wallet-docs/assets/js/1f421085.b5a980f1.js"
         }
       ]
     },
     "397": {
       "js": [
         {
-          "file": "assets/js/1d8b8c04.f702f38c.js",
-          "hash": "9815e6d9dfca93b9",
-          "publicPath": "/docs/assets/js/1d8b8c04.f702f38c.js"
+          "file": "assets/js/1d8b8c04.47e20b38.js",
+          "hash": "ebd6f3aa597b37ef",
+          "publicPath": "/wallet-docs/assets/js/1d8b8c04.47e20b38.js"
         }
       ]
     },
     "414": {
       "js": [
         {
-          "file": "assets/js/393be207.63f90fd5.js",
-          "hash": "1a1301079dd290bc",
-          "publicPath": "/docs/assets/js/393be207.63f90fd5.js"
+          "file": "assets/js/393be207.d2e17c37.js",
+          "hash": "ddd847f579e77e0a",
+          "publicPath": "/wallet-docs/assets/js/393be207.d2e17c37.js"
         }
       ]
     },
     "451": {
       "js": [
         {
-          "file": "assets/js/2169526d.da4ac6b9.js",
-          "hash": "f39cb6cf017904f6",
-          "publicPath": "/docs/assets/js/2169526d.da4ac6b9.js"
+          "file": "assets/js/2169526d.23a31223.js",
+          "hash": "294e30c6bd2e3eef",
+          "publicPath": "/wallet-docs/assets/js/2169526d.23a31223.js"
         }
       ]
     },
@@ -241,16 +241,25 @@
         {
           "file": "assets/js/2825d4a9.8dd72068.js",
           "hash": "2a4ceaa355469312",
-          "publicPath": "/docs/assets/js/2825d4a9.8dd72068.js"
+          "publicPath": "/wallet-docs/assets/js/2825d4a9.8dd72068.js"
+        }
+      ]
+    },
+    "513": {
+      "js": [
+        {
+          "file": "assets/js/4efa2546.5b3e932c.js",
+          "hash": "0133f72110682a30",
+          "publicPath": "/wallet-docs/assets/js/4efa2546.5b3e932c.js"
         }
       ]
     },
     "529": {
       "js": [
         {
-          "file": "assets/js/bbc298f3.d127b7db.js",
-          "hash": "3affce17c5bb9e94",
-          "publicPath": "/docs/assets/js/bbc298f3.d127b7db.js"
+          "file": "assets/js/bbc298f3.d923a707.js",
+          "hash": "f0783d8d5572e84b",
+          "publicPath": "/wallet-docs/assets/js/bbc298f3.d923a707.js"
         }
       ]
     },
@@ -259,34 +268,16 @@
         {
           "file": "assets/css/styles.ddbc0614.css",
           "hash": "90e933d0db49cea1",
-          "publicPath": "/docs/assets/css/styles.ddbc0614.css"
-        }
-      ]
-    },
-    "585": {
-      "js": [
-        {
-          "file": "assets/js/39dd875b.2ae04e29.js",
-          "hash": "3e7e1df6ca427f94",
-          "publicPath": "/docs/assets/js/39dd875b.2ae04e29.js"
+          "publicPath": "/wallet-docs/assets/css/styles.ddbc0614.css"
         }
       ]
     },
     "651": {
       "js": [
         {
-          "file": "assets/js/ba71eeef.c7358ac4.js",
-          "hash": "de71bee4b8eb2ba9",
-          "publicPath": "/docs/assets/js/ba71eeef.c7358ac4.js"
-        }
-      ]
-    },
-    "661": {
-      "js": [
-        {
-          "file": "assets/js/aec1615d.e30c2088.js",
-          "hash": "bc7aa845d066bd13",
-          "publicPath": "/docs/assets/js/aec1615d.e30c2088.js"
+          "file": "assets/js/ba71eeef.e9319a75.js",
+          "hash": "75e2881deccd5f9a",
+          "publicPath": "/wallet-docs/assets/js/ba71eeef.e9319a75.js"
         }
       ]
     },
@@ -295,7 +286,7 @@
         {
           "file": "assets/js/666.5e6071f6.js",
           "hash": "0ac2da24a901a6b6",
-          "publicPath": "/docs/assets/js/666.5e6071f6.js"
+          "publicPath": "/wallet-docs/assets/js/666.5e6071f6.js"
         }
       ]
     },
@@ -304,7 +295,16 @@
         {
           "file": "assets/js/876c9005.ebeeea44.js",
           "hash": "079964b903ccb042",
-          "publicPath": "/docs/assets/js/876c9005.ebeeea44.js"
+          "publicPath": "/wallet-docs/assets/js/876c9005.ebeeea44.js"
+        }
+      ]
+    },
+    "718": {
+      "js": [
+        {
+          "file": "assets/js/f1e181a6.2281f60e.js",
+          "hash": "43334ac9671ed902",
+          "publicPath": "/wallet-docs/assets/js/f1e181a6.2281f60e.js"
         }
       ]
     },
@@ -313,16 +313,16 @@
         {
           "file": "assets/js/14eb3368.b59eb5bf.js",
           "hash": "8cb84ce8d2bb158c",
-          "publicPath": "/docs/assets/js/14eb3368.b59eb5bf.js"
+          "publicPath": "/wallet-docs/assets/js/14eb3368.b59eb5bf.js"
         }
       ]
     },
     "912": {
       "js": [
         {
-          "file": "assets/js/4816b248.b2450559.js",
-          "hash": "04814899ce24b804",
-          "publicPath": "/docs/assets/js/4816b248.b2450559.js"
+          "file": "assets/js/4816b248.c55071f7.js",
+          "hash": "605d27d361e43974",
+          "publicPath": "/wallet-docs/assets/js/4816b248.c55071f7.js"
         }
       ]
     },
@@ -331,7 +331,7 @@
         {
           "file": "assets/js/17896441.c828dff0.js",
           "hash": "210d8185cd1e10e9",
-          "publicPath": "/docs/assets/js/17896441.c828dff0.js"
+          "publicPath": "/wallet-docs/assets/js/17896441.c828dff0.js"
         }
       ]
     },
@@ -340,12 +340,12 @@
         {
           "file": "assets/js/972.dd5d5686.js",
           "hash": "bdfb2ab19e181076",
-          "publicPath": "/docs/assets/js/972.dd5d5686.js"
+          "publicPath": "/wallet-docs/assets/js/972.dd5d5686.js"
         },
         {
           "file": "assets/js/1be78505.b618256d.js",
           "hash": "5ee0c2d8ad0d879a",
-          "publicPath": "/docs/assets/js/1be78505.b618256d.js"
+          "publicPath": "/wallet-docs/assets/js/1be78505.b618256d.js"
         }
       ]
     }

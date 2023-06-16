@@ -6,7 +6,7 @@
   "source": "@site/docs/development-environment-setup/01-getting-started.md",
   "sourceDirName": "development-environment-setup",
   "slug": "/development-environment-setup/getting-started",
-  "permalink": "/docs/docs/development-environment-setup/getting-started",
+  "permalink": "/wallet-docs/docs/development-environment-setup/getting-started",
   "draft": false,
   "tags": [],
   "version": "current",
@@ -17,10 +17,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Development Environment Setup",
-    "permalink": "/docs/docs/category/development-environment-setup"
+    "permalink": "/wallet-docs/docs/category/development-environment-setup"
   },
   "next": {
     "title": "Enterprise Issuer",
-    "permalink": "/docs/docs/category/enterprise-issuer"
+    "permalink": "/wallet-docs/docs/category/enterprise-issuer"
   }
 }

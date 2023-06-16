@@ -6,7 +6,7 @@
   "source": "@site/docs/enterprise-issuer/01-application-setup.md",
   "sourceDirName": "enterprise-issuer",
   "slug": "/enterprise-issuer/application-setup",
-  "permalink": "/docs/docs/enterprise-issuer/application-setup",
+  "permalink": "/wallet-docs/docs/enterprise-issuer/application-setup",
   "draft": false,
   "tags": [],
   "version": "current",
@@ -17,10 +17,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Enterprise Issuer",
-    "permalink": "/docs/docs/category/enterprise-issuer"
+    "permalink": "/wallet-docs/docs/category/enterprise-issuer"
   },
   "next": {
     "title": "Configuring an issuer",
-    "permalink": "/docs/docs/enterprise-issuer/configuring-issuer"
+    "permalink": "/wallet-docs/docs/enterprise-issuer/configuring-issuer"
   }
 }

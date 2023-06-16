@@ -6,7 +6,7 @@
   "source": "@site/docs/enterprise-wallet-core/01-application-setup.md",
   "sourceDirName": "enterprise-wallet-core",
   "slug": "/enterprise-wallet-core/application-setup",
-  "permalink": "/docs/docs/enterprise-wallet-core/application-setup",
+  "permalink": "/wallet-docs/docs/enterprise-wallet-core/application-setup",
   "draft": false,
   "tags": [],
   "version": "current",
@@ -17,10 +17,10 @@
   "sidebar": "tutorialSidebar",
   "previous": {
     "title": "Enterprise Wallet Core",
-    "permalink": "/docs/docs/category/enterprise-wallet-core"
+    "permalink": "/wallet-docs/docs/category/enterprise-wallet-core"
   },
   "next": {
     "title": "Specification",
-    "permalink": "/docs/docs/enterprise-wallet-core/specification"
+    "permalink": "/wallet-docs/docs/enterprise-wallet-core/specification"
   }
 }

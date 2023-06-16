@@ -11,10 +11,10 @@ const config = {
   favicon: 'img/ediplomasLogo.png',
 
   // Set the production url of your site here
-  url: 'https://your-docusaurus-test-site.com',
+  url: 'https://open.gunet.gr',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/docs/',
+  baseUrl: '/wallet-docs',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -69,7 +69,7 @@ const config = {
           {
             position: 'left',
             label: 'Documentation',
-						href: "/docs/docs/category/development-environment-setup"
+						href: "/wallet-docs/docs/category/development-environment-setup"
           },
           {
             href: 'https://github.com/gunet/wallet-start',
@@ -86,7 +86,7 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs/docs/category/development-environment-setup',
+                to: '/wallet-docs/docs/category/development-environment-setup',
               },
             ],
           },
