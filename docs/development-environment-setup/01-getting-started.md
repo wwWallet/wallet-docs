@@ -75,35 +75,49 @@ The steps we are going to follow are:
 In order for a wallet to be able to receive verifiable credentials from an Enterprise Issuer, it must first be registered
 as a Client to an Enterprise Issuer with a DID.
 
-In the `wallet-start/` directory, run the following commands:
+
+Login to the container:
+
 ```sh
-chmod +x $PWD/wallet-backend/cli/configwallet
-export PATH="$PWD/wallet-backend/cli:$PATH"
+docker exec -it dev-wallet-backend sh
+```
+
+Run the following command into the container:
+```sh
+cd cli/
+yarn install
 export DB_HOST="127.0.0.1"
 export DB_PORT="3307"
 export DB_USER="root"
 export DB_PASSWORD="root"
 export DB_NAME="wallet"
-configwallet create did -n admin -p sdfsdfewwerweweer  # this command will generate a key-pair and the JWK will be exposed in the /jwks endpoint.
+./configwallet.js create did -n admin -p sdfsdfewwerweweer  # this command will generate a key-pair and the JWK will be exposed in the /jwks endpoint.
 ```
 
-You can now use this generated DID on the `config/config.development.ts` as **providerDID**. By default it will be set to "admin"
+docker exec -it  dev-wallet-backend DB_HOST="127.0.0.1" cli/configwallet.js create did -n admin -p sdfsdfewwerweweer 
+
+The provider username must also be set on the `wallet-backend/config/config.development.ts` file
 
 
 
 ### Wallet: Register National VID Issuer as an Issuer in the Wallet Provider's private Trusted Issuers Registry
 
-In the `wallet-start/` directory, run the following commands:
+Login to the container:
 
 ```sh
-chmod +x $PWD/wallet-backend/cli/configwallet
-export PATH="$PWD/wallet-backend/cli:$PATH"
+docker exec -it dev-wallet-backend sh
+```
+
+and execute the following commands:
+
+```sh
+cd cli/
 export DB_HOST="127.0.0.1"
 export DB_PORT="3307"
 export DB_USER="root"
 export DB_PASSWORD="root"
 export DB_NAME="wallet"
-configwallet create issuer \
+./configwallet.js create issuer \
 	--friendlyName 'National VID Issuer' \
 	--url http://127.0.0.1:8003 \
 	--did did:ebsi:zyhE5cJ7VVqYT4gZmoKadFt \
@@ -112,17 +126,23 @@ configwallet create issuer \
 
 ### Wallet: Register the University of Athens as an Issuer in the Wallet Provider's private Trusted Issuers Registry
 
-In the `wallet-start/` directory, run the following commands:
+
+
+Login to the container:
 
 ```sh
-chmod +x $PWD/wallet-backend/cli/configwallet
-export PATH="$PWD/wallet-backend/cli:$PATH"
+docker exec -it dev-wallet-backend sh
+```
+
+```sh
+cd cli/
+yarn install
 export DB_HOST="127.0.0.1"
 export DB_PORT="3307"
 export DB_USER="root"
 export DB_PASSWORD="root"
 export DB_NAME="wallet"
-configwallet create issuer \
+./configwallet.js create issuer \
 	--friendlyName 'University of Athens' \
 	--url http://127.0.0.1:8000 \
 	--did did:ebsi:zpq1XFkNWgsGB6MuvJp21vA \
@@ -143,25 +163,28 @@ The `client_id` must be the DID of the Wallet Provider. `redirect_uri` must be t
 the `redirect_uri` will be a wallet mock server that we set up, but on production phase it will be "openid://". The `jwks_uri` is a URL in which all public keys of the wallet clients are available.
 :::
 
-On the `wallet-start/` directory, run the following commands:
 
+Login in the VID Issuer container:
 
 ```sh
-chmod +x $PWD/enterprise-vid-issuer/cli/configiss
-export PATH="$PWD/enterprise-vid-issuer/cli:$PATH"
+docker exec -it dev-enterprise-vid-issuer sh
+```
+and execute the following commands:
+
+```sh
+cd cli/
+yarn install
 export DB_HOST="127.0.0.1"
 export DB_PORT=3307
 export DB_USER=root
 export DB_PASSWORD=root
 export DB_NAME=vidissuer
-configiss client remove --client_id did:key:dsfddfdf233e
-configiss client create --client_id did:key:dsfddfdf233e --client_secret wallet-secret --redirect_uri http://127.0.0.1:7777 --jwks_uri http://127.0.0.1:8002/jwks
+./configiss.js client remove --client_id did:key:dsfddfdf233e
+./configiss.js client create --client_id did:key:dsfddfdf233e --client_secret wallet-secret --redirect_uri http://127.0.0.1:7777 --jwks_uri http://127.0.0.1:8002/jwks
 ```
 
 
 ### University of Athens Issuer: Register the Wallet Provider that we created as an OIDC client
-
-On the `wallet-start/` directory, run the following commands:
 
 
 :::note Warning
@@ -169,19 +192,24 @@ The `client_id` must be the DID of the Wallet Provider. `redirect_uri` must be t
 the `redirect_uri` will be a wallet mock server that we set up, but on production phase it will be "openid://". The `jwks_uri` is a URL in which all public keys of the wallet clients are available.
 :::
 
+Login in the Issuer container:
+
 ```sh
-chmod +x $PWD/enterprise-issuer/cli/configiss
-export PATH="$PWD/enterprise-issuer/cli:$PATH"
+docker exec -it dev-enterprise-issuer sh
+```
+and execute the following commands:
+
+```sh
+cd cli/
+yarn install
 export DB_HOST="127.0.0.1"
 export DB_PORT=3307
 export DB_USER=root
 export DB_PASSWORD=root
 export DB_NAME=issuer
-configiss client remove --client_id did:key:dsfddfdf233e
-configiss client create --client_id did:key:dsfddfdf233e --client_secret wallet-secret --redirect_uri http://127.0.0.1:7777 --jwks_uri http://127.0.0.1:8002/jwks
+./configiss.js client remove --client_id did:key:dsfddfdf233e
+./configiss.js client create --client_id did:key:dsfddfdf233e --client_secret wallet-secret --redirect_uri http://127.0.0.1:7777 --jwks_uri http://127.0.0.1:8002/jwks
 ```
-
-
 
 
 ### Enterprise Wallet Core: Create schemas and presentation definitions in order for the University of Athens Issuer to authenticate the users with VID
@@ -233,14 +261,19 @@ presentation_definitions:
 
 ```
 
-Run the following commands in `wallet-start/` directory in order to register the Schemas and Presentation Definitions:
+Login in the Enterprise Wallet Core container:
 
 ```sh
-chmod +x $PWD/enterprise-wallet-core/cli/configver
-export PATH="$PWD/enterprise-wallet-core/cli:$PATH"
+docker exec -it dev-enterprise-wallet-core sh
+```
+and execute the following commands:
+
+```sh
+cd cli/
+yarn install
 export SERVICE_URL=http://127.0.0.1:9000
 export ENTERPRISE_CORE_USER=""
 export ENTERPRISE_CORE_SECRET=""
-configver clear  # clear old configuration
-configver       # send the new configuration
+./configver.js clear  # clear old configuration
+./configver.js       # send the new configuration
 ```

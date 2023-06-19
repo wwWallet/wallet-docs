@@ -26,13 +26,13 @@ export default {
       "classic",
       {
         "docs": {
-          "sidebarPath": "/home/kkm/Desktop/Repositories/wallet-start/wallet-docs/sidebars.js"
+          "sidebarPath": "/home/kkm/Desktop/Repositories/wallet-docs/sidebars.js"
         },
         "blog": {
           "showReadingTime": true
         },
         "theme": {
-          "customCss": "/home/kkm/Desktop/Repositories/wallet-start/wallet-docs/src/css/custom.css"
+          "customCss": "/home/kkm/Desktop/Repositories/wallet-docs/src/css/custom.css"
         }
       }
     ]

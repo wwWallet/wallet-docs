@@ -1,0 +1,26 @@
+{
+  "unversionedId": "enterprise-wallet-core/getting-started",
+  "id": "enterprise-wallet-core/getting-started",
+  "title": "getting-started",
+  "description": "Hello here",
+  "source": "@site/docs/enterprise-wallet-core/getting-started.md",
+  "sourceDirName": "enterprise-wallet-core",
+  "slug": "/enterprise-wallet-core/getting-started",
+  "permalink": "/docs/docs/enterprise-wallet-core/getting-started",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Application Setup",
+    "permalink": "/docs/docs/enterprise-wallet-core/application-setup"
+  },
+  "next": {
+    "title": "Specification",
+    "permalink": "/docs/docs/enterprise-wallet-core/specification"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "unversionedId": "enterprise-issuer/specification",
+  "id": "enterprise-issuer/specification",
+  "title": "Specification",
+  "description": "TODO: Overview",
+  "source": "@site/docs/enterprise-issuer/specification.md",
+  "sourceDirName": "enterprise-issuer",
+  "slug": "/enterprise-issuer/specification",
+  "permalink": "/docs/docs/enterprise-issuer/specification",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Enterprise Issuer",
+    "permalink": "/docs/docs/category/enterprise-issuer"
+  },
+  "next": {
+    "title": "Getting started",
+    "permalink": "/docs/docs/enterprise-issuer/getting-started"
+  }
+}

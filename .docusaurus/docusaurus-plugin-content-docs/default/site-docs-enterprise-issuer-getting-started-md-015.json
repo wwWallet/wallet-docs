@@ -1,0 +1,26 @@
+{
+  "unversionedId": "enterprise-issuer/getting-started",
+  "id": "enterprise-issuer/getting-started",
+  "title": "Getting started",
+  "description": "(TODO: Polish) Setup your development environment on VS Code using Docker and wallet-start",
+  "source": "@site/docs/enterprise-issuer/getting-started.md",
+  "sourceDirName": "enterprise-issuer",
+  "slug": "/enterprise-issuer/getting-started",
+  "permalink": "/docs/docs/enterprise-issuer/getting-started",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Enterprise Issuer",
+    "permalink": "/docs/docs/category/enterprise-issuer"
+  },
+  "next": {
+    "title": "Application Setup",
+    "permalink": "/docs/docs/enterprise-issuer/application-setup"
+  }
+}

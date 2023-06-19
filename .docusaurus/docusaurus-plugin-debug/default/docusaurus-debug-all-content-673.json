@@ -9,13 +9,13 @@
           "badge": false,
           "noIndex": false,
           "className": "docs-version-current",
-          "path": "/docs/docs",
-          "tagsPath": "/docs/docs/tags",
+          "path": "/wallet-docs/docs",
+          "tagsPath": "/wallet-docs/docs/tags",
           "isLast": true,
           "routePriority": -1,
-          "sidebarFilePath": "/home/node/app/sidebars.js",
-          "contentPath": "/home/node/app/docs",
-          "contentPathLocalized": "/home/node/app/i18n/en/docusaurus-plugin-content-docs/current",
+          "sidebarFilePath": "/home/kkm/Desktop/Repositories/wallet-docs/sidebars.js",
+          "contentPath": "/home/kkm/Desktop/Repositories/wallet-docs/docs",
+          "contentPathLocalized": "/home/kkm/Desktop/Repositories/wallet-docs/i18n/en/docusaurus-plugin-content-docs/current",
           "docs": [
             {
               "unversionedId": "development-environment-setup/getting-started",
@@ -25,7 +25,7 @@
               "source": "@site/docs/development-environment-setup/01-getting-started.md",
               "sourceDirName": "development-environment-setup",
               "slug": "/development-environment-setup/getting-started",
-              "permalink": "/docs/docs/development-environment-setup/getting-started",
+              "permalink": "/wallet-docs/docs/development-environment-setup/getting-started",
               "draft": false,
               "tags": [],
               "version": "current",
@@ -36,11 +36,11 @@
               "sidebar": "tutorialSidebar",
               "previous": {
                 "title": "Development Environment Setup",
-                "permalink": "/docs/docs/category/development-environment-setup"
+                "permalink": "/wallet-docs/docs/category/development-environment-setup"
               },
               "next": {
                 "title": "Enterprise Issuer",
-                "permalink": "/docs/docs/category/enterprise-issuer"
+                "permalink": "/wallet-docs/docs/category/enterprise-issuer"
               }
             },
             {
@@ -51,7 +51,7 @@
               "source": "@site/docs/enterprise-issuer/01-application-setup.md",
               "sourceDirName": "enterprise-issuer",
               "slug": "/enterprise-issuer/application-setup",
-              "permalink": "/docs/docs/enterprise-issuer/application-setup",
+              "permalink": "/wallet-docs/docs/enterprise-issuer/application-setup",
               "draft": false,
               "tags": [],
               "version": "current",
@@ -62,11 +62,11 @@
               "sidebar": "tutorialSidebar",
               "previous": {
                 "title": "Enterprise Issuer",
-                "permalink": "/docs/docs/category/enterprise-issuer"
+                "permalink": "/wallet-docs/docs/category/enterprise-issuer"
               },
               "next": {
                 "title": "Configuring an issuer",
-                "permalink": "/docs/docs/enterprise-issuer/configuring-issuer"
+                "permalink": "/wallet-docs/docs/enterprise-issuer/configuring-issuer"
               }
             },
             {
@@ -77,7 +77,7 @@
               "source": "@site/docs/enterprise-issuer/04-authentication.md",
               "sourceDirName": "enterprise-issuer",
               "slug": "/enterprise-issuer/authentication",
-              "permalink": "/docs/docs/enterprise-issuer/authentication",
+              "permalink": "/wallet-docs/docs/enterprise-issuer/authentication",
               "draft": false,
               "tags": [],
               "version": "current",
@@ -88,11 +88,11 @@
               "sidebar": "tutorialSidebar",
               "previous": {
                 "title": "Configuring the supported credentials for an issuer",
-                "permalink": "/docs/docs/enterprise-issuer/configuring-credentials"
+                "permalink": "/wallet-docs/docs/enterprise-issuer/configuring-credentials"
               },
               "next": {
                 "title": "Enterprise Wallet Core",
-                "permalink": "/docs/docs/category/enterprise-wallet-core"
+                "permalink": "/wallet-docs/docs/category/enterprise-wallet-core"
               }
             },
             {
@@ -103,7 +103,7 @@
               "source": "@site/docs/enterprise-issuer/03-configuring-credentials.md",
               "sourceDirName": "enterprise-issuer",
               "slug": "/enterprise-issuer/configuring-credentials",
-              "permalink": "/docs/docs/enterprise-issuer/configuring-credentials",
+              "permalink": "/wallet-docs/docs/enterprise-issuer/configuring-credentials",
               "draft": false,
               "tags": [],
               "version": "current",
@@ -114,11 +114,11 @@
               "sidebar": "tutorialSidebar",
               "previous": {
                 "title": "Configuring an issuer",
-                "permalink": "/docs/docs/enterprise-issuer/configuring-issuer"
+                "permalink": "/wallet-docs/docs/enterprise-issuer/configuring-issuer"
               },
               "next": {
                 "title": "Configuring the authentication mechanism",
-                "permalink": "/docs/docs/enterprise-issuer/authentication"
+                "permalink": "/wallet-docs/docs/enterprise-issuer/authentication"
               }
             },
             {
@@ -129,7 +129,7 @@
               "source": "@site/docs/enterprise-issuer/02-configuring-issuer.md",
               "sourceDirName": "enterprise-issuer",
               "slug": "/enterprise-issuer/configuring-issuer",
-              "permalink": "/docs/docs/enterprise-issuer/configuring-issuer",
+              "permalink": "/wallet-docs/docs/enterprise-issuer/configuring-issuer",
               "draft": false,
               "tags": [],
               "version": "current",
@@ -140,11 +140,11 @@
               "sidebar": "tutorialSidebar",
               "previous": {
                 "title": "Application Setup",
-                "permalink": "/docs/docs/enterprise-issuer/application-setup"
+                "permalink": "/wallet-docs/docs/enterprise-issuer/application-setup"
               },
               "next": {
                 "title": "Configuring the supported credentials for an issuer",
-                "permalink": "/docs/docs/enterprise-issuer/configuring-credentials"
+                "permalink": "/wallet-docs/docs/enterprise-issuer/configuring-credentials"
               }
             },
             {
@@ -155,7 +155,7 @@
               "source": "@site/docs/enterprise-wallet-core/01-application-setup.md",
               "sourceDirName": "enterprise-wallet-core",
               "slug": "/enterprise-wallet-core/application-setup",
-              "permalink": "/docs/docs/enterprise-wallet-core/application-setup",
+              "permalink": "/wallet-docs/docs/enterprise-wallet-core/application-setup",
               "draft": false,
               "tags": [],
               "version": "current",
@@ -166,11 +166,11 @@
               "sidebar": "tutorialSidebar",
               "previous": {
                 "title": "Enterprise Wallet Core",
-                "permalink": "/docs/docs/category/enterprise-wallet-core"
+                "permalink": "/wallet-docs/docs/category/enterprise-wallet-core"
               },
               "next": {
                 "title": "Specification",
-                "permalink": "/docs/docs/enterprise-wallet-core/specification"
+                "permalink": "/wallet-docs/docs/enterprise-wallet-core/specification"
               }
             },
             {
@@ -181,7 +181,7 @@
               "source": "@site/docs/enterprise-wallet-core/02-specification.md",
               "sourceDirName": "enterprise-wallet-core",
               "slug": "/enterprise-wallet-core/specification",
-              "permalink": "/docs/docs/enterprise-wallet-core/specification",
+              "permalink": "/wallet-docs/docs/enterprise-wallet-core/specification",
               "draft": false,
               "tags": [],
               "version": "current",
@@ -192,11 +192,11 @@
               "sidebar": "tutorialSidebar",
               "previous": {
                 "title": "Application Setup",
-                "permalink": "/docs/docs/enterprise-wallet-core/application-setup"
+                "permalink": "/wallet-docs/docs/enterprise-wallet-core/application-setup"
               },
               "next": {
                 "title": "Showcase",
-                "permalink": "/docs/docs/category/showcase"
+                "permalink": "/wallet-docs/docs/category/showcase"
               }
             },
             {
@@ -207,7 +207,7 @@
               "source": "@site/docs/showcase/showcase.md",
               "sourceDirName": "showcase",
               "slug": "/showcase/",
-              "permalink": "/docs/docs/showcase/",
+              "permalink": "/wallet-docs/docs/showcase/",
               "draft": false,
               "tags": [],
               "version": "current",
@@ -218,7 +218,7 @@
               "sidebar": "tutorialSidebar",
               "previous": {
                 "title": "Showcase",
-                "permalink": "/docs/docs/category/showcase"
+                "permalink": "/wallet-docs/docs/category/showcase"
               }
             }
           ],
@@ -240,7 +240,7 @@
                   "type": "generated-index",
                   "description": "Guidelines for setting up  the development environment",
                   "slug": "/category/development-environment-setup",
-                  "permalink": "/docs/docs/category/development-environment-setup"
+                  "permalink": "/wallet-docs/docs/category/development-environment-setup"
                 }
               },
               {
@@ -270,7 +270,7 @@
                   "type": "generated-index",
                   "description": "Describing the architecture and setup of the Enterprise Issuer",
                   "slug": "/category/enterprise-issuer",
-                  "permalink": "/docs/docs/category/enterprise-issuer"
+                  "permalink": "/wallet-docs/docs/category/enterprise-issuer"
                 }
               },
               {
@@ -292,7 +292,7 @@
                   "type": "generated-index",
                   "description": "Describing the architecture and use cases of the Enterprise Wallet Core with examples",
                   "slug": "/category/enterprise-wallet-core",
-                  "permalink": "/docs/docs/category/enterprise-wallet-core"
+                  "permalink": "/wallet-docs/docs/category/enterprise-wallet-core"
                 }
               },
               {
@@ -310,7 +310,7 @@
                   "type": "generated-index",
                   "description": "Showcase the flows",
                   "slug": "/category/showcase",
-                  "permalink": "/docs/docs/category/showcase"
+                  "permalink": "/wallet-docs/docs/category/showcase"
                 }
               }
             ]
@@ -325,7 +325,7 @@
       "blogPosts": [],
       "blogListPaginated": [],
       "blogTags": {},
-      "blogTagsListPath": "/docs/blog/tags",
+      "blogTagsListPath": "/wallet-docs/blog/tags",
       "blogTagsPaginated": []
     }
   },
@@ -333,12 +333,12 @@
     "default": [
       {
         "type": "jsx",
-        "permalink": "/docs/",
+        "permalink": "/wallet-docs/",
         "source": "@site/src/pages/index.js"
       },
       {
         "type": "mdx",
-        "permalink": "/docs/markdown-page",
+        "permalink": "/wallet-docs/markdown-page",
         "source": "@site/src/pages/markdown-page.md",
         "title": "Markdown page example",
         "description": "You don't need React to write simple standalone pages.",

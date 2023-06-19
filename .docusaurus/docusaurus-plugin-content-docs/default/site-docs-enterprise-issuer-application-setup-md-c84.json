@@ -1,0 +1,26 @@
+{
+  "unversionedId": "enterprise-issuer/application-setup",
+  "id": "enterprise-issuer/application-setup",
+  "title": "Application Setup",
+  "description": "Setup the issuer application for development",
+  "source": "@site/docs/enterprise-issuer/application-setup.md",
+  "sourceDirName": "enterprise-issuer",
+  "slug": "/enterprise-issuer/application-setup",
+  "permalink": "/docs/docs/enterprise-issuer/application-setup",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Getting started",
+    "permalink": "/docs/docs/enterprise-issuer/getting-started"
+  },
+  "next": {
+    "title": "Configuring an issuer",
+    "permalink": "/docs/docs/enterprise-issuer/configuring-issuer"
+  }
+}

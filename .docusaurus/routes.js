@@ -3,13 +3,48 @@ import ComponentCreator from '@docusaurus/ComponentCreator';
 
 export default [
   {
+    path: '/wallet-docs/__docusaurus/debug',
+    component: ComponentCreator('/wallet-docs/__docusaurus/debug', '6f6'),
+    exact: true
+  },
+  {
+    path: '/wallet-docs/__docusaurus/debug/config',
+    component: ComponentCreator('/wallet-docs/__docusaurus/debug/config', '494'),
+    exact: true
+  },
+  {
+    path: '/wallet-docs/__docusaurus/debug/content',
+    component: ComponentCreator('/wallet-docs/__docusaurus/debug/content', 'd4d'),
+    exact: true
+  },
+  {
+    path: '/wallet-docs/__docusaurus/debug/globalData',
+    component: ComponentCreator('/wallet-docs/__docusaurus/debug/globalData', 'aff'),
+    exact: true
+  },
+  {
+    path: '/wallet-docs/__docusaurus/debug/metadata',
+    component: ComponentCreator('/wallet-docs/__docusaurus/debug/metadata', '5b4'),
+    exact: true
+  },
+  {
+    path: '/wallet-docs/__docusaurus/debug/registry',
+    component: ComponentCreator('/wallet-docs/__docusaurus/debug/registry', 'cb0'),
+    exact: true
+  },
+  {
+    path: '/wallet-docs/__docusaurus/debug/routes',
+    component: ComponentCreator('/wallet-docs/__docusaurus/debug/routes', '485'),
+    exact: true
+  },
+  {
     path: '/wallet-docs/markdown-page',
-    component: ComponentCreator('/wallet-docs/markdown-page', '181'),
+    component: ComponentCreator('/wallet-docs/markdown-page', '975'),
     exact: true
   },
   {
     path: '/wallet-docs/docs',
-    component: ComponentCreator('/wallet-docs/docs', '2ee'),
+    component: ComponentCreator('/wallet-docs/docs', 'fa4'),
     routes: [
       {
         path: '/wallet-docs/docs/category/development-environment-setup',
@@ -87,7 +122,7 @@ export default [
   },
   {
     path: '/wallet-docs/',
-    component: ComponentCreator('/wallet-docs/', '99f'),
+    component: ComponentCreator('/wallet-docs/', 'fbd'),
     exact: true
   },
   {
