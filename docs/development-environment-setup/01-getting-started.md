@@ -160,7 +160,7 @@ Now that the DID of the Wallet Provider has been generated, the Wallet Provider 
 
 :::note Warning
 The `client_id` must be the DID of the Wallet Provider. `redirect_uri` must be the URI which points to the wallet client. For demonstration purposes,
-the `redirect_uri` will be a wallet mock server that we set up, but on production phase it will be "openid://". The `jwks_uri` is a URL in which all public keys of the wallet clients are available.
+the `redirect_uri` will be a wallet mock server that we set up, but on production phase it will be "openid://cb". The `jwks_uri` is a URL in which all public keys of the wallet clients are available.
 :::
 
 
@@ -189,7 +189,7 @@ export DB_NAME=vidissuer
 
 :::note Warning
 The `client_id` must be the DID of the Wallet Provider. `redirect_uri` must be the URI which points to the wallet client. For demonstration purposes,
-the `redirect_uri` will be a wallet mock server that we set up, but on production phase it will be "openid://". The `jwks_uri` is a URL in which all public keys of the wallet clients are available.
+the `redirect_uri` will be a wallet mock server that we set up, but on production phase it will be "openid://cb". The `jwks_uri` is a URL in which all public keys of the wallet clients are available.
 :::
 
 Login in the Issuer container:
