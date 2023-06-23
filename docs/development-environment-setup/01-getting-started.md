@@ -150,66 +150,8 @@ export DB_NAME="wallet"
 ```
 
 
-
-
 The `client_id` and `did` must be the DID of the issuer
 
-Now that the DID of the Wallet Provider has been generated, the Wallet Provider must provide this DID through a secure off-bound process to an Enterprise Issuer who will trust client assertions issued with the corresponding public key in the /jwks endpoint.
-
-### National VID Issuer: Register the Wallet Provider that we created as an OIDC client
-
-:::note Warning
-The `client_id` must be the DID of the Wallet Provider. `redirect_uri` must be the URI which points to the wallet client. For demonstration purposes,
-the `redirect_uri` will be a wallet mock server that we set up, but on production phase it will be "openid://cb". The `jwks_uri` is a URL in which all public keys of the wallet clients are available.
-:::
-
-
-Login in the VID Issuer container:
-
-```sh
-docker exec -it dev-enterprise-vid-issuer sh
-```
-and execute the following commands:
-
-```sh
-cd cli/
-yarn install
-export DB_HOST="127.0.0.1"
-export DB_PORT=3307
-export DB_USER=root
-export DB_PASSWORD=root
-export DB_NAME=vidissuer
-./configiss.js client remove --client_id did:key:dsfddfdf233e
-./configiss.js client create --client_id did:key:dsfddfdf233e --client_secret wallet-secret --redirect_uri http://127.0.0.1:7777 --jwks_uri http://127.0.0.1:8002/jwks
-```
-
-
-### University of Athens Issuer: Register the Wallet Provider that we created as an OIDC client
-
-
-:::note Warning
-The `client_id` must be the DID of the Wallet Provider. `redirect_uri` must be the URI which points to the wallet client. For demonstration purposes,
-the `redirect_uri` will be a wallet mock server that we set up, but on production phase it will be "openid://cb". The `jwks_uri` is a URL in which all public keys of the wallet clients are available.
-:::
-
-Login in the Issuer container:
-
-```sh
-docker exec -it dev-enterprise-issuer sh
-```
-and execute the following commands:
-
-```sh
-cd cli/
-yarn install
-export DB_HOST="127.0.0.1"
-export DB_PORT=3307
-export DB_USER=root
-export DB_PASSWORD=root
-export DB_NAME=issuer
-./configiss.js client remove --client_id did:key:dsfddfdf233e
-./configiss.js client create --client_id did:key:dsfddfdf233e --client_secret wallet-secret --redirect_uri http://127.0.0.1:7777 --jwks_uri http://127.0.0.1:8002/jwks
-```
 
 
 ### Enterprise Wallet Core: Create schemas and presentation definitions in order for the University of Athens Issuer to authenticate the users with VID
@@ -289,4 +231,4 @@ After setting up the whole ecosystem, then you can follow the steps described be
 5. Initiate the flow of Diploma Issuance by selecting the eDiplomas Credential Issuer from the http://127.0.0.1:7777 location.
 6. The eDiplomas Credential Issuer will request the VID of the end-user.
 7. After the user has selected the VID to be sent, the University of Athens will receive the VID and trust it because it was issued by the National VID Issuer who is supposed to be registered on the EBSI Trusted Issuers Registry and have received the corresponding accreditations from a governmental body (Ministry). The eDiplomas Credential Issuer will utilize the personalIdentifier from the VID to query the Resource Server to find the diplomas of the end-user (holder).
-8. After the end-user has selected the diplomas to be sent to the wallet, the user will end up in the location http://127.0.0.1:7777. After refreshing the page, the diplomas will appear on the screen.
+8. After the end-user has selected the diplomas to be sent to the wallet, the user will end up in the location http://127.0.0.1:7777. After refreshing the page, the new diplomas will appear on the screen.
