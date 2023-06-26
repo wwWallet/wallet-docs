@@ -8,9 +8,6 @@ sidebar_position: 1
 ## Prerequisites
 
 - Docker & Docker Compose
-- Visual Studio Code
-- Docker VSCode extension
-- Dev Containers VSCode extension
 
 
 ## Start the ecosystem
@@ -48,8 +45,6 @@ To shut down the ecosystem run the following command:
 ./ecosystem.sh down
 ```
 
-5. After the containers are up, enter a container using `Ctrl+Shift+P >Dev Containers: Attach to Running Container` vscode command and selecting a dev container
-6. Move new VSCode workspace to the Work Directory folder (evident in development.Dockerfile), usually `/home/node/app`.
 
 
 
@@ -62,41 +57,12 @@ For demonstration purposes, we are going to set up a small ecosystem with:
 
 The steps we are going to follow are:
 
-1. [Wallet: Create a Wallet Provider DID](#create-a-wallet-provider-did)
-2. [Wallet: Register National VID Issuer as an Issuer in the Wallet Provider's private Trusted Issuers Registry](#wallet-register-national-vid-issuer-as-an-issuer-in-the-wallet-providers-private-trusted-issuers-registry)
-3. [Wallet: Register the University of Athens as an Issuer in the Wallet Provider's private Trusted Issuers Registry](#wallet-register-the-university-of-athens-as-an-issuer-in-the-wallet-providers-private-trusted-issuers-registry)
+1. [Wallet: Register National VID Issuer as an Issuer in the Wallet Provider's private Trusted Issuers Registry](#wallet-register-national-vid-issuer-as-an-issuer-in-the-wallet-providers-private-trusted-issuers-registry)
+2. [Wallet: Register the University of Athens as an Issuer in the Wallet Provider's private Trusted Issuers Registry](#wallet-register-the-university-of-athens-as-an-issuer-in-the-wallet-providers-private-trusted-issuers-registry)
 
-4. [National VID Issuer: Register the Wallet Provider that we created as an OIDC client](#national-vid-issuer-register-the-wallet-provider-that-we-created-as-an-oidc-client)
-5. [University of Athens Issuer: Register the Wallet Provider that we created as an OIDC client](#university-of-athens-issuer-register-the-wallet-provider-that-we-created-as-an-oidc-client)
-6. [Enterprise Wallet Core: Create schemas and presentation definitions in order for the University of Athens Issuer to authenticate the users with VID](#enterprise-wallet-core-create-schemas-and-presentation-definitions-in-order-for-the-university-of-athens-issuer-to-authenticate-the-users-with-vid)
-
-### Wallet: Create a Wallet Provider DID
-
-In order for a wallet to be able to receive verifiable credentials from an Enterprise Issuer, it must first be registered
-as a Client to an Enterprise Issuer with a DID.
-
-
-Login to the container:
-
-```sh
-docker exec -it dev-wallet-backend sh
-```
-
-Run the following command into the container:
-```sh
-cd cli/
-yarn install
-export DB_HOST="127.0.0.1"
-export DB_PORT="3307"
-export DB_USER="root"
-export DB_PASSWORD="root"
-export DB_NAME="wallet"
-./configwallet.js create did -n admin -p sdfsdfewwerweweer  # this command will generate a key-pair and the JWK will be exposed in the /jwks endpoint.
-```
-
-docker exec -it  dev-wallet-backend DB_HOST="127.0.0.1" cli/configwallet.js create did -n admin -p sdfsdfewwerweweer 
-
-The provider username must also be set on the `wallet-backend/config/config.development.ts` file
+3. [National VID Issuer: Register the Wallet Provider that we created as an OIDC client](#national-vid-issuer-register-the-wallet-provider-that-we-created-as-an-oidc-client)
+4. [University of Athens Issuer: Register the Wallet Provider that we created as an OIDC client](#university-of-athens-issuer-register-the-wallet-provider-that-we-created-as-an-oidc-client)
+5. [Enterprise Wallet Core: Create schemas and presentation definitions in order for the University of Athens Issuer to authenticate the users with VID](#enterprise-wallet-core-create-schemas-and-presentation-definitions-in-order-for-the-university-of-athens-issuer-to-authenticate-the-users-with-vid)
 
 
 
