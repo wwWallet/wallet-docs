@@ -1,0 +1,26 @@
+{
+  "unversionedId": "development-environment-setup/ecoystem-diagram",
+  "id": "development-environment-setup/ecoystem-diagram",
+  "title": "Ecosystem components",
+  "description": "Container diagram",
+  "source": "@site/docs/development-environment-setup/02-ecoystem-diagram.md",
+  "sourceDirName": "development-environment-setup",
+  "slug": "/development-environment-setup/ecoystem-diagram",
+  "permalink": "/wallet-docs/docs/development-environment-setup/ecoystem-diagram",
+  "draft": false,
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "tutorialSidebar",
+  "previous": {
+    "title": "Getting started",
+    "permalink": "/wallet-docs/docs/development-environment-setup/getting-started"
+  },
+  "next": {
+    "title": "Enterprise Issuer",
+    "permalink": "/wallet-docs/docs/category/enterprise-issuer"
+  }
+}

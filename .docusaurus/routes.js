@@ -44,7 +44,7 @@ export default [
   },
   {
     path: '/wallet-docs/docs',
-    component: ComponentCreator('/wallet-docs/docs', 'fa4'),
+    component: ComponentCreator('/wallet-docs/docs', 'e03'),
     routes: [
       {
         path: '/wallet-docs/docs/category/development-environment-setup',
@@ -67,6 +67,12 @@ export default [
       {
         path: '/wallet-docs/docs/category/showcase',
         component: ComponentCreator('/wallet-docs/docs/category/showcase', 'e76'),
+        exact: true,
+        sidebar: "tutorialSidebar"
+      },
+      {
+        path: '/wallet-docs/docs/development-environment-setup/ecoystem-diagram',
+        component: ComponentCreator('/wallet-docs/docs/development-environment-setup/ecoystem-diagram', 'f08'),
         exact: true,
         sidebar: "tutorialSidebar"
       },

@@ -1,0 +1,174 @@
+<svg version="1.1" baseProfile="full" width="886.3" height="300.0" viewbox="0 0 886.25 300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:ev="http://www.w3.org/2001/xml-events">
+	<desc >[Wallet Backend]
+	[OpenID4VP Protocol]
+	[OpenID4VCI Protocol]
+	[Wallet Mobile]
+	[Enterprise Issuer REST Service]
+	[Enterprise Wallet Core REST Service]
+	[National VID Issuer]
+	[eDiplomas Issuer]
+	[ssi-pack NPM package]
+	
+	
+	[Wallet Backend]--&gt;[OpenID4VP Protocol]
+	
+	[Wallet Backend]--&gt;[OpenID4VCI Protocol]
+	[Wallet Backend]--&gt;[ssi-pack NPM package]
+	
+	[Wallet Mobile]&lt;--&gt;[Wallet Backend]
+	
+	[National VID Issuer]--&gt;[Enterprise Issuer REST Service]
+	[eDiplomas Issuer]--&gt;[Enterprise Issuer REST Service]
+	
+	
+	[Enterprise Issuer REST Service]--&gt;[Enterprise Wallet Core REST Service]
+	[Enterprise Issuer REST Service]--&gt;[ssi-pack NPM package]
+	[Enterprise Wallet Core REST Service]--&gt;[ssi-pack NPM package]</desc>
+	<g stroke-width="1.0" text-align="left" font="12pt Helvetica, Arial, sans-serif" font-size="12pt" font-family="Helvetica" font-weight="bold" font-style="normal">
+		<g font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" stroke-width="3.0" stroke-linejoin="round" stroke-linecap="round" stroke="#33322E">
+			<g stroke="transparent" fill="transparent">
+				<rect x="0.0" y="0.0" height="300.0" width="886.3" stroke="none"></rect>
+			</g>
+			<g transform="translate(8, 8)" fill="#33322E">
+				<g transform="translate(20, 20)" fill="#33322E" font-family="Helvetica" font-size="12pt" font-weight="normal" font-style="normal">
+					<g stroke-dasharray="6 6">
+						<path d="M227.8 169.3 L89 193 L89 206.33333333333334 L89.0 206.3 " fill="none"></path>
+					</g>
+					<path d="M83.7 199.7 L89.0 206.3 L94.3 199.7 L89.0 213.0 Z"></path>
+					<g stroke-dasharray="6 6">
+						<path d="M302.8 173.0 L310 193 L310 206.33333333333334 L310.0 206.3 " fill="none"></path>
+					</g>
+					<path d="M304.7 199.7 L310.0 206.3 L315.3 199.7 L310.0 213.0 Z"></path>
+					<g stroke-dasharray="6 6">
+						<path d="M353.1 173.0 L425.25 193 L492.89825157656617 211.26245574880684 L492.9 211.3 " fill="none"></path>
+					</g>
+					<path d="M485.1 214.7 L492.9 211.3 L487.9 204.4 L499.3 213.0 Z"></path>
+					<g stroke-dasharray="6 6">
+						<path d="M297.3 108.7 L297.25 122 L297.25 135.33333333333334 L297.3 135.3 " fill="none"></path>
+					</g>
+					<path d="M291.9 128.7 L297.3 135.3 L302.6 128.7 L297.3 142.0 Z"></path>
+					<path d="M302.6 115.3 L297.3 108.7 L291.9 115.3 L297.3 102.0 Z"></path>
+					<g stroke-dasharray="6 6">
+						<path d="M553.3 31.0 L553.25 51 L614.6026171690157 69.11241504781752 L614.6 69.1 " fill="none"></path>
+					</g>
+					<path d="M606.7 72.3 L614.6 69.1 L609.7 62.1 L621.0 71.0 Z"></path>
+					<g stroke-dasharray="6 6">
+						<path d="M753.8 31.0 L753.75 51 L714.6354995193467 68.30298775156626 L714.6 68.3 " fill="none"></path>
+					</g>
+					<path d="M718.6 60.7 L714.6 68.3 L722.9 70.5 L708.5 71.0 Z"></path>
+					<g stroke-dasharray="6 6">
+						<path d="M624.1 102.0 L560.25 122 L560.25 135.33333333333334 L560.3 135.3 " fill="none"></path>
+					</g>
+					<path d="M554.9 128.7 L560.3 135.3 L565.6 128.7 L560.3 142.0 Z"></path>
+					<g stroke-dasharray="6 6">
+						<path d="M708.5 102.0 L753.75 122 L753.75 157.5 L753.75 157.5 L753.75 193 L753.75 193 L649.325074272914 211.81768966147996 L649.3 211.8 " fill="none"></path>
+					</g>
+					<path d="M654.9 205.4 L649.3 211.8 L656.8 215.9 L642.8 213.0 Z"></path>
+					<g stroke-dasharray="6 6">
+						<path d="M560.3 173.0 L560.25 193 L558.9322746479924 206.36549999893478 L558.9 206.4 " fill="none"></path>
+					</g>
+					<path d="M554.3 199.2 L558.9 206.4 L564.9 200.3 L558.3 213.0 Z"></path>
+					<g data-name="Wallet Backend">
+						<g fill="#eee8d5" stroke="#33322E" data-name="Wallet Backend">
+							<rect x="227.8" y="142.0" height="31.0" width="139.0" data-name="Wallet Backend"></rect>
+						</g>
+						<g transform="translate(227.75, 142)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Wallet Backend">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Wallet Backend">
+								<text x="61.5" y="13.5" stroke="none" text-anchor="middle" data-name="Wallet Backend">Wallet Backend</text>
+								
+							</g>
+						</g>
+					</g>
+					<g data-name="OpenID4VP Protocol">
+						<g fill="#eee8d5" stroke="#33322E" data-name="OpenID4VP Protocol">
+							<rect x="0.0" y="213.0" height="31.0" width="178.0" data-name="OpenID4VP Protocol"></rect>
+						</g>
+						<g transform="translate(0, 213)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="OpenID4VP Protocol">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="OpenID4VP Protocol">
+								<text x="81.0" y="13.5" stroke="none" text-anchor="middle" data-name="OpenID4VP Protocol">OpenID4VP Protocol</text>
+								
+							</g>
+						</g>
+					</g>
+					<g data-name="OpenID4VCI Protocol">
+						<g fill="#eee8d5" stroke="#33322E" data-name="OpenID4VCI Protocol">
+							<rect x="218.0" y="213.0" height="31.0" width="184.0" data-name="OpenID4VCI Protocol"></rect>
+						</g>
+						<g transform="translate(218, 213)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="OpenID4VCI Protocol">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="OpenID4VCI Protocol">
+								<text x="84.0" y="13.5" stroke="none" text-anchor="middle" data-name="OpenID4VCI Protocol">OpenID4VCI Protocol</text>
+								
+							</g>
+						</g>
+					</g>
+					<g data-name="Wallet Mobile">
+						<g fill="#eee8d5" stroke="#33322E" data-name="Wallet Mobile">
+							<rect x="236.3" y="71.0" height="31.0" width="122.0" data-name="Wallet Mobile"></rect>
+						</g>
+						<g transform="translate(236.25, 71)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Wallet Mobile">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Wallet Mobile">
+								<text x="53.0" y="13.5" stroke="none" text-anchor="middle" data-name="Wallet Mobile">Wallet Mobile</text>
+								
+							</g>
+						</g>
+					</g>
+					<g data-name="Enterprise Issuer REST Service">
+						<g fill="#eee8d5" stroke="#33322E" data-name="Enterprise Issuer REST Service">
+							<rect x="541.5" y="71.0" height="31.0" width="264.0" data-name="Enterprise Issuer REST Service"></rect>
+						</g>
+						<g transform="translate(541.5, 71)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Enterprise Issuer REST Service">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Enterprise Issuer REST Service">
+								<text x="124.0" y="13.5" stroke="none" text-anchor="middle" data-name="Enterprise Issuer REST Service">Enterprise Issuer REST Service</text>
+								
+							</g>
+						</g>
+					</g>
+					<g data-name="Enterprise Wallet Core REST Service">
+						<g fill="#eee8d5" stroke="#33322E" data-name="Enterprise Wallet Core REST Service">
+							<rect x="406.8" y="142.0" height="31.0" width="307.0" data-name="Enterprise Wallet Core REST Service"></rect>
+						</g>
+						<g transform="translate(406.75, 142)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="Enterprise Wallet Core REST Service">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="Enterprise Wallet Core REST Service">
+								<text x="145.5" y="13.5" stroke="none" text-anchor="middle" data-name="Enterprise Wallet Core REST Service">Enterprise Wallet Core REST Service</text>
+								
+							</g>
+						</g>
+					</g>
+					<g data-name="National VID Issuer">
+						<g fill="#eee8d5" stroke="#33322E" data-name="National VID Issuer">
+							<rect x="469.3" y="0.0" height="31.0" width="168.0" data-name="National VID Issuer"></rect>
+						</g>
+						<g transform="translate(469.25, 0)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="National VID Issuer">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="National VID Issuer">
+								<text x="76.0" y="13.5" stroke="none" text-anchor="middle" data-name="National VID Issuer">National VID Issuer</text>
+								
+							</g>
+						</g>
+					</g>
+					<g data-name="eDiplomas Issuer">
+						<g fill="#eee8d5" stroke="#33322E" data-name="eDiplomas Issuer">
+							<rect x="677.3" y="0.0" height="31.0" width="153.0" data-name="eDiplomas Issuer"></rect>
+						</g>
+						<g transform="translate(677.25, 0)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="eDiplomas Issuer">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="eDiplomas Issuer">
+								<text x="68.5" y="13.5" stroke="none" text-anchor="middle" data-name="eDiplomas Issuer">eDiplomas Issuer</text>
+								
+							</g>
+						</g>
+					</g>
+					<g data-name="ssi-pack NPM package">
+						<g fill="#eee8d5" stroke="#33322E" data-name="ssi-pack NPM package">
+							<rect x="458.3" y="213.0" height="31.0" width="197.0" data-name="ssi-pack NPM package"></rect>
+						</g>
+						<g transform="translate(458.25, 213)" font-family="Helvetica" font-size="12pt" font-weight="bold" font-style="normal" data-name="ssi-pack NPM package">
+							<g transform="translate(8, 8)" fill="#33322E" text-align="center" data-name="ssi-pack NPM package">
+								<text x="90.5" y="13.5" stroke="none" text-anchor="middle" data-name="ssi-pack NPM package">ssi-pack NPM package</text>
+								
+							</g>
+						</g>
+					</g>
+				</g>
+			</g>
+		</g>
+	</g>
+</svg>

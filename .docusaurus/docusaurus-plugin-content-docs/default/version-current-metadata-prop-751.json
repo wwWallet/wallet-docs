@@ -20,6 +20,12 @@
             "label": "Getting started",
             "href": "/wallet-docs/docs/development-environment-setup/getting-started",
             "docId": "development-environment-setup/getting-started"
+          },
+          {
+            "type": "link",
+            "label": "Ecosystem components",
+            "href": "/wallet-docs/docs/development-environment-setup/ecoystem-diagram",
+            "docId": "development-environment-setup/ecoystem-diagram"
           }
         ],
         "href": "/wallet-docs/docs/category/development-environment-setup"
@@ -96,6 +102,12 @@
     ]
   },
   "docs": {
+    "development-environment-setup/ecoystem-diagram": {
+      "id": "development-environment-setup/ecoystem-diagram",
+      "title": "Ecosystem components",
+      "description": "Container diagram",
+      "sidebar": "tutorialSidebar"
+    },
     "development-environment-setup/getting-started": {
       "id": "development-environment-setup/getting-started",
       "title": "Getting started",

@@ -11,6 +11,11 @@
           "mainDocId": "development-environment-setup/getting-started",
           "docs": [
             {
+              "id": "development-environment-setup/ecoystem-diagram",
+              "path": "/wallet-docs/docs/development-environment-setup/ecoystem-diagram",
+              "sidebar": "tutorialSidebar"
+            },
+            {
               "id": "development-environment-setup/getting-started",
               "path": "/wallet-docs/docs/development-environment-setup/getting-started",
               "sidebar": "tutorialSidebar"

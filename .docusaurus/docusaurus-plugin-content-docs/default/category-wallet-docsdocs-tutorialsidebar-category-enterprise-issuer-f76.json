@@ -5,8 +5,8 @@
   "permalink": "/wallet-docs/docs/category/enterprise-issuer",
   "navigation": {
     "previous": {
-      "title": "Getting started",
-      "permalink": "/wallet-docs/docs/development-environment-setup/getting-started"
+      "title": "Ecosystem components",
+      "permalink": "/wallet-docs/docs/development-environment-setup/ecoystem-diagram"
     },
     "next": {
       "title": "Application Setup",
