@@ -2,7 +2,7 @@
   "unversionedId": "showcase/showcase",
   "id": "showcase/showcase",
   "title": "Showcase",
-  "description": "TODO: Add videos",
+  "description": "Same Device Flow (Mobile)",
   "source": "@site/docs/showcase/showcase.md",
   "sourceDirName": "showcase",
   "slug": "/showcase/",
