@@ -11,7 +11,7 @@ const FeatureList = [
 		),
     description: (
       <>
-        The Enterprise Wallet Core service was designed to work as an abstraction layer for the
+        The Enterprise Verifier Core service was designed to work as an abstraction layer for the
 				devolopers embracing the EBSI ecosystem.
       </>
     ),

@@ -12,11 +12,11 @@ sidebar_position: 1
 
 ## Start the ecosystem
 
-1. Clone wallet-start repository
+1. Clone wallet-ecosystem repository
 ```sh
-git clone git@github.com:gunet/wallet-start.git
+git clone git@github.com:gunet/wallet-ecosystem.git
 ```
-2. Launch VSCode in the newly created `wallet-start` folder
+2. Launch VSCode in the newly created `wallet-ecosystem` folder
 3. Initialize and update submodules
 
 ```sh
@@ -62,7 +62,7 @@ The steps we are going to follow are:
 
 3. [National VID Issuer: Register the Wallet Provider that we created as an OIDC client](#national-vid-issuer-register-the-wallet-provider-that-we-created-as-an-oidc-client)
 4. [University of Athens Issuer: Register the Wallet Provider that we created as an OIDC client](#university-of-athens-issuer-register-the-wallet-provider-that-we-created-as-an-oidc-client)
-5. [Enterprise Wallet Core: Create schemas and presentation definitions in order for the University of Athens Issuer to authenticate the users with VID](#enterprise-wallet-core-create-schemas-and-presentation-definitions-in-order-for-the-university-of-athens-issuer-to-authenticate-the-users-with-vid)
+5. [Enterprise Verifier Core: Create schemas and presentation definitions in order for the University of Athens Issuer to authenticate the users with VID](#enterprise-wallet-core-create-schemas-and-presentation-definitions-in-order-for-the-university-of-athens-issuer-to-authenticate-the-users-with-vid)
 
 
 
@@ -120,11 +120,11 @@ The `client_id` and `did` must be the DID of the issuer
 
 
 
-### Enterprise Wallet Core: Create schemas and presentation definitions in order for the University of Athens Issuer to authenticate the users with VID
+### Enterprise Verifier Core: Create schemas and presentation definitions in order for the University of Athens Issuer to authenticate the users with VID
 
-Alter the file `enterprise-wallet-core/cli/config.yaml` to create your schemas and presentation definitions.
+Alter the file `enterprise-verifier-core/cli/config.yaml` to create your schemas and presentation definitions.
 
-In the `wallet-start/` directory, run the following to insert the transaction described in the config.yaml.
+In the `wallet-ecosystem/` directory, run the following to insert the transaction described in the config.yaml.
 
 > Note: The ./configver command will insert the schemas and presentation definitions described in the `enterprise-wallet-core/cli/config.yaml` but not update them. This will change in later versions.
 
@@ -169,10 +169,10 @@ presentation_definitions:
 
 ```
 
-Login in the Enterprise Wallet Core container:
+Login in the Enterprise Verifier Core container:
 
 ```sh
-docker exec -it dev-enterprise-wallet-core sh
+docker exec -it dev-enterprise-verifier-core sh
 ```
 and execute the following commands:
 
