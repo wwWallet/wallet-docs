@@ -12,11 +12,11 @@ sidebar_position: 1
 
 ## Start the ecosystem
 
-1. Clone wallet-start repository
+1. Clone wallet-ecosystem repository
 ```sh
-git clone git@github.com:gunet/wallet-start.git
+git clone git@github.com:gunet/wallet-ecosystem.git
 ```
-2. Launch VSCode in the newly created `wallet-start` folder
+2. Launch VSCode in the newly created `wallet-ecosystem` folder
 3. Initialize and update submodules
 
 ```sh
@@ -71,13 +71,14 @@ The steps we are going to follow are:
 Login to the container:
 
 ```sh
-docker exec -it dev-wallet-backend sh
+docker exec -it wallet-backend-server sh
 ```
 
 and execute the following commands:
 
 ```sh
 cd cli/
+yarn install
 export DB_HOST="127.0.0.1"
 export DB_PORT="3307"
 export DB_USER="root"
@@ -97,7 +98,7 @@ export DB_NAME="wallet"
 Login to the container:
 
 ```sh
-docker exec -it dev-wallet-backend sh
+docker exec -it wallet-backend-server sh
 ```
 
 ```sh
@@ -124,12 +125,12 @@ The `client_id` and `did` must be the DID of the issuer
 
 Alter the file `enterprise-wallet-core/cli/config.yaml` to create your schemas and presentation definitions.
 
-In the `wallet-start/` directory, run the following to insert the transaction described in the config.yaml.
+In the `wallet-ecosystem/` directory, run the following to insert the transaction described in the config.yaml.
 
 > Note: The ./configver command will insert the schemas and presentation definitions described in the `enterprise-wallet-core/cli/config.yaml` but not update them. This will change in later versions.
 
 
-```yaml title=enterprise-wallet-core/cli/config.yaml
+```yaml title=enterprise-verifier-core/cli/config.yaml
 schemas:
   EuropassId:
     title: Diploma Europass With Id
@@ -172,7 +173,7 @@ presentation_definitions:
 Login in the Enterprise Wallet Core container:
 
 ```sh
-docker exec -it dev-enterprise-wallet-core sh
+docker exec -it enterprise-verifier-core sh
 ```
 and execute the following commands:
 

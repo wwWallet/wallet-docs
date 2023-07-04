@@ -1,4 +1,4 @@
-# Git Guidelines
+# Contribution Guidelines
 
 ## Versions
 
