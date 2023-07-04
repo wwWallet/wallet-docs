@@ -192,10 +192,13 @@ export ENTERPRISE_CORE_SECRET=""
 After setting up the whole ecosystem, then you can follow the steps described below:
 
 1. Visit the wallet mock client http://127.0.0.1:7777 to initialize your wallet
-2. From this page, initiate the flow of VID Issuance by selecting the VID Issuer
-3. After the flow has finished. Refresh your browser at the location http://127.0.0.1:7777  to get the credential from the backend.
+2. From this page, initiate the flow of VID Issuance by selecting the VID Issuer.  
+Authenticate using the following credentials:  
+username: `user`  
+password: `secret` 
+3. After the flow has finished, refresh your browser at the location http://127.0.0.1:7777  to get the credential from the backend.
 4. If the flow has successfully been completed, you must be able to inspect the credential on the starting page. In the credentialSubject of the verifiable credential, the "personalIdentifier" field is the actual Social Security Number (SSN) of the End-user (holder). This personal identifier will later be used by Issuers or other Third-parties to authenticate the end-user or even use it to query their Resource Servers and fetch data corresponding to the end-user.
 5. Initiate the flow of Diploma Issuance by selecting the eDiplomas Credential Issuer from the http://127.0.0.1:7777 location.
 6. The eDiplomas Credential Issuer will request the VID of the end-user.
-7. After the user has selected the VID to be sent, the University of Athens will receive the VID and trust it because it was issued by the National VID Issuer who is supposed to be registered on the EBSI Trusted Issuers Registry and have received the corresponding accreditations from a governmental body (Ministry). The eDiplomas Credential Issuer will utilize the personalIdentifier from the VID to query the Resource Server to find the diplomas of the end-user (holder).
+7. After the user has selected the VID to be sent, the University of Athens will receive the VID and trust it because it was issued by the National VID Issuer who is supposed to be registered on the Trusted Issuers Registry and have received the corresponding accreditations from a governmental body (Ministry). The eDiplomas Credential Issuer will utilize the personalIdentifier from the VID to query the Resource Server to find the diplomas of the end-user (holder).
 8. After the end-user has selected the diplomas to be sent to the wallet, the user will end up in the location http://127.0.0.1:7777. After refreshing the page, the new diplomas will appear on the screen.
