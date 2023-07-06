@@ -35,7 +35,8 @@ Hence, the following database schema is produced by the above relations.
 
 ## Credential-Verifier-as-a-Service Specification
 
-![Verifier as a Service](../../img/diagrams/wallet-enterprise-verifier-core spec.drawio)
+![Credential-Verifier-as-a-Service](../../img/diagrams/wallet-enterprise-verifier-core spec.drawio)
+
 
 
 ![DB schema](../../static/img/diagrams/db-schema.svg)
