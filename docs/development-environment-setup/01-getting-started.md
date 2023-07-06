@@ -23,7 +23,23 @@ git clone git@github.com:gunet/wallet-ecosystem.git
 git submodule init
 git submodule update --remote
 ```
-4. Launch the ecosystem:
+4. Generate a Git Personal Access Token in order to install GUnet's `ssi-sdk` npm package:
+
+  a. Go to https://github.com/settings/tokens
+  
+  b. Generate a new token with `read:packages` scope
+  
+  c. Save the token and edit the `.npmrc` files of **all** the repositories accordingly:
+  ```
+  //npm.pkg.github.com/:_authToken=<GENERATED_TOKEN>
+  @gunet:registry=https://npm.pkg.github.com/
+  ```
+  
+  d. Disable git tracking for **all** `.npmrc` files after you edit them:
+  ```sh
+  git update-index --assume-unchanged .npmrc
+  ```
+5. Launch the ecosystem:
 
 ```sh
 chmod +x ecosystem.sh
