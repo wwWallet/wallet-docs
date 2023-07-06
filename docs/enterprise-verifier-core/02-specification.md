@@ -33,13 +33,14 @@ sidebar_position: 2
 Hence, the following database schema is produced by the above relations.
 
 
+![DB schema](../../static/img/diagrams/db-schema.svg)
+
+
 ## Credential-Verifier-as-a-Service Specification
 
 ![Credential-Verifier-as-a-Service](../../img/diagrams/wallet-enterprise-verifier-core spec.drawio)
 
 
-
-![DB schema](../../static/img/diagrams/db-schema.svg)
 
 
 ## Standards
