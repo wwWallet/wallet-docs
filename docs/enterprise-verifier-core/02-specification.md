@@ -19,7 +19,7 @@ sidebar_position: 2
 
 
 
-![alt](../../static/img/architecture.svg)
+![alt](../../static/img/diagrams/architecture.svg)
 
 ## Database schema
 
@@ -33,10 +33,14 @@ sidebar_position: 2
 Hence, the following database schema is produced by the above relations.
 
 
+![DB schema](../../static/img/diagrams/db-schema.svg)
 
 
+## Credential-Verifier-as-a-Service Specification
 
-![DB schema](../../static/img/db-schema.svg)
+![Credential-Verifier-as-a-Service](../../static/img/diagrams/wallet-enterprise-verifier-core%20spec.drawio.png)
+
+
 
 
 ## Standards
