@@ -187,7 +187,7 @@ export ENTERPRISE_CORE_SECRET=""
 ./configver.js       # send the new configuration
 ```
 
-### Run the complete flow
+## Run the complete flow
 
 After setting up the whole ecosystem, then you can follow the steps described below:
 
@@ -202,3 +202,25 @@ password: `secret`
 6. The eDiplomas Credential Issuer will request the VID of the end-user.
 7. After the user has selected the VID to be sent, the University of Athens will receive the VID and trust it because it was issued by the National VID Issuer who is supposed to be registered on the Trusted Issuers Registry and have received the corresponding accreditations from a governmental body (Ministry). The eDiplomas Credential Issuer will utilize the personalIdentifier from the VID to query the Resource Server to find the diplomas of the end-user (holder).
 8. After the end-user has selected the diplomas to be sent to the wallet, the user will end up in the location http://127.0.0.1:7777. After refreshing the page, the new diplomas will appear on the screen.
+
+
+## Build the eDiplomas native mobile application on a Mac
+
+
+0. Prepare the Xcode and create an iPhone 14 virtual device
+1. Clone the wallet-ios repository
+```
+git clone git@github.com:gunet/wallet-ios.git
+```
+
+2. Open the project with Xcode
+
+3. Press `command+R` to start the eDiplomas application
+
+By default the application will communicate with the **wallet-backend-server** container on http://127.0.0.1:8002
+
+To change the URL of the backend, you will need to change the `NetworkingConstants.backendUrl` constant at the wallet/VCNetworking/Constants.swift file, before building the application.
+
+> Note: To perform the flow, you will need to start the flow from the issuers using the browser of the mobile, because the wallet mobile does not support Wallet-initiated flow at the moment.
+> -  http://127.0.0.1:8003
+> -  http://127.0.0.1:8000
