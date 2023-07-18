@@ -22,9 +22,9 @@ Download the .ova image from the this [link](https://drive.google.com/file/d/1FX
 ```
 user: user
 pass: secret
-rootuser: root
-pass: secret
 ```
+
+The ecosystem is located at the directory `~/wallet-ecosystem`
 
 ## Case 2: Development on docker containers (for computers with ARM CPU architecture)
 
