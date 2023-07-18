@@ -5,12 +5,35 @@ sidebar_position: 1
 # Getting started
 
 
-## Prerequisites
+
+## Case 1: Development on docker containers inside a Virtual Box VM (for computers with x86_64 CPU architecture)
+
+
+### Prerequisites
+
+- Virtual Box
+
+
+Download the .ova image from the this [link](https://drive.google.com/file/d/1FX6jww_7614vo9jsTg7vznQv5Z3Inlhi/view?usp=drive_link)
+
+
+#### VM credentials
+
+```
+user: user
+pass: secret
+rootuser: root
+pass: secret
+```
+
+## Case 2: Development on docker containers (for computers with ARM CPU architecture)
+
+
+### Prerequisites
 
 - Docker & Docker Compose
 
-
-## Start the ecosystem
+### Clone the repositories
 
 1. Clone wallet-ecosystem repository
 ```sh
@@ -23,23 +46,11 @@ git clone git@github.com:gunet/wallet-ecosystem.git
 git submodule init
 git submodule update --remote
 ```
-4. Generate a Git Personal Access Token in order to install GUnet's `ssi-sdk` npm package:
 
-  a. Go to https://github.com/settings/tokens
-  
-  b. Generate a new token with `read:packages` scope
-  
-  c. Save the token and edit the `.npmrc` files of **all** the repositories accordingly:
-  ```
-  //npm.pkg.github.com/:_authToken=<GENERATED_TOKEN>
-  @gunet:registry=https://npm.pkg.github.com/
-  ```
-  
-  d. Disable git tracking for **all** `.npmrc` files after you edit them:
-  ```sh
-  git update-index --assume-unchanged .npmrc
-  ```
-5. Launch the ecosystem:
+
+See [guide to install ssi-sdk](#a---how-to-generate-an-github-access-token-to-download-the-ssi-sdk-npm-package)
+
+Launch the ecosystem:
 
 ```sh
 chmod +x ecosystem.sh
@@ -240,3 +251,26 @@ To change the URL of the backend, you will need to change the `NetworkingConstan
 > Note: To perform the flow, you will need to start the flow from the issuers using the browser of the mobile, because the wallet mobile does not support Wallet-initiated flow at the moment.
 > -  http://127.0.0.1:8003
 > -  http://127.0.0.1:8000
+
+
+
+## References
+
+### A - How to generate an Github access token to download the ssi-sdk npm package
+
+Generate a Git Personal Access Token in order to install GUnet's `ssi-sdk` npm package:
+
+  a. Go to https://github.com/settings/tokens
+  
+  b. Generate a new token with `read:packages` scope
+  
+  c. Save the token and edit the `.npmrc` files of **all** the repositories accordingly:
+  ```
+  //npm.pkg.github.com/:_authToken=<GENERATED_TOKEN>
+  @gunet:registry=https://npm.pkg.github.com/
+  ```
+  
+  d. Disable git tracking for **all** `.npmrc` files after you edit them:
+  ```sh
+  git update-index --assume-unchanged .npmrc
+  ```
