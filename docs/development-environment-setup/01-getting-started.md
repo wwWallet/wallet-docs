@@ -6,7 +6,7 @@ sidebar_position: 1
 
 
 
-## Case 1: Development on docker containers inside a Virtual Box VM (for computers with x86_64 CPU architecture)
+## Case 1: Development on docker containers inside a Virtual Box VM (recommended for computers with x86_64 CPU architecture)
 
 
 ### Prerequisites
@@ -26,7 +26,7 @@ pass: secret
 
 The ecosystem is located at the directory `~/wallet-ecosystem`
 
-## Case 2: Development on docker containers (for computers with ARM CPU architecture)
+## Case 2: Development on docker containers
 
 
 ### Prerequisites
