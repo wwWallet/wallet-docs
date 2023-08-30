@@ -4,29 +4,7 @@ sidebar_position: 1
 
 # Getting started
 
-
-
-## Case 1: Development on docker containers inside a Virtual Box VM (recommended for computers with x86_64 CPU architecture)
-
-
-### Prerequisites
-
-- Virtual Box
-
-
-Download the .ova image from the this [link](https://drive.google.com/file/d/1FX6jww_7614vo9jsTg7vznQv5Z3Inlhi/view?usp=drive_link)
-
-
-#### VM credentials
-
-```
-user: user
-pass: secret
-```
-
-The ecosystem is located at the directory `~/wallet-ecosystem`
-
-## Case 2: Development on docker containers
+## Case 1: Development on docker containers
 
 
 ### Prerequisites
@@ -53,8 +31,7 @@ See [guide to install ssi-sdk](#a---how-to-generate-an-github-access-token-to-do
 Launch the ecosystem:
 
 ```sh
-chmod +x ecosystem.sh
-./ecosystem.sh up
+node ecosystem.js up
 ```
 
 
@@ -72,10 +49,21 @@ To shut down the ecosystem run the following command:
 ./ecosystem.sh down
 ```
 
+### Configure `/etc/hosts`
+
+Add the following lines in the /etc/hosts file:
+
+```sh
+127.0.0.1	wallet-mock
+127.0.0.1	wallet-backend-server
+127.0.0.1	wallet-enterprise-vid-issuer
+127.0.0.1	wallet-enterprise-diploma-issuer
+127.0.0.1	enterprise-verifier-core
+```
 
 
 
-## Configure the ecosystem
+### Configure the ecosystem
 
 For demonstration purposes, we are going to set up a small ecosystem with:
 - 1 Wallet Provider
@@ -93,7 +81,7 @@ The steps we are going to follow are:
 
 
 
-### Wallet: Register National VID Issuer as an Issuer in the Wallet Provider's private Trusted Issuers Registry
+#### Wallet: Register National VID Issuer as an Issuer in the Wallet Provider's private Trusted Issuers Registry
 
 Login to the container:
 
@@ -106,19 +94,19 @@ and execute the following commands:
 ```sh
 cd cli/
 yarn install
-export DB_HOST="127.0.0.1"
+export DB_HOST="wallet-db"
 export DB_PORT="3307"
 export DB_USER="root"
 export DB_PASSWORD="root"
 export DB_NAME="wallet"
 ./configwallet.js create issuer \
-	--friendlyName 'National VID Issuer' \
-	--url http://127.0.0.1:8003 \
-	--did did:ebsi:zyhE5cJ7VVqYT4gZmoKadFt \
-	--client_id did:ebsi:zyhE5cJ7VVqYT4gZmoKadFt
+  --friendlyName 'National VID Issuer' \
+  --url http://wallet-enterprise-vid-issuer:8003 \
+  --did did:ebsi:zyhE5cJ7VVqYT4gZmoKadFt \
+  --client_id did:ebsi:zyhE5cJ7VVqYT4gZmoKadFt
 ```
 
-### Wallet: Register the University of Athens as an Issuer in the Wallet Provider's private Trusted Issuers Registry
+#### Wallet: Register the University of Athens as an Issuer in the Wallet Provider's private Trusted Issuers Registry
 
 
 
@@ -131,16 +119,16 @@ docker exec -it wallet-backend-server sh
 ```sh
 cd cli/
 yarn install
-export DB_HOST="127.0.0.1"
+export DB_HOST="wallet-db"
 export DB_PORT="3307"
 export DB_USER="root"
 export DB_PASSWORD="root"
 export DB_NAME="wallet"
 ./configwallet.js create issuer \
-	--friendlyName 'University of Athens' \
-	--url http://127.0.0.1:8000 \
-	--did did:ebsi:zpq1XFkNWgsGB6MuvJp21vA \
-	--client_id did:ebsi:zpq1XFkNWgsGB6MuvJp21vA
+  --friendlyName 'University of Athens' \
+  --url http://wallet-enterprise-diploma-issuer:8000 \
+  --did did:ebsi:zpq1XFkNWgsGB6MuvJp21vA \
+  --client_id did:ebsi:zpq1XFkNWgsGB6MuvJp21vA
 ```
 
 
@@ -148,7 +136,7 @@ The `client_id` and `did` must be the DID of the issuer
 
 
 
-### Enterprise Verifier Core: Create schemas and presentation definitions in order for the University of Athens Issuer to authenticate the users with VID
+#### Enterprise Verifier Core: Create schemas and presentation definitions in order for the University of Athens Issuer to authenticate the users with VID
 
 Alter the file `enterprise-verifier-core/cli/config.yaml` to create your schemas and presentation definitions.
 
@@ -207,12 +195,34 @@ and execute the following commands:
 ```sh
 cd cli/
 yarn install
-export SERVICE_URL=http://127.0.0.1:9000
+export SERVICE_URL=http://enterprise-verifier-core:9000
 export ENTERPRISE_CORE_USER=""
 export ENTERPRISE_CORE_SECRET=""
-./configver.js clear  # clear old configuration
-./configver.js       # send the new configuration
+./configver.js clear 
+./configver.js 
 ```
+
+
+## Case 2: Development on docker containers inside a Virtual Box VM (recommended for computers with x86_64 CPU architecture)
+
+
+#### Prerequisites
+
+- Virtual Box
+
+
+Download the .ova image from the this [link](https://drive.google.com/file/d/1FX6jww_7614vo9jsTg7vznQv5Z3Inlhi/view?usp=drive_link)
+
+
+#### VM credentials
+
+```
+user: user
+pass: secret
+```
+
+The ecosystem is located at the directory `~/wallet-ecosystem`
+
 
 ## Run the complete flow
 
