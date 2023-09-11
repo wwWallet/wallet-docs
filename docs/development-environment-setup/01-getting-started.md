@@ -54,11 +54,12 @@ To shut down the ecosystem run the following command:
 Add the following lines in the /etc/hosts file:
 
 ```sh
-127.0.0.1	wallet-mock
-127.0.0.1	wallet-backend-server
-127.0.0.1	wallet-enterprise-vid-issuer
-127.0.0.1	wallet-enterprise-diploma-issuer
-127.0.0.1	enterprise-verifier-core
+127.0.0.1 wallet-mock
+127.0.0.1 wallet-backend-server
+127.0.0.1 wallet-enterprise-vid-issuer
+127.0.0.1 wallet-enterprise-diploma-issuer
+127.0.0.1 enterprise-verifier-core
+127.0.0.1 wallet-enterprise-acme-verifier
 ```
 
 
@@ -79,6 +80,12 @@ The steps we are going to follow are:
 4. [University of Athens Issuer: Register the Wallet Provider that we created as an OIDC client](#university-of-athens-issuer-register-the-wallet-provider-that-we-created-as-an-oidc-client)
 5. [Enterprise Verifier Core: Create schemas and presentation definitions in order for the University of Athens Issuer to authenticate the users with VID](#enterprise-wallet-core-create-schemas-and-presentation-definitions-in-order-for-the-university-of-athens-issuer-to-authenticate-the-users-with-vid)
 
+
+Alternatively, we can skip the separate steps and execute the following command:
+
+```sh
+node ecosystem.js init
+```
 
 
 #### Wallet: Register National VID Issuer as an Issuer in the Wallet Provider's private Trusted Issuers Registry
