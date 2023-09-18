@@ -75,7 +75,6 @@ The steps we are going to follow are:
 
 1. [Wallet: Register National VID Issuer as an Issuer in the Wallet Provider's private Trusted Issuers Registry](#wallet-register-national-vid-issuer-as-an-issuer-in-the-wallet-providers-private-trusted-issuers-registry)
 2. [Wallet: Register the University of Athens as an Issuer in the Wallet Provider's private Trusted Issuers Registry](#wallet-register-the-university-of-athens-as-an-issuer-in-the-wallet-providers-private-trusted-issuers-registry)
-3. [Enterprise Verifier Core: Create schemas and presentation definitions in order for the University of Athens Issuer to authenticate the users with VID](#enterprise-verifier-core-create-schemas-and-presentation-definitions-in-order-for-the-university-of-athens-issuer-to-authenticate-the-users-with-vid)
 
 
 Alternatively, we can skip the separate steps and execute the following command:
@@ -137,74 +136,6 @@ export DB_NAME="wallet"
 
 
 The `client_id` and `did` must be the DID of the issuer
-
-
-
-#### Enterprise Verifier Core: Create schemas and presentation definitions in order for the University of Athens Issuer to authenticate the users with VID
-
-Alter the file `enterprise-verifier-core/cli/config.yaml` to create your schemas and presentation definitions.
-
-In the `wallet-ecosystem/` directory, run the following to insert the transaction described in the config.yaml.
-
-> Note: The ./configver command will insert the schemas and presentation definitions described in the `enterprise-wallet-core/cli/config.yaml` but not update them. This will change in later versions.
-
-
-```yaml title=enterprise-verifier-core/cli/config.yaml
-schemas:
-  EuropassId:
-    title: Diploma Europass With Id
-    uri: https://api-pilot.ebsi.eu/trusted-schemas-registry/v2/schemas/0x4dd3926cd92bb3cb64fa6c837539ed31fc30dd38a11266a91678efa7268cde09
-    scopes:
-      id:
-        path: credentialSubject.id
-
-  VID:
-    title: Verifiable ID
-    uri: https://api-pilot.ebsi.eu/trusted-schemas-registry/v2/schemas/z8Y6JJnebU2UuQQNc2R8GYqkEiAMj3Hd861rQhsoNWxsM
-    scopes:
-      personalIdentifier:
-        path: credentialSubject.personalIdentifier
-
-
-presentation_definitions:
-  MyEuropassId:
-    title: Diploma Europass
-    description: A Presentation Definition containing Europass credentials
-    requirements:
-      EuropassId:
-        scopes:
-          - id
-    visibility: true
-    expirationDate: "1-1-2030"
-
-  VIDwithPersonalID:
-    title: VID with Personal Identifier
-    description: Requesting VID with Personal Identifier as Required
-    requirements:
-      VID:
-        scopes:
-          - personalIdentifier
-    visibility: true
-    expirationDate: "1-1-2030"
-
-```
-
-Login in the Enterprise Verifier Core container:
-
-```sh
-docker exec -it enterprise-verifier-core sh
-```
-and execute the following commands:
-
-```sh
-cd cli/
-yarn install
-export SERVICE_URL=http://enterprise-verifier-core:9000
-export ENTERPRISE_CORE_USER=""
-export ENTERPRISE_CORE_SECRET=""
-./configver.js clear 
-./configver.js 
-```
 
 
 ## Case 2: Development on docker containers inside a Virtual Box VM (recommended for computers with x86_64 CPU architecture)
