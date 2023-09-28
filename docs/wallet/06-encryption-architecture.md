@@ -10,7 +10,7 @@ proof signing key. This document explains the encryption architecture and its
 design rationale, as well as providing critique of the same.
 
 ![Diagram: Wallet encryption architecture](../../static/img/diagrams/wallet-encryption-architecture.svg)
-<!-- Diagram source: https://drive.google.com/file/d/11WwhOANrvVkPccRf5_uUMU9NaOgyzWN3/view -->
+<!-- Diagram source: https://drive.google.com/file/d/11WwhOANrvVkPccRf5_uUMU9NaOgyzWN3 -->
 
 The wallet uses the following keys and data types, as labeled in the above diagram:
 
