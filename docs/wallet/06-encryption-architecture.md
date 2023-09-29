@@ -31,7 +31,7 @@ The wallet uses the following keys and data types, as labeled in the above diagr
   The **privateKey** member of `PrivateData` is encrypted an additional time
   using the same encryption key.
 
-  **privateKey** is only kept in volatile memory, and is not written to
+  **privateKey** is only kept in volatile memory, and is never written to
   persistent storage in unencrypted form.
 
 - **mainKey**: The 256-bit AES-GCM encryption key of the `EncryptedContainer`.
@@ -42,7 +42,7 @@ The wallet uses the following keys and data types, as labeled in the above diagr
   This key is generated once, as part of creating the user's wallet when they
   first create a wwWallet account.
 
-  **mainKey** is only kept in volatile memory, and is not written to persistent
+**mainKey** is only kept in volatile memory, and is never written to persistent
   storage in unencrypted form.
 
 - **prfKey**: An 256-bit AES-KW key-wrapping key derived using the WebAuthn
@@ -56,7 +56,7 @@ The wallet uses the following keys and data types, as labeled in the above diagr
   The **prfSalt** and HKDF parameters used to derive **prfKey** are randomly
   generated once, when the corresponding WebAuthn credential is registered.
 
-  **prfKey** is only kept in volatile memory, and is not written to persistent
+  **prfKey** is only kept in volatile memory, and is never written to persistent
   storage in unencrypted form.
 
 - **passwordKey**: A 256-bit AES-KW key-wrapping key derived from a password
@@ -68,7 +68,7 @@ The wallet uses the following keys and data types, as labeled in the above diagr
   when the account is created. Changing the password is not possible as of this
   writing.
 
-  **passwordKey** is only kept in volatile memory, and is not written to
+  **passwordKey** is only kept in volatile memory, and is never written to
   persistent storage in unencrypted form.
 
 - **innerSessionKey**: A 256-bit AES-GCM encryption key used to decrypt the
