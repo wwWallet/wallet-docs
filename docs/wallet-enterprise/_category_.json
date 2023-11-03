@@ -1,0 +1,8 @@
+{
+  "label": "Wallet Enterprise",
+  "position": 3,
+  "link": {
+    "type": "generated-index",
+    "description": "Describing the architecture and setup of the Wallet Enterprise"
+  }
+}

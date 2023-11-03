@@ -1,8 +1,0 @@
-{
-  "label": "Enterprise Issuer",
-  "position": 3,
-  "link": {
-    "type": "generated-index",
-    "description": "Describing the architecture and setup of the Enterprise Issuer"
-  }
-}
