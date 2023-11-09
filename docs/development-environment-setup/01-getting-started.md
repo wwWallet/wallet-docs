@@ -61,28 +61,23 @@ Add the following lines in the /etc/hosts file:
 127.0.0.1 wallet-enterprise-acme-verifier
 ```
 
+### Start the ecosystem
 
-
-### Configure the ecosystem
-
-For demonstration purposes, we are going to set up a small ecosystem with:
+For demonstrative purposes, we are going to set up a small ecosystem with:
 - 1 Wallet Provider
 - 1 Credential Issuer (University of Athens)
 - 1 Credential VID Issuer (Gov Issuer)
 
-The steps we are going to follow are:
-
-1. [Wallet: Register National VID Issuer as an Issuer in the Wallet Provider's private Trusted Issuers Registry](#wallet-register-national-vid-issuer-as-an-issuer-in-the-wallet-providers-private-trusted-issuers-registry)
-2. [Wallet: Register the University of Athens as an Issuer in the Wallet Provider's private Trusted Issuers Registry](#wallet-register-the-university-of-athens-as-an-issuer-in-the-wallet-providers-private-trusted-issuers-registry)
-
-
-Alternatively, we can skip the separate steps and execute the following command:
+The initial configuration of the legal entities takes place once we start the ecosystem:
 
 ```sh
-node ecosystem.js init
+node ecosystem.js up -t
 ```
+For more options, see:
 
-
+```sh
+node ecosystem.js up --help
+```
 
 ## References
 
