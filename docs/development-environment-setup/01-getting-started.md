@@ -26,30 +26,11 @@ git submodule update --remote
 ```
 
 
-See [guide to install ssi-sdk](#a---how-to-generate-an-github-access-token-to-download-the-ssi-sdk-npm-package)
-
-Launch the ecosystem:
-
-```sh
-node ecosystem.js up
-```
+4. Create a github token using the [guide to install ssi-sdk](#a---how-to-generate-a-github-access-token-to-download-the-ssi-sdk-npm-package)
 
 
-The `up` command will build and start the containers with a default configuration for local development.
 
-
-Run with `--help` argument for more actions:
-```sh
-./ecosystem.sh --help
-```
-
-To shut down the ecosystem run the following command:
-
-```sh
-./ecosystem.sh down
-```
-
-### Configure `/etc/hosts`
+5. Configure `/etc/hosts`
 
 Add the following lines in the /etc/hosts file:
 
@@ -61,7 +42,7 @@ Add the following lines in the /etc/hosts file:
 127.0.0.1 wallet-enterprise-acme-verifier
 ```
 
-### Start the ecosystem
+6. Start the ecosystem
 
 For demonstrative purposes, we are going to set up a small ecosystem with:
 - 1 Wallet Provider
@@ -73,15 +54,22 @@ The initial configuration of the legal entities takes place once we start the ec
 ```sh
 node ecosystem.js up -t
 ```
+
 For more options, see:
 
 ```sh
 node ecosystem.js up --help
 ```
 
+To shut down the ecosystem run the following command:
+
+```sh
+./ecosystem.sh down
+```
+
 ## References
 
-### A - How to generate an Github access token to download the ssi-sdk npm package
+### A - How to generate a Github access token to download the ssi-sdk npm package
 
 Generate a Git Personal Access Token in order to install GUnet's `ssi-sdk` npm package:
 
@@ -89,4 +77,4 @@ Generate a Git Personal Access Token in order to install GUnet's `ssi-sdk` npm p
   
   b. Generate a new token with `read:packages` scope
   
-  c. Save the token on the `.github-token` file on the root of the `wallet-ecosystem` local repository
+  c. Save the token on a `.github-token` file on the root of the `wallet-ecosystem` local repository

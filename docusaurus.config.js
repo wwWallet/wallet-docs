@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'eDiplomas Wallet Ecosystem',
+  title: 'wwWallet Ecosystem',
   tagline: 'Get started with Issuing and Verifying credentials today!',
   favicon: 'img/ediplomasLogo.png',
 
@@ -18,7 +18,7 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'gunet', // Usually your GitHub org/user name.
+  organizationName: 'wwWallet', // Usually your GitHub org/user name.
   projectName: 'wallet-start', // Usually your repo name.
 
   onBrokenLinks: 'throw',
@@ -60,7 +60,7 @@ const config = {
       // Replace with your project's social card
       image: 'img/ediplomasLogo.png',
       navbar: {
-        title: 'eDiplomas Wallet Ecosystem',
+        title: 'wwWallet Ecosystem',
         logo: {
           alt: 'eDiplomas Logo',
           src: 'img/ediplomasLogo.png',
@@ -91,7 +91,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} eDiplomas Wallet, Inc.`,
+        copyright: `Copyright © ${new Date().getFullYear()} wwWallet, Inc.`,
       },
       prism: {
         theme: lightCodeTheme,
