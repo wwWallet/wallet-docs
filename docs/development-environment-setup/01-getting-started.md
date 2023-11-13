@@ -65,7 +65,7 @@ node ecosystem.js up --help
 To shut down the ecosystem run the following command:
 
 ```sh
-./ecosystem.sh down
+node ecosystem.js down
 ```
 
 ## References
