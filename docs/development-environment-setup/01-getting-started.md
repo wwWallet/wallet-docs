@@ -10,6 +10,7 @@ sidebar_position: 1
 ### Prerequisites
 
 - Docker & Docker Compose
+- An SSH key added to GitHub
 
 ### Clone the repositories
 
