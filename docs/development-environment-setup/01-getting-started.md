@@ -68,6 +68,27 @@ To shut down the ecosystem run the following command:
 node ecosystem.js down
 ```
 
+## Supported Flows
+
+#### Wallet-initiated Issuance Flow (Authorization Code Grant)
+- Start the issuing from the wallet: [http://localhost:3000/add](http://localhost:3000/add)
+- Redirect to the issuing platform and select a method of authentication
+- Fetch, review and select a credential
+- Return to the wallet with the received credential
+
+#### Issuer-initiated Issuance Flow (Pre-authorized Code Flow)
+- Start the issuing from the issuer's platform
+  - VID Issuer: [http://wallet-enterprise-vid-issuer:8003/](http://wallet-enterprise-vid-issuer:8003/)
+  - Diploma Issuer: [http://wallet-enterprise-diploma-issuer:8000/](http://wallet-enterprise-diploma-issuer:8003/)
+- Select a method of authentication
+- Fetch, review and select a credential
+- Scan QR to receive credential on the wallet
+
+#### Verifier-initiated Presentation Flow
+- Start from the verifier's platform: [http://wallet-enterprise-acme-verifier:8005/](http://wallet-enterprise-acme-verifier:8005)
+- Apply for a Software Engineer's job
+- Scan the QR to present your VC
+
 ## References
 
 ### A - How to generate a Github access token to download the ssi-sdk npm package
