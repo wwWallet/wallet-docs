@@ -2,7 +2,7 @@
 sidebar_position: 9
 ---
 
-# Supported Flows
+# Sample Scenarios
 
 #### Wallet-initiated Issuance Flow (Authorization Code Grant)
 - Start the issuing from the wallet: [https://demo.wwwallet.org/add](https://demo.wwwallet.org/add)
