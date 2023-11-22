@@ -9,7 +9,7 @@ sidebar_position: 1
 | Same-Device      | Wallet-Initiated       |   :white_check_mark:   |
 | Cross-Device     | Wallet-Initiated       |                        |
 | Same-Device      | Issuer-Initiated       |                        |
-| Cross-Device     | Issuer-Initiated       |                        |
+| Cross-Device     | Issuer-Initiated       |   :white_check_mark:   |
 
 
 ## Challenges

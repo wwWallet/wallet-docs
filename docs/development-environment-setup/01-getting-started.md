@@ -4,6 +4,10 @@ sidebar_position: 1
 
 # Getting started
 
+## Browser and OS compatibility
+
+You can consult the [PRF compatibility matrix](https://github.com/wwWallet/wallet-frontend#prf-compatibility) regarding browser support and supported operating systems.
+
 ## Development on docker containers
 
 
