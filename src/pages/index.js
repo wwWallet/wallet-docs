@@ -17,7 +17,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg mg5"
-            to="/wallet-docs/docs/development-environment-setup/getting-started">
+            to="/wallet-docs/docs/development-setup/getting-started">
             Get started
           </Link>
 					<Link
