@@ -71,15 +71,20 @@ Add the following lines in the /etc/hosts file:
 
 7. Start the ecosystem
 
+```sh
+node ecosystem.js up -t
+```
+
 For demonstrative purposes, we are going to set up a small ecosystem with:
 - 1 Wallet Provider
 - 1 Credential Issuer (University of Athens)
 - 1 Credential VID Issuer (Gov Issuer)
+- 1 EHIC Issuer
 
-The initial configuration of the legal entities takes place once we start the ecosystem:
+The configuration of the legal entities takes place with the following:
 
 ```sh
-node ecosystem.js up -t
+node ecosystem.js init
 ```
 
 For more options, see:
