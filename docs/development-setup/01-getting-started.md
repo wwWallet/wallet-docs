@@ -8,7 +8,6 @@ sidebar_position: 1
 
 You can consult the [PRF compatibility matrix](https://github.com/wwWallet/wallet-frontend#prf-compatibility) regarding browser support and supported operating systems.
 
-
 ## Development on docker containers
 
 ### Prerequisites
@@ -34,8 +33,31 @@ git submodule update --remote
 4. Create a github token using the [guide to install ssi-sdk](#a---how-to-generate-a-github-access-token-to-download-the-ssi-sdk-npm-package)
 
 
+5. Configure `wallet-frontend`'s environment:
 
-5. Configure `/etc/hosts`
+```sh
+cd wallet-frontend
+cp .env.template .env
+```
+
+Fill in the variables according to your own configuration. Below is an explanation for each variable:
+
+	 - HOST: The IP address where your app will be running (default is '0.0.0.0').
+	 - PORT: The port on which your app will run (default is 3000).
+	 - VAPIDKEY: Your Vapid key (public key for cloud messaging firebase) for push notifications.
+	 - REACT_APP_WS_URL: The URL of the websocket service.
+	 - REACT_APP_WALLET_BACKEND_URL: The URL of your backend service.
+	 - REACT_APP_LOGIN_WITH_PASSWORD: A Boolean value which show/hide the classic login/signup.
+	 - REACT_APP_FIREBASE_API_KEY: Your API key for Firebase. 
+	 - REACT_APP_FIREBASE_AUTH_DOMAIN: Your Firebase authentication domain.
+	 - REACT_APP_FIREBASE_PROJECT_ID: Your Firebase project ID.
+	 - REACT_APP_FIREBASE_STORAGE_BUCKET: Your Firebase storage bucket.
+	 - REACT_APP_FIREBASE_MESSAGING_SENDER_ID: Your Firebase Messaging Sender ID.
+	 - REACT_APP_FIREBASE_APP_ID: Your Firebase App ID. 
+	 - REACT_APP_FIREBASE_MEASUREMENT_ID: Your Firebase Measurement ID.
+
+
+6. Configure `/etc/hosts`
 
 Add the following lines in the /etc/hosts file:
 
@@ -47,7 +69,7 @@ Add the following lines in the /etc/hosts file:
 127.0.0.1 wallet-enterprise-acme-verifier
 ```
 
-6. Start the ecosystem
+7. Start the ecosystem
 
 For demonstrative purposes, we are going to set up a small ecosystem with:
 - 1 Wallet Provider
