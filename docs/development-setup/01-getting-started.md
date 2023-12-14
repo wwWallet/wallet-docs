@@ -40,7 +40,7 @@ cd wallet-frontend
 cp .env.template .env
 ```
 
-Fill in the variables according to your own configuration. Below is an explanation for each variable:
+You can leave the `.env` file as is but if you have set up a firebase project, you can fill in the variables according to your own configuration. Below is an explanation for each variable:
 
 	 - HOST: The IP address where your app will be running (default is '0.0.0.0').
 	 - PORT: The port on which your app will run (default is 3000).
