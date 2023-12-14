@@ -56,8 +56,9 @@ You can leave the `.env` file as is but if you have set up a firebase project, y
 	 - REACT_APP_FIREBASE_APP_ID: Your Firebase App ID. 
 	 - REACT_APP_FIREBASE_MEASUREMENT_ID: Your Firebase Measurement ID.
 
+6. Setting Up Firebase (Optional) using the [guide to set up Firebase](#b---how-to-set-up-firebase-cloud-messaging-for-push-notfications)
 
-6. Configure `/etc/hosts`
+7. Configure `/etc/hosts`
 
 Add the following lines in the /etc/hosts file:
 
@@ -69,7 +70,7 @@ Add the following lines in the /etc/hosts file:
 127.0.0.1 wallet-enterprise-acme-verifier
 ```
 
-7. Start the ecosystem
+8. Start the ecosystem
 
 For demonstrative purposes, we are going to set up a small ecosystem with:
 - 1 Wallet Provider
@@ -126,3 +127,40 @@ Generate a Git Personal Access Token in order to install GUnet's `ssi-sdk` npm p
   b. Generate a new token with `read:packages` scope
   
   c. Save the token on a `.github-token` file on the root of the `wallet-ecosystem` local repository
+
+  ### B - How to set up Firebase Cloud Messaging for Push Notfications
+
+a. Create a Firebase Project
+  - Go to the Firebase Console (https://console.firebase.google.com/).
+  - Click "Add Project" to create a new Firebase project.
+  - Configure your project settings.
+  
+b. Configure Firebase for Web
+  - After creating the project, Add app and select "Web."
+  - Register your app with a name (e.g., "MyApp").
+  - Firebase will provide you with a configuration `firebaseConfig` object; keep this handy.
+
+c. Get Service Account Key
+- Navigate to "Project settings" > "Service accounts."
+- Under the "Firebase Admin SDK" section, click "Generate new private key" to download the JSON file.
+- in root of wallet-backend paste this file inside the keys folder if the folder don't exist, create it!
+- Navigate to `wallet-backend-server/src/lib/firebase.ts` and replace with your the account key and project id in following part.
+```
+admin = require("firebase-admin");
+serviceAccount = require('/app/keys/<your-service-account-key-name-file>.json');
+// const certPath = admin.credential.cert(serviceAccount);
+admin.initializeApp({
+	credential: admin.credential.cert(serviceAccount),
+	projectId: "<your-project-id>"
+});
+```
+d. Generate VAPID Key
+- Navigate to "Project settings" > "Service accounts > Cloud Messaging." 
+- Scroll down to the "Web configuration" section.
+- You should see an option to generate a new VAPID key. Click the "Generate" button.
+- After generating the VAPID key, you'll see it displayed on the screen.
+- Save this VAPID key securely, as you'll need it in your frontend.
+
+e. Fill config variables in Frontend
+- With your `firebaseConfig` and the VAPID KEY now you can fill the wallet-frontend `.env`.
+- Also navigate to `wallet-frontend/public/firebase-messaging-sw.js` and replace the `firebaseConfig` with yours. 
