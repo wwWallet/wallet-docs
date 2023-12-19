@@ -143,17 +143,12 @@ b. Configure Firebase for Web
 c. Get Service Account Key
 - Navigate to "Project settings" > "Service accounts."
 - Under the "Firebase Admin SDK" section, click "Generate new private key" to download the JSON file.
-- in root of wallet-backend paste this file inside the keys folder if the folder don't exist, create it!
-- Navigate to `wallet-backend-server/src/lib/firebase.ts` and replace with your the account key and project id in following part.
-```
-admin = require("firebase-admin");
-serviceAccount = require('/app/keys/<your-service-account-key-name-file>.json');
-// const certPath = admin.credential.cert(serviceAccount);
-admin.initializeApp({
-	credential: admin.credential.cert(serviceAccount),
-	projectId: "<your-project-id>"
-});
-```
+- in root of wallet-backend paste this file inside the `keys/` folder if the folder does not exist, then create it with name "firebaseConfig.json"
+- The file name should be the same with the `notifications.serviceAccount` JSON attribute on the configuration of the wallet-backend-server which is located on the `config/` folder. That being said, the `notifications.serviceAccount` JSON attribute should be set to `firebaseConfig.json`
+- The `notifications.enabled` JSON attribute on the wallet-backend-server configuration should be set to `"true"`
+
+
+
 d. Generate VAPID Key
 - Navigate to "Project settings" > "Service accounts > Cloud Messaging." 
 - Scroll down to the "Web configuration" section.
