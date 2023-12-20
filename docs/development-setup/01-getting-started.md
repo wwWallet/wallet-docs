@@ -56,7 +56,7 @@ You can leave the `.env` file as is but if you have set up a firebase project, y
 	 - REACT_APP_FIREBASE_APP_ID: Your Firebase App ID. 
 	 - REACT_APP_FIREBASE_MEASUREMENT_ID: Your Firebase Measurement ID.
 
-6. Setting Up Firebase (Optional) using the [guide to set up Firebase](#b---how-to-set-up-firebase-cloud-messaging-for-push-notfications)
+6. Set Up Firebase (Optional) using the [guide to set up Firebase](#b---how-to-set-up-firebase-cloud-messaging-for-push-notfications)
 
 7. Configure `/etc/hosts`
 
@@ -128,7 +128,7 @@ Generate a Git Personal Access Token in order to install GUnet's `ssi-sdk` npm p
   
   c. Save the token on a `.github-token` file on the root of the `wallet-ecosystem` local repository
 
-  ### B - How to set up Firebase Cloud Messaging for Push Notfications
+### B - How to set up Firebase Cloud Messaging for Push Notfications
 
 a. Create a Firebase Project
   - Go to the Firebase Console (https://console.firebase.google.com/).
@@ -143,10 +143,9 @@ b. Configure Firebase for Web
 c. Get Service Account Key
 - Navigate to "Project settings" > "Service accounts."
 - Under the "Firebase Admin SDK" section, click "Generate new private key" to download the JSON file.
-- in root of wallet-backend paste this file inside the `keys/` folder if the folder does not exist, then create it with name "firebaseConfig.json"
+- in root of wallet-backend paste this file inside the `keys/` folder if the folder does not exist, then create it with name `firebaseConfig.json`
 - The file name should be the same with the `notifications.serviceAccount` JSON attribute on the configuration of the wallet-backend-server which is located on the `config/` folder. That being said, the `notifications.serviceAccount` JSON attribute should be set to `firebaseConfig.json`
-- The `notifications.enabled` JSON attribute on the wallet-backend-server configuration should be set to `"true"`
-
+- The `notifications.enabled` JSON attribute on the wallet-backend-server configuration should be set to `true`
 
 
 d. Generate VAPID Key
