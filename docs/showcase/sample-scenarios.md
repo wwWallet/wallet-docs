@@ -4,6 +4,8 @@ sidebar_position: 9
 
 # Sample Scenarios
 
+
+
 #### Wallet-initiated Issuance Flow (Authorization Code Grant)
 - Start the issuing from the wallet: [https://demo.wwwallet.org/add](https://demo.wwwallet.org/add)
 - Redirect to the issuing platform and select a method of authentication
@@ -22,3 +24,16 @@ sidebar_position: 9
 - Start from the verifier's platform: [https://verifier.ediplomas.gr/](https://verifier.ediplomas.gr/)
 - Apply for a Software Engineer's job
 - Scan the QR to present your VC
+
+
+:::info
+
+User credentials on issuer pages:
+
+**User 1** (username: "user1", password: "secret")
+
+
+**User 2** (username: "user2", password: "secret")
+
+
+:::
