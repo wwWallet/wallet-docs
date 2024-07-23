@@ -1,7 +1,19 @@
 ---
 ---
 
-# Encryption Architecture v2
+# Encryption Architecture
+
+## Changes from v2
+
+- Introduced asymmetric (ECDH-ES) wrapping layer between
+  **prfKey**/**passwordKey** and **mainKey**. This enables **mainKey** to be
+  easily rotated as the new key can be re-encrypted under the public key of each
+  **prfKey** and **passwordKey**, instead of requiring each **prfKey** and
+  **passwordKey** to be available to re-wrap the new **mainKey**.
+
+- **privateKey** now labeled in diagram as "ECDSA secp256r1" instead of "EC
+  secp256r1".
+
 
 ## Changes from v1
 
@@ -16,15 +28,14 @@ signed in to the same account, and to sign out of existing tabs if any tab signs
 out or signs in to a different account.
 
 
-## Encryption Architecture v2
+## Encryption Architecture v3
 
 wwWallet uses the [WebAuthn `prf` extension](https://w3c.github.io/webauthn/#prf-extension)
 to derive encryption keys for the wallet contents, including the user's private
 proof signing key. This document explains the encryption architecture and its
 design rationale, as well as providing critique of the same.
 
-
-![Diagram: Wallet encryption architecture](../../static/img/diagrams/wallet-encryption-architecture-v2.svg)
+[![Diagram: Wallet encryption architecture](../../static/img/diagrams/wallet-encryption-architecture-v3.svg)](../../static/img/diagrams/wallet-encryption-architecture-v3.svg)
 <!-- Diagram source: https://drive.google.com/file/d/11WwhOANrvVkPccRf5_uUMU9NaOgyzWN3 -->
 
 The wallet uses the following keys and data types, as labeled in the above diagram:
@@ -37,6 +48,33 @@ The wallet uses the following keys and data types, as labeled in the above diagr
   contains both sensitive data, namely **privateKey**, and non-sensitive data,
   including the user's DID and public proof signing key. All of these contents
   are encrypted at rest on both the server side and the client side.
+
+- `EphemeralEncapsulationInfo`: An ephemeral ECDH public key and auxiliary
+  parameters to use for unwrapping the **mainKey** used to encrypt the
+  `EncryptedContainer`. This is shared between all **prfKey**s and
+  **passwordKey**s in the `EncryptedContainer`.
+
+- `StaticEncapsulationInfo`: A wrapped copy of the **mainKey** along with a
+  static ECDH key pair **wrapPublicKey** and **wrapPrivateKey**. This is unique
+  per **prfKey** and **passwordKey**. The ECDH private key is in turn wrapped by
+  the associated **prfKey** or **passwordKey**.
+
+  When creating a new **mainKey**, a new **ephPublicKey** and **ephPrivateKey**
+  pair is created and each `StaticEncapsulationInfo` is updated as follows. An
+  ECDH exchange is made between **ephPrivateKey** and the **wrapPublicKey** of
+  the `StaticEncapsulationInfo`. The resulting **wrappingKey** is used to wrap
+  the new **mainKey**, and the resulting wrapping is stored in the
+  `StaticEncapsulationInfo`. Finally, the **ephPublicKey** is stored in the
+  `EphemeralEncapsulationInfo` of the `EncryptedContainer` and the
+  **ephPrivateKey** is discarded.
+
+  During sign-in, the user chooses a **prfKey** or **passwordKey** which is used
+  to unwrap the **wrapPrivateKey** stored in the associated
+  `StaticEncapsulationInfo`. The opposite ECDH exchange is made between
+  **wrapPrivateKey** and the stored **ephPublicKey** to derive the
+  **wrappingKey** used to unwrap the **mainKey** stored in the
+  `StaticEncapsulationInfo`, and finally **mainKey** is used to decrypt the
+  `EncryptedContainer`.
 
 - **privateKey**: The user's proof signing secp256r1 private key. This is the
   long-lived key that is used to prove the user's ownership of the wallet. This
@@ -51,50 +89,71 @@ The wallet uses the following keys and data types, as labeled in the above diagr
 
 - **mainKey**: The 256-bit AES-GCM encryption key of the `EncryptedContainer`.
   This is used to decrypt the contained `PrivateData` and is itself stored in
-  encrypted (wrapped) form in the `EncryptedContainer`, encrypted using each of
-  the user's **prfKey**s and, if applicable, **passwordKey**.
+  encrypted (wrapped) form in the `EncryptedContainer`, asymmetrically encrypted
+  using each of the user's **prfKey**s and, if applicable, **passwordKey**.
 
-  This key is generated once, as part of creating the user's wallet when they
-  first create a wwWallet account.
+  This key is generated as part of creating the user's wallet when they first
+  create a wwWallet account, but may be replaced at any time.
 
   **mainKey** is only kept in volatile memory, and is never written to
   persistent storage in unencrypted form.
 
-- **prfKey**: An 256-bit AES-KW key-wrapping key derived using the WebAuthn
-  `prf` extension. This is used to unwrap the **mainKey** in order to decrypt
-  the `EncryptedContainer` contents during sign-in.
+- **prfKey**: A 256-bit AES-GCM encryption key derived using the WebAuthn `prf`
+  extension. This is used to wrap and unwrap an associated
+  `StaticEncapsulationInfo` structure in order to decrypt the
+  `EncryptedContainer` contents during sign-in.
 
   The user may have 0 or more instances of **prfKey** (or at least 1, when
   password authentication is disabled), each corresponding to a WebAuthn
-  credential the user may use to sign in to the backend service.
+  credential the user may use to sign in to the backend service. Each **prfKey**
+  has its own unique associated `StaticEncapsulationInfo`.
 
   The **prfSalt** and HKDF parameters used to derive **prfKey** are randomly
   generated once, when the corresponding WebAuthn credential is registered.
 
   **prfKey** is only kept in volatile memory, and is never written to persistent
-  storage in unencrypted form.
+  storage.
 
-- **passwordKey**: A 256-bit AES-KW key-wrapping key derived from a password
+- **passwordKey**: A 256-bit AES-GCM encryption key derived from a password
   using PBKDF2. This is a legacy feature that is usually disabled. Like
-  **prfKey**, this is used to unwrap the **mainKey** in order to decrypt the
-  `EncryptedContainer` contents during sign-in.
+  **prfKey**, this is used to wrap and unwrap an associated
+  `StaticEncapsulationInfo` structure in order to decrypt the
+  `EncryptedContainer` contents during sign-in. The **passwordKey** has its own
+  unique associated `StaticEncapsulationInfo`.
 
   The PBKDF2 salt used to derive **passwordKey** is randomly generated once,
   when the account is created. Changing the password is not possible as of this
   writing.
 
   **passwordKey** is only kept in volatile memory, and is never written to
-  persistent storage in unencrypted form.
+  persistent storage.
+
+- **wrapPrivateKey** and **wrapPublicKey**: The static ECDH keypair of a
+  `StaticEncapsulationInfo`. These are used to perform an ECDH exchange with the
+  **ephPublicKey** or **ephPrivateKey**, respectively, to derive the
+  **wrappingKey** used to decrypt or encrypt the **mainKey**.
+
+  Each **wrapPrivateKey** is only kept in volatile memory, and is never written
+  to persistent storage in unencrypted form. Each **wrapPublicKey** is stored in
+  cleartext in the `StaticEncapsulationInfo`.
+
+- **ephPrivateKey** and **ephPublicKey**: An ephemeral ECDH keypair for wrapping
+  the **mainKey**. These are used to perform an ECDH exchange with a
+  **wrapPublicKey** or **wrapPrivateKey**, respectively, to derive the
+  **wrappingKey** used to decrypt or encrypt the **mainKey**.
+
+  **ephPublicKey** is stored as an `EphemeralEncapsulationInfo` structure in the
+  `EncryptedContainer`. **ephPrivateKey** is only kept in volatile memory, and
+  is discarded after wrapping the **mainKey**.
 
 - **sessionKey**: A 256-bit AES-GCM encryption key used to decrypt the
   `EncryptedContainer` for the duration of a session.
 
-  Upon successful sign-in, the user's **prfKey** or **passwordKey** is used to
-  unwrap **mainKey** which in turn decrypts the `EncryptedContainer` to access
-  the cleartext `PrivateData`. The `PrivateData` is then re-encrypted using a
+  Upon successful sign-in, the `EncryptedContainer` is first decrypted using
+  **mainKey** as described above. The `PrivateData` is then re-encrypted using a
   newly generated **sessionKey**, resulting in the ciphertext `privateDataJwe`
   which is stored in the client's [session storage][sessionStorage]. The
-  **sessionKey** is also stored in session storage alongside the
+  **sessionKey** is also stored in cleartext session storage alongside the
   `privateDataJwe`.
 
 
@@ -108,12 +167,13 @@ keys by the following rationale.
 
 ### Re-encrypting wallet contents to a session key
 
-Since we keep the wallet contents encrypted at rest, we need to decrypt it
-whenever we need to access the contents. This would require handling the
-**mainKey** for decryption, but the **mainKey** is a long-lived key that is not
-easily replaceable (see below). Therefore we use the **mainKey** to decrypt the
-contents only once, and then use temporary encryption key for the remainder of
-the session. This way we minimize the exposure of the **mainKey**.
+This is a vestigial feature from the v1 and v2 architecture iterations where
+**mainKey** was a long-lived key that was not easily replaceable. The
+**sessionKey** was therefore used to minimize the exposure of the **mainKey**.
+
+This v3 architecture revision allows for frequently rotating the **mainKey**,
+but we keep the **sessionKey** for now since rotation of **mainKey** is not yet
+implemented.
 
 
 ### Selection of client-side storage areas
@@ -166,6 +226,14 @@ we encrypt it an additional time so that we can access the other members of
 `PrivateData` without exposing **privateKey** in cleartext unnecessarily.
 
 
+### Using **prfKey** and **passwordKey** to wrap en ECDH private key
+
+The [`deriveKey()`][derive-key] function in WebCrypto does not support deriving
+an ECDH private key deterministically, for example from PRF output or from an
+PBKDF2 output key. Therefore we instead have to generate the ECDH key pair
+nondeterministically and store the wrapped private key.
+
+
 ## Critique
 
 This design has some drawbacks, and some of the intended advantages are
@@ -173,21 +241,13 @@ debatable. The following critique may inform a revised design. This is not
 exhaustive; we invite additional and ongoing review and critique of the design.
 
 
-### Rotating the main encryption key
-
-The **mainKey** cannot easily be replaced since that would require access to
-each **prfKey** and **passwordKey** in order to update each corresponding key
-wrapping. This could be solved by having each **prfKey** and **passwordKey**
-wrap an ECDH private key instead of wrapping the **mainKey** directly, and
-instead using ECDH to derive the wrapping key for the main key.
-
-
 ### Cleartext session key
 
 The **sessionKey** is used for user convenience: once logged in, the session key
 can be used for the duration of the session to access encrypted data. However,
-this might not improve security much; it may not be materially less secure to
-simply store the **mainKey** itself in cleartext in session storage.
+this might not improve security much; with **mainKey** now easily replaceable it
+is not materially less secure to simply store the **mainKey** itself in
+cleartext in session storage.
 
 
 ### Weak encryption at rest
@@ -257,6 +317,7 @@ arbitrary data with a hardware-bound private key.
 
 
 [cryptokey]: https://developer.mozilla.org/en-US/docs/Web/API/CryptoKey
+[derive-key]: https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/deriveKey
 [localStorage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 [sessionStorage]: https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
 [webcrypto]: https://developer.mozilla.org/en-US/docs/Web/API/Web_Crypto_API
