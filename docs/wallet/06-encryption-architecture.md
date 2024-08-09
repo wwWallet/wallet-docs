@@ -3,7 +3,7 @@
 
 # Encryption Architecture
 
-## Changes from v2
+## Changes from v2 to v3
 
 - Introduced asymmetric (ECDH-ES) wrapping layer between
   **prfKey**/**passwordKey** and **mainKey**. This enables **mainKey** to be
@@ -15,7 +15,7 @@
   secp256r1".
 
 
-## Changes from v1
+## Changes from v1 to v2
 
 - Deleted **outerSessionKey**. **innerSessionKey** is renamed to **sessionKey**
   and is now stored in plaintext in session storage alongside the
