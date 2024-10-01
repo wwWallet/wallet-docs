@@ -122,8 +122,8 @@ node ecosystem.js down
 
 #### Verifier-initiated Presentation Flow
 - Start from the verifier's platform: [http://wallet-enterprise-acme-verifier:8005/](http://wallet-enterprise-acme-verifier:8005)
-- Apply for a Software Engineer's job
-- Scan the QR to present your VC
+- Select a VC or a combination of VCs to present
+- Scan the QR to present your VC(s)
 
 ## References
 

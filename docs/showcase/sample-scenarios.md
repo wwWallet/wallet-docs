@@ -22,8 +22,8 @@ sidebar_position: 9
 
 #### Verifier-initiated Presentation Flow
 - Start from the verifier's platform: [https://verifier.ediplomas.gr/](https://verifier.ediplomas.gr/)
-- Apply for a Software Engineer's job
-- Scan the QR to present your VC
+- Select a VC or a combination of VCs to present
+- Scan the QR to present your VC(s)
 
 
 :::info
