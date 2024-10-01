@@ -68,6 +68,7 @@ Add the following lines in the /etc/hosts file:
 127.0.0.1 wallet-enterprise-vid-issuer
 127.0.0.1 wallet-enterprise-diploma-issuer
 127.0.0.1 wallet-enterprise-acme-verifier
+127.0.0.1 wallet-enterprise-ehic-issuer
 ```
 
 8. Start the ecosystem
@@ -75,6 +76,9 @@ Add the following lines in the /etc/hosts file:
 ```sh
 node ecosystem.js up -t
 ```
+:::info
+The argument `-t` forces the usage of the `docker-compose.template.yml`
+:::
 
 For demonstrative purposes, we are going to set up a small ecosystem with:
 - 1 Wallet Provider

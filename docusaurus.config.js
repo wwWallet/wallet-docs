@@ -72,7 +72,7 @@ const config = {
 						href: "/wallet-docs/docs/category/development-setup"
           },
           {
-            href: 'https://github.com/gunet/wallet-ecosystem',
+            href: 'https://github.com/wwwallet/wallet-ecosystem',
             label: 'GitHub',
             position: 'right',
           },
