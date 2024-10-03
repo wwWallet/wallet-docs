@@ -30,10 +30,7 @@ git submodule update --remote
 ```
 
 
-4. Create a github token using the [guide to install ssi-sdk](#a---how-to-generate-a-github-access-token-to-download-the-ssi-sdk-npm-package)
-
-
-5. Configure `wallet-frontend`'s environment:
+4. Configure `wallet-frontend`'s environment:
 
 ```sh
 cd wallet-frontend
@@ -55,7 +52,9 @@ You can leave the `.env` file as is but if you have set up a firebase project, y
 	 - REACT_APP_FIREBASE_MESSAGING_SENDER_ID: Your Firebase Messaging Sender ID.
 	 - REACT_APP_FIREBASE_APP_ID: Your Firebase App ID. 
 	 - REACT_APP_FIREBASE_MEASUREMENT_ID: Your Firebase Measurement ID.
-
+	 - REACT_APP_OPENID4VCI_REDIRECT_URI: wwWallet redirect uri parameter on communication protocols (default http://localhost:3000)
+	 - REACT_APP_OPENID4VP_SAN_DNS_CHECK_SSL_CERTS: Force the wwWallet to check or not to check the validity of the server certifice through the backend (default false)
+	 - REACT_APP_VALIDATE_CREDENTIALS_WITH_TRUST_ANCHORS: Option to validate the credentials issued by the credential issuers(default false)
 6. Set Up Firebase (Optional) using the [guide to set up Firebase](#b---how-to-set-up-firebase-cloud-messaging-for-push-notfications)
 
 7. Configure `/etc/hosts`
@@ -112,13 +111,6 @@ node ecosystem.js down
 - Fetch, review and select a credential
 - Return to the wallet with the received credential
 
-#### Issuer-initiated Issuance Flow (Pre-authorized Code Flow)
-- Start the issuing from the issuer's platform
-  - VID Issuer: [http://wallet-enterprise-vid-issuer:8003/](http://wallet-enterprise-vid-issuer:8003/)
-  - Diploma Issuer: [http://wallet-enterprise-diploma-issuer:8000/](http://wallet-enterprise-diploma-issuer:8003/)
-- Select a method of authentication
-- Fetch, review and select a credential
-- Scan QR to receive credential on the wallet
 
 #### Verifier-initiated Presentation Flow
 - Start from the verifier's platform: [http://wallet-enterprise-acme-verifier:8005/](http://wallet-enterprise-acme-verifier:8005)
@@ -127,17 +119,7 @@ node ecosystem.js down
 
 ## References
 
-### A - How to generate a Github access token to download the ssi-sdk npm package
-
-Generate a Git Personal Access Token in order to install GUnet's `ssi-sdk` npm package:
-
-  a. Go to https://github.com/settings/tokens
-  
-  b. Generate a new token with `read:packages` scope
-  
-  c. Save the token on a `.github-token` file on the root of the `wallet-ecosystem` local repository
-
-### B - How to set up Firebase Cloud Messaging for Push Notfications
+### A - How to set up Firebase Cloud Messaging for Push Notfications
 
 a. Create a Firebase Project
   - Go to the Firebase Console (https://console.firebase.google.com/).
