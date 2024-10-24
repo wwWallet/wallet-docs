@@ -12,28 +12,9 @@ sidebar_position: 9
 - Fetch, review and select a credential
 - Return to the wallet with the received credential
 
-#### Issuer-initiated Issuance Flow (Pre-authorized Code Flow)
-- Start the issuing from the issuer's platform
-  - VID Issuer: [https://vid-issuer.ediplomas.gr/](https://vid-issuer.ediplomas.gr/)
-  - Diploma Issuer: [https://diploma-issuer.ediplomas.gr/](https://diploma-issuer.ediplomas.gr/)
-- Select a method of authentication
-- Fetch, review and select a credential
-- Scan QR to receive credential on the wallet
 
-#### Verifier-initiated Presentation Flow
+#### Presentation flow
 - Start from the verifier's platform: [https://verifier.ediplomas.gr/](https://verifier.ediplomas.gr/)
 - Select a VC or a combination of VCs to present
 - Scan the QR to present your VC(s)
 
-
-:::info
-
-User credentials on issuer pages:
-
-**User 1** (username: "user1", password: "secret")
-
-
-**User 2** (username: "user2", password: "secret")
-
-
-:::
