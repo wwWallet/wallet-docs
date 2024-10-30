@@ -6,9 +6,9 @@ sidebar_position: 2
 
 ## 1 Configuring an Issuer without VID Authentication
 
-What follows is the explanation of the vid-issuer wallet-enterprise configuration that exists on the wallet-ecosyste repository.
+What follows is the explanation of the vid-issuer wallet-enterprise configuration that exists on the wallet-ecosystem repository.
 
-The process of creating your own issuers starts with you creating a new wallet-ecosystem with a wallet-enterprise git subdmodule and a wallet-enterprise-configuration directory in which you will place all the files which will be mounted on the wallet-enterprise repository container's filesystem to override the default behaviour.
+The process of creating your own issuers starts with you creating a new wallet-ecosystem with a wallet-enterprise git submodule and a wallet-enterprise-configuration directory in which you will place all the files which will be mounted on the wallet-enterprise repository container's filesystem to override the default behaviour.
 
 A wallet enterprise configuration should have the following structure:
 
