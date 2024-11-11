@@ -6,14 +6,9 @@ sidebar_position: 1
 
 The wallet is designed with privacy and security as top priorities, ensuring that users have complete control over their data. Here’s how we protect your privacy:
 
-## Data Storage and Encryption
+## Key Pairs and Encryption
 
-- All user data is stored securely on the user's device in an encrypted format. This means that only the user has access to their data, and it cannot be viewed or accessed by anyone else.
-
-## Role of the Wallet Provider
-
-- The Wallet Provider’s backend services are designed solely to provide auxiliary support, such as encrypted backup storage. 
-- **Important:** These services function without ever accessing or processing any unencrypted user information, ensuring that the user's data remains private.
+- In its current phase, wwWallet enhances privacy by generating unique, unrelated key pairs for each credential. This ensures that cryptographic keys do not compromise unlinkability, preventing tracking by relying parties, provided the holder does not use the same credential instance for every presentation. All key pairs are stored securely on the user's device in an encrypted format.
 
 ## Data Sharing
 
