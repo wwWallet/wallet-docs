@@ -14,7 +14,7 @@ Our Contribution Guidelines cover the following:
 
 You can find the full guidelines on our GitHub repository here:
 
-➡️ **[View the Contribution Guidelines on GitHub](https://github.com/wwWallet/wallet-ecosystem/blob/main/CONTRIBUTING.md)**
+➡️ **[View the Contribution Guidelines on GitHub](https://github.com/wwWallet/.github/blob/main/CONTRIBUTING.md)**
 
 ---
 
