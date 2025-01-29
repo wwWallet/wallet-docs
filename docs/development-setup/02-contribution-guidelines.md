@@ -4,28 +4,24 @@ sidebar_position: 2
 
 # Contribution Guidelines
 
-## Versions
+We’re excited that you want to contribute to the wwWallet ecosystem! 🎉 Contributing is a great way to collaborate with the community and help improve the project. To ensure a smooth process, we’ve outlined everything you need to know in our comprehensive **Contribution Guidelines**.
 
-We follow a loose https://semver.org/ policy.
+Our Contribution Guidelines cover the following:
 
-```
-Given a version number MAJOR.MINOR.PATCH, increment the:
-1.  MAJOR version when you make incompatible API changes
-2.  MINOR version when you add functionality in a backward compatible manner
-3.  PATCH version when you make backward compatible bug fixes
-```
+- **Development Workflow**: Learn how to get started, from creating issues to submitting pull requests.
+- **Pull Request Guidelines**: Understand the best practices for submitting changes, respecting architectural decisions, and using templates.
+- **Code Reviews**: See how our core team ensures quality and consistency across the project.
 
-## Development
+You can find the full guidelines on our GitHub repository here:
 
-We encourage using the `dc4eu` branch and treating it like the `main`.  Development usually adheres to the following steps:
- 1. Create or pick an issue
- 2. Create a corresponding branch (on all the affected repositories)
- 3. Commit your changes: You can reference the relevant issue number and the type of the commit (feat, fix, style, refactor, test, docs), e.g. `docs: Update README, close #45`
- 4. Push your branch
- 5. Submit a pull request (PR)
- 6. Participate in the review process
- 7. Wait for merging or merge a reviewed PR
+➡️ **[View the Contribution Guidelines on GitHub](https://github.com/wwWallet/.github/blob/main/CONTRIBUTING.md)**
 
-## Git Actions
+---
 
-Pushing (or merging) to specific branches will trigger the creation of tagged releases based on the version specified in the `package.json` file of the corresponding repository. The branches in question will be discussed and agreed upon collectively. 
+## 💬 Questions or Feedback?
+
+If you have questions or want to share ideas, feel free to join the conversation in our **[GitHub Discussions](https://github.com/wwWallet/wallet-ecosystem/discussions)** or reach out through appropriate channels.
+
+---
+
+Thank you for helping make the wwWallet ecosystem better! We value your time and effort and look forward to your contributions. 🚀
