@@ -26,7 +26,7 @@ The wallet, as currently implemented, does not enforce an **authenticator attest
 
 **Cryptographic Binding of (Q)EAAs and Proof Types**
 
-Users’ wallet contents, including all proof signing keys, are end-to-end encrypted on the client side using keys derived from the **WebAuthn PRF extension**. These encryption keys are never transmitted to the server, ensuring that users’ proof signing keys remain secure even in the event of a server-side breach. Once the user is authenticated using WebAuthn, they can download their encrypted wallet contents and decrypt them on the client side.
+Users’ proof signing keys are end-to-end encrypted on the client side using keys derived from the **WebAuthn PRF extension**. These encryption keys are never transmitted to the server, ensuring that users’ proof signing keys remain secure even in the event of a server-side breach. Once the user is authenticated using WebAuthn, they can download their encrypted wallet contents and decrypt them on the client side.
 
 However, the WebAuthn PRF extension only supports the **derivation of software keys**. As a result, the wallet does not currently achieve **high LoA** for (Q)EAA proof signing keys. A compromised or malicious wallet provider could serve client code that **exfiltrates encryption keys**, potentially allowing an attacker to decrypt and misuse the user’s (Q)EAAs.
 
