@@ -9,7 +9,7 @@ If you wish to delete your wallet account, follow these steps.
 ## Steps to Delete Your Account
 
 1. **Log In to Your Wallet**
-   - Open your wwWallet app or [wwwallet.org](https://wwwallet.org) on your browser and sign in to your account.
+   - Open your wwWallet app or [wwwallet.org](https://demo.wwwallet.org) on your browser and sign in to your account.
 
 2. **Go to Settings**
    - Once logged in, navigate to the **Settings** section in the wallet.
