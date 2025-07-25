@@ -1,0 +1,7 @@
+{
+  "label": "Technical Reports",
+  "link": {
+    "type": "generated-index",
+    "description": "Technical documentation of implementation choices and experiments"
+  }
+}
