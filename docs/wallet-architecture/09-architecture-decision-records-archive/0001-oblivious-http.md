@@ -10,7 +10,7 @@ Accepted
 
 The Web platform imposes several challenges to the implementation of the wallet. One of these is the network request restrictions, the one encountered more often being CORS policies. The wallet depends on a proxy (hosted by the wallet provider) to fetch resources behind such restrictions.
 
-While practical, the proxy exposes information about the holder's action to the provider, which has access to the interaction's with issuers and verifiers. 
+While practical, the proxy exposes information about the holder's action to the provider, which has access to the interactions with issuers and verifiers. 
 
 ## Decision
 
