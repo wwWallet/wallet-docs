@@ -1,0 +1,7 @@
+{
+  "label": "Architecture Decision Records archive",
+  "link": {
+    "type": "generated-index",
+    "description": "Archive of all the ADRs of the project"
+  }
+}
