@@ -56,3 +56,18 @@
 .mg5 {
 	margin: 5px;
 }
+
+.inline-schema>p:first-child {
+  float: left;
+  margin: 1.5rem;
+  max-width: 100%;
+}
+
+.inline-schema>blockquote {
+  display: inline-block;
+}
+
+.inline-schema img {
+  width: auto!important;
+  margin: 0;
+}
