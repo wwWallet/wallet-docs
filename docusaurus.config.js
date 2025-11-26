@@ -8,7 +8,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   title: 'wwWallet Ecosystem',
   tagline: 'Get started with Issuing and Verifying credentials today!',
-  favicon: 'img/wwwalletLogo.png',
+  favicon: 'img/logo.svg',
 
   // Set the production url of your site here
   url: 'https://wwwallet.github.io',
@@ -58,12 +58,12 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/wwwalletLogo.png',
+      image: 'img/logo.svg',
       navbar: {
         title: 'wwWallet Ecosystem',
         logo: {
           alt: 'wwWallet Logo',
-          src: 'img/wwwalletLogo.png',
+          src: 'img/logo.svg',
         },
         items: [
           {
