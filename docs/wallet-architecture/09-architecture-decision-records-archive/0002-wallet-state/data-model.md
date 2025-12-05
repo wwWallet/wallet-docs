@@ -122,7 +122,7 @@ Concretely, these consist of:
   ```
 
   In schema version 1, `WalletSessionEvent` and `WalletState` are both concrete singular types.
-  In later schema versions these are "version X or later" union types,
+  In later schema versions these are "version X or earlier" union types,
   since `events` may contain events of earlier schema versions not yet folded into `S`,
   and the last event folded into `S` may also have been of an earlier schema version.
   Therefore, both `S` and `events` may be of the current or any earlier schema version.
