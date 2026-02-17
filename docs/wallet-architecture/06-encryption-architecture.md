@@ -101,9 +101,6 @@ The wallet uses the following keys and data types, as labeled in the above diagr
   long-lived key that is used to prove the user's ownership of that credential.
   Each key is generated as part of the credential issuance flow.
 
-  Each **privateKey** member of `PrivateData` is encrypted an additional time
-  using the same encryption key.
-
 - **mainKey**: The 256-bit AES-GCM encryption key of the `EncryptedContainer`.
   This is used to decrypt the contained `PrivateData` and is itself stored in
   encrypted (wrapped) form in the `EncryptedContainer`, asymmetrically encrypted
@@ -264,14 +261,6 @@ be an acceptable user experience. The keys could be kept in application memory
 for a short time to avoid bursts of multiple authentication prompts during a
 single semantic user action. In fact the app already does this when adding or
 deleting WebAuthn credentials, which each need a corresponding **prfKey**.
-
-
-### Encrypting **privateKey** twice
-
-Likewise, encrypting **privateKey** twice may not materially improve security
-either. An adversary with read access to the other `PrivateData` members will
-likely also have read access to both of local storage and session storage, thus
-having access to the keys needed to decrypt **privateKey** anyway.
 
 
 ### **passwordKey** is not entirely client-side
