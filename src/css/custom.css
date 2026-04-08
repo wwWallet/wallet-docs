@@ -46,13 +46,14 @@
 }
 
 .hero__subtitle {
-	color: #8d949e
+  color: var(--ifm-font-color-base);
+  opacity: 0.85;
 }
 
 .hero__title {
-	color: #444950
+  color: var(--ifm-heading-color);
 }
 
 .mg5 {
-	margin: 5px;
+  margin: 5px;
 }
