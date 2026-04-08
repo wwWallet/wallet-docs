@@ -10,13 +10,11 @@
   width: 200px;
 }
 
-
-
 .featureTitle {
-	color: #444950
+  color: var(--ifm-heading-color);
 }
 
 .featureDescription {
-	color: #8d949e
+  color: var(--ifm-font-color-base);
+  opacity: 0.85;
 }
-

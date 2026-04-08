@@ -8,6 +8,6 @@ sidebar_position: 1
 
 You can consult the [PRF compatibility matrix](https://github.com/wwWallet/wallet-frontend#prf-compatibility) regarding browser support and supported operating systems.
 
-## Dockerized Development
+## Development
 
-Follow the instructions of [wallet ecosystem](https://github.com/wwWallet/wallet-ecosystem) to set up the containers.
+Follow the instructions of [wwWallet](https://github.com/wwWallet/wwwallet) to set up the components.
