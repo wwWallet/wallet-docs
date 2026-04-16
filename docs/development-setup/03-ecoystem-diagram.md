@@ -6,8 +6,8 @@ sidebar_position: 3
 
 ## Container diagram
 
-![Component Diagram](../../static/img/diagrams/container.drawio.png)
+![Component Diagram](/img/diagrams/container.drawio.png)
 
 
 ## Repository diagram
-![Repository Diagram](../../static/img/diagrams/git.drawio.png)
+![Repository Diagram](/img/diagrams/git.drawio.png)
