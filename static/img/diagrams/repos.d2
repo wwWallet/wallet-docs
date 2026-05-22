@@ -1,0 +1,142 @@
+direction: right
+
+classes: {
+  group: {
+    style: {
+      border-radius: 18
+      stroke: "#cbd5e1"
+      fill: "#ffffff"
+    }
+  }
+
+  app: {
+    style: {
+      fill: "#e0f2fe"
+      stroke: "#0284c7"
+      border-radius: 10
+    }
+  }
+
+  common: {
+    style: {
+      fill: "#ede9fe"
+      stroke: "#7c3aed"
+      border-radius: 10
+    }
+  }
+
+  protocol: {
+    style: {
+      fill: "#dcfce7"
+      stroke: "#16a34a"
+      border-radius: 10
+    }
+  }
+
+  support: {
+    style: {
+      fill: "#fef9c3"
+      stroke: "#ca8a04"
+      border-radius: 10
+    }
+  }
+
+  wrapper: {
+    style: {
+      fill: "#ffedd5"
+      stroke: "#ea580c"
+      border-radius: 10
+    }
+  }
+}
+
+landscape: {
+  label: ""
+  grid-columns: 2
+  grid-gap: 48
+
+  style: {
+    fill: transparent
+    stroke: transparent
+  }
+
+  wallet_core: {
+    label: "Wallet application core"
+    class: group
+
+    frontend: {
+      label: "wallet-frontend\nWeb wallet UI / PWA"
+      class: app
+    }
+
+    backend: {
+      label: "wallet-backend-server\nprovider, storage, WebAuthn"
+      class: app
+    }
+  }
+
+  platform_core: {
+    label: "Shared platform core"
+    class: group
+
+    common: {
+      label: "wallet-common\nCredential, protocol, schema,\ncrypto and rendering utilities"
+      class: common
+    }
+  }
+
+  protocol_services: {
+    label: "Credential protocol services"
+    class: group
+
+    issuer: {
+      label: "wallet-issuer\nOpenID4VCI issuer"
+      class: protocol
+    }
+
+    verifier: {
+      label: "wallet-verifier\nOpenID4VP verifier"
+      class: protocol
+    }
+
+    as: {
+      label: "wallet-as\nOIDC / OAuth2 authorization server"
+      class: protocol
+    }
+  }
+
+  support: {
+    label: "Infrastructure / support"
+    class: group
+
+    wwwallet: {
+      label: "wwwallet\nlocal dev orchestrator"
+      class: support
+    }
+
+    gateway: {
+      label: "privacy-gateway-server-go\nOHTTP / privacy gateway"
+      class: support
+    }
+
+    vct: {
+      label: "vct-registry\ncredential type metadata"
+      class: support
+    }
+  }
+
+  wrappers: {
+    label: "Mobile wrappers"
+    class: group
+
+    android: {
+      label: "wallet-android-wrapper\nAndroid wrapper for the web wallet"
+      class: wrapper
+    }
+
+    ios: {
+      label: "wallet-ios-wrapper\niOS wrapper for the web wallet"
+      class: wrapper
+    }
+  }
+}
