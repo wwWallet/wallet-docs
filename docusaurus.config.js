@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'wwWallet Ecosystem',
+  title: 'wwWallet Docs',
   tagline: 'Get started with Issuing and Verifying credentials today!',
   favicon: 'img/logo.svg',
 
@@ -64,17 +64,12 @@ const config = {
       // Replace with your project's social card
       image: 'img/logo.svg',
       navbar: {
-        title: 'wwWallet Ecosystem',
+        title: 'wwWallet Docs',
         logo: {
           alt: 'wwWallet Logo',
           src: 'img/logo.svg',
         },
         items: [
-          {
-            position: 'left',
-            label: 'Documentation',
-						href: "/wallet-docs/docs/category/development-setup"
-          },
           {
             href: 'https://github.com/wwWallet/wwwallet',
             label: 'GitHub',
@@ -86,11 +81,41 @@ const config = {
         style: 'light',
         links: [
           {
-            title: 'Docs',
+            title: 'Get Started',
             items: [
               {
-                label: 'Tutorial',
+                label: 'Development Setup',
                 to: '/wallet-docs/docs/category/development-setup',
+              },
+              {
+                label: 'Getting Started',
+                to: '/wallet-docs/docs/development-setup/getting-started',
+              },
+            ],
+          },
+          {
+            title: 'Core Sections',
+            items: [
+              {
+                label: 'Wallet Architecture',
+                to: '/wallet-docs/docs/category/wallet-architecture',
+              },
+              {
+                label: 'Wallet Handbook',
+                to: '/wallet-docs/docs/category/wallet-handbook',
+              },
+              {
+                label: 'Showcase',
+                to: '/wallet-docs/docs/category/showcase',
+              },
+            ],
+          },
+          {
+            title: 'Project',
+            items: [
+              {
+                label: 'GitHub Repository',
+                href: 'https://github.com/wwWallet/wwwallet',
               },
             ],
           },
