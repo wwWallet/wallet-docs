@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Contribution Guidelines
 
-We’re excited that you want to contribute to the wwWallet Docs! 🎉 Contributing is a great way to collaborate with the community and help improve the project. To ensure a smooth process, we’ve outlined everything you need to know in our **Contribution Guidelines**.
+We’re excited that you want to contribute to wwWallet! 🎉 Contributing is a great way to collaborate with the community and help improve the project. To ensure a smooth process, we’ve outlined everything you need to know in our **Contribution Guidelines**.
 
 Our Contribution Guidelines cover the following:
 
