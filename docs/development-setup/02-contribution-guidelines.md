@@ -4,12 +4,12 @@ sidebar_position: 2
 
 # Contribution Guidelines
 
-We’re excited that you want to contribute to the wwWallet ecosystem! 🎉 Contributing is a great way to collaborate with the community and help improve the project. To ensure a smooth process, we’ve outlined everything you need to know in our comprehensive **Contribution Guidelines**.
+We’re excited that you want to contribute to wwWallet! 🎉 Contributing is a great way to collaborate with the community and help improve the project. To ensure a smooth process, we’ve outlined everything you need to know in our **Contribution Guidelines**.
 
 Our Contribution Guidelines cover the following:
 
 - **Development Workflow**: Learn how to get started, from creating issues to submitting pull requests.
-- **Pull Request Guidelines**: Understand the best practices for submitting changes, respecting architectural decisions, and using templates.
+- **Pull Request Guidelines**: Understand the best practices for submitting changes, respecting architectural decisions and using templates.
 - **Code Reviews**: See how our core team ensures quality and consistency across the project.
 
 You can find the full guidelines on our GitHub repository here:
@@ -20,7 +20,7 @@ You can find the full guidelines on our GitHub repository here:
 
 ## 💬 Questions or Feedback?
 
-If you have questions or want to share ideas, feel free to join the conversation in our **[GitHub Discussions](https://github.com/wwWallet/wallet-ecosystem/discussions)** or reach out through appropriate channels.
+If you have questions or want to share ideas, feel free to join the conversation in our **[GitHub Discussions](https://github.com/orgs/wwWallet/discussions)** or reach out through appropriate channels.
 
 ---
 
