@@ -43,3 +43,197 @@
 .hero__title {
   color: var(--ifm-heading-color);
 }
+
+
+/* ---------------------------------------------------------------------------
+   Welcome page (docs/introduction.md)
+   --------------------------------------------------------------------------- */
+
+/* The welcome page leads with its hero band, so the breadcrumb trail is noise. */
+.docs-doc-id-introduction .theme-doc-breadcrumbs {
+  display: none;
+}
+
+/* Keep the intro prose to a readable measure across the full-width column. */
+.docs-doc-id-introduction .theme-doc-markdown > p {
+  max-width: 52.5rem;
+}
+
+.wwhome-hero {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  /* Cancel the doc column padding so the band spans the content width. */
+  margin: calc(-1 * var(--ifm-spacing-vertical)) calc(-1 * var(--ifm-spacing-horizontal)) 3rem;
+  padding: 3.25rem 3.5rem;
+  background-color: #f3f3f3;
+  /* background-image: radial-gradient(
+    760px 320px at 84% 16%,
+    rgba(6, 144, 225, 0.32),
+    rgba(28, 69, 135, 0)
+  ); */
+}
+
+.wwhome-hero__copy {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  max-width: 30rem;
+}
+
+.wwhome-hero__title {
+  margin: 0 0 1rem;
+  font-size: 2.5rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  /* color: #ffffff; */
+}
+
+.wwhome-hero__lede {
+  margin: 0 0 1.75rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.wwhome-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.125rem;
+}
+
+.wwhome-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6875rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: var(--ifm-global-radius);
+  font-weight: var(--ifm-font-weight-bold);
+  line-height: 1.5;
+  transition: background-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.wwhome-btn:hover {
+  text-decoration: none;
+}
+
+.wwhome-btn--primary {
+  color: #ffffff;
+  background-color: #1c4587;
+}
+
+.wwhome-btn--primary:hover {
+  color: #e6edf7;
+  background-color: #4d77bb;
+}
+
+.wwhome-btn--ghost {
+  border-color: #1c4587;
+  color: #1c4587;
+  background-color: transparent;
+}
+
+.wwhome-btn--ghost:hover {
+  background-color: rgba(28, 69, 135, 0.08);
+  color: #1c4587;
+}
+
+.wwhome-hero__note {
+  font-size: 0.84375rem;
+  color: #9dc3f0;
+}
+
+/* Device lockup. The artwork carries its own bezels on a transparent ground,
+   so it sits directly on the hero band with no frame of ours around it. */
+.wwhome-shot {
+  display: flex;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.wwhome-shot__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Quick actions */
+.wwhome-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.wwhome-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding: 1.375rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: calc(var(--ifm-global-radius) * 2);
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  transition: border-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.wwhome-card:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+/* MDX wraps a stray text run in an unclassed <p>; its margin would knock flex centring askew. */
+.wwhome-hero p:not([class]),
+.wwhome-card p:not([class]) {
+  margin: 0;
+}
+
+.wwhome-card__title {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 1.0625rem;
+  font-weight: var(--ifm-font-weight-bold);
+  line-height: var(--ifm-heading-line-height);
+}
+
+.wwhome-card__icon {
+  flex-shrink: 0;
+  color: var(--ifm-color-primary);
+}
+
+.wwhome-card__body {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--ifm-color-content-secondary);
+}
+
+.wwhome-card__more {
+  font-size: 0.90625rem;
+  font-weight: var(--ifm-font-weight-semibold);
+  color: var(--ifm-color-primary);
+}
+
+@media (max-width: 996px) {
+  .wwhome-hero {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2rem;
+    padding: 2.25rem 1.5rem;
+  }
+
+  .wwhome-hero__copy {
+    max-width: none;
+  }
+
+  .wwhome-hero__title {
+    font-size: 2rem;
+  }
+
+  .wwhome-actions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
