@@ -1,5 +1,5 @@
 ---
-sidebar_position: 10
+sidebar_position: 6
 ---
 import ReactPlayer from 'react-player'
 import sameDevice from '/vid/v2 - Same Device Mobile Flow.mp4';

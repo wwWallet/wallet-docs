@@ -106,7 +106,7 @@ const config = {
               },
               {
                 label: 'Showcase',
-                to: '/wallet-docs/docs/category/showcase',
+                to: '/wallet-docs/docs/showcase',
               },
             ],
           },
