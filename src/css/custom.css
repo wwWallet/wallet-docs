@@ -35,6 +35,10 @@
 	justify-content: center;
 }
 
+.row:has(> .col:only-child) {
+  justify-content: flex-start;
+}
+
 .hero__subtitle {
   color: var(--ifm-font-color-base);
   opacity: 0.85;
