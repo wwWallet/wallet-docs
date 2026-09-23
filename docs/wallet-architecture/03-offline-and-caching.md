@@ -16,15 +16,15 @@ Offline support has three parts:
 
 The service worker is limited to application delivery. Authenticated API responses and wallet data are handled by the application, where the storage and synchronization rules are explicit.
 
-## Cache strategy
+## Caching strategies
 
 | Resource | Strategy | Notes |
 | --- | --- | --- |
 | Content-hashed JavaScript, CSS and other build files | Workbox precache | A new build produces new revisions, so outdated files can be removed safely. |
-| Manifest, theme, logos, icons and PWA screenshots | Runtime precache | URLs include a manifest or branding hash. Branding can therefore be updated when runtime configuration is injected, without rebuilding the application bundle. |
-| `index.html` | Network first | The worker waits up to three seconds for the network, then falls back to the app-shell cache. The cache is scoped by the configured base path. |
-| Images | Stale while revalidate | The image cache holds up to 200 entries. Versioned branding images use the precache instead. |
-| Fonts | Cache first | The font cache holds up to 50 entries. |
+| Manifest, theme, logos, icons and PWA screenshots | Runtime-generated precache | URLs include a manifest or branding hash. Branding can therefore be updated when runtime configuration is injected, without rebuilding the application bundle. |
+| `index.html` | Network-first | The worker waits up to three seconds for the network, then falls back to the app-shell cache. The cache is scoped by the configured base path. |
+| Images | Stale-while-revalidate | The image cache holds up to 200 entries. Versioned branding images use the precache instead. |
+| Fonts | Cache-first | The font cache holds up to 50 entries. |
 | Issuer and verifier lists, account information and related backend data | IndexedDB | Depending on the caller, data is read from the cache first or refreshed from the network. Cached data is also used when a request fails. |
 | Proxied metadata and remote media | IndexedDB | Caching is opt-in. `Cache-Control: max-age` is respected, with a default lifetime of 30 days when no value is provided. Binary responses are stored in a reload-safe form. |
 | Encrypted wallet state | IndexedDB | The encrypted container is updated after wallet changes. Decrypted wallet contents are not persisted. |
@@ -51,7 +51,7 @@ Restricting the fallback prevents backend endpoints and unrelated URLs from bein
 
 ## Connectivity detection
 
-`navigator.onLine` is not treated as proof of Internet access. The wallet checks the backend's `/status` endpoint with a five-second timeout and uses that result as its online state.
+`navigator.onLine` is not treated as proof of internet access. The wallet checks the backend's `/status` endpoint with a five-second timeout and uses that result as its online state.
 
 - Browser `online` and `offline` events trigger a check.
 - While offline, the wallet checks every seven seconds.
