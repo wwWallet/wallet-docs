@@ -18,12 +18,5 @@ The verification result is intentionally format-agnostic, allowing higher-level 
 
 Many credential formats require external public keys for signature verification.
 
-The Credential Engine provides a dedicated public key resolution framework that can be extended to support different trust infrastructures, including:
-
-* DID Documents
-* JWKS endpoints
-* OpenID-based metadata
-* Trusted registries
-* Proprietary trust systems
-
+The Credential Engine provides a dedicated public key resolution framework that can be extended to support different trust infrastructures.
 Resolvers are independent of credential formats and can be reused across multiple verifiers.

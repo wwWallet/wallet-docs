@@ -29,15 +29,3 @@ Supporting a new credential format typically requires:
 4. Exposing the verifier through the application
 
 Once registered, the new format becomes a first-class participant in credential issuance, storage, display, presentation, and verification workflows without requiring changes to existing format implementations.
-
-## Design Principles
-
-The framework is built around a few core principles:
-
-* **Format Independence** — Wallet features operate on a normalized credential model.
-* **Separation of Concerns** — Parsing and verification are independent operations.
-* **Pluggability** — New formats can be added through registration.
-* **Extensibility** — Metadata and trust infrastructure can be customized.
-* **Interoperability** — Multiple credential formats can coexist within the same deployment.
-
-This approach allows the Credential Engine to support evolving credential standards while providing a consistent integration experience for developers.
