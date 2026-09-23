@@ -1,0 +1,8 @@
+{
+  "label": "Lib Issuer",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Describing the architecture and API of the lib/issuer"
+  }
+}
