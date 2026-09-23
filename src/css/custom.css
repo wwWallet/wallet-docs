@@ -246,3 +246,106 @@
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+
+/* ---------------------------------------------------------------------------
+   Repository map (docs/development-setup/01-getting-started.md)
+   --------------------------------------------------------------------------- */
+
+.wwrepos {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  margin-bottom: var(--ifm-leading);
+}
+
+.wwrepos__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.wwrepos__heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  font-size: 0.8125rem;
+  font-weight: var(--ifm-font-weight-bold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ifm-color-content-secondary);
+}
+
+.wwrepos__dot {
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 2px;
+  background-color: var(--wwrepos-dot);
+}
+
+/* Group colours are lifted from static/img/diagrams/repos.d2, so this list reads
+   as a legend for the diagram that follows it. Keep the two in step. */
+.wwrepos__dot--app {
+  --wwrepos-dot: #0284c7;
+}
+
+.wwrepos__dot--common {
+  --wwrepos-dot: #7c3aed;
+}
+
+.wwrepos__dot--protocol {
+  --wwrepos-dot: #16a34a;
+}
+
+.wwrepos__dot--support {
+  --wwrepos-dot: #ca8a04;
+}
+
+.wwrepos__dot--wrapper {
+  --wwrepos-dot: #ea580c;
+}
+
+.wwrepos__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wwrepos__item {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.3125rem 0;
+  font-size: 0.9375rem;
+}
+
+.markdown .wwrepos__item + .wwrepos__item {
+  margin-top: 0;
+}
+
+.wwrepos__name {
+  flex: 0 0 14rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.875rem;
+}
+
+.wwrepos__desc {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--ifm-color-content-secondary);
+}
+
+@media (max-width: 600px) {
+  .wwrepos__item {
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .wwrepos__name {
+    flex: 0 0 auto;
+    align-self: flex-start;
+  }
+}
