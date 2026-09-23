@@ -1,5 +1,5 @@
 ---
-title: Welcome to wwWallet
+title: Welcome
 hide_title: true
 hide_table_of_contents: true
 sidebar_position: 0
@@ -14,7 +14,7 @@ pagination_prev: null
     <p className="wwhome-hero__lede">wwWallet is an open-source, web-based digital identity wallet for securely storing, managing and presenting verifiable credentials</p>
     <div className="wwhome-hero__actions">
       <a className="wwhome-btn wwhome-btn--primary" target="_blank" href="https://demo.wwwallet.org">Open the demo wallet</a>
-      <a className="wwhome-btn wwhome-btn--ghost" href="/wallet-docs/docs/development-setup/getting-started">Get started</a>
+      <a className="wwhome-btn wwhome-btn--ghost" href="/wallet-docs/docs/getting-started/development-setup">Get started</a>
     </div>
   </div>
 
@@ -35,7 +35,7 @@ together and how to set up, configure and use the wallet, issuer, verifier and s
 
 <div className="wwhome-actions">
 
-  <a className="wwhome-card" href="/wallet-docs/docs/development-setup/getting-started">
+  <a className="wwhome-card" href="/wallet-docs/docs/getting-started/development-setup">
     <span className="wwhome-card__title">
       <svg className="wwhome-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <rect x="2.5" y="4" width="19" height="15" rx="2"></rect>
@@ -47,7 +47,7 @@ together and how to set up, configure and use the wallet, issuer, verifier and s
     <span className="wwhome-card__more">Development Setup →</span>
   </a>
 
-  <a className="wwhome-card" href="/wallet-docs/docs/development-setup/contribution-guidelines">
+  <a className="wwhome-card" href="/wallet-docs/docs/getting-started/contribution-guidelines">
     <span className="wwhome-card__title">
       <svg className="wwhome-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <line x1="6" y1="3" x2="6" y2="15"></line>

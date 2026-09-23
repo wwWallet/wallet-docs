@@ -1,14 +1,7 @@
 ---
-sidebar_position: 1
 ---
 
-# Getting started
-
-## Browser and OS compatibility
-
-You can consult the [PRF compatibility matrix](https://github.com/wwWallet/wallet-frontend#prf-compatibility) regarding browser support and supported operating systems.
-
-## Development setup
+# Development Setup
 
 Use the `wwwallet` repository as the entry point for local development. It is the orchestration repository for the current wwWallet stack and is intended to bring the individual components together into a working development environment.
 
