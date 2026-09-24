@@ -1,4 +1,5 @@
 ---
+description: Check browser and operating-system support for passkeys, Bluetooth sharing and PWA installation.
 ---
 
 # Browser / OS Compatibility
