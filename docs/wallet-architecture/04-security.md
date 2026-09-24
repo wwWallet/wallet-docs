@@ -1,4 +1,5 @@
 ---
+description: Authentication, cryptographic binding and the wallet's security model.
 ---
 
 # Security

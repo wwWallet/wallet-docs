@@ -1,4 +1,5 @@
 ---
+description: Run the complete wwWallet ecosystem locally with the wwwallet orchestration repository.
 ---
 
 # Development Setup

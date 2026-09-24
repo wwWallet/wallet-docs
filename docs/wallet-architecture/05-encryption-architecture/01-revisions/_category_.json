@@ -2,6 +2,6 @@
   "label": "Encryption Architecture revisions",
   "link": {
     "type": "generated-index",
-    "description": "Earlier versions of the encryption architecture used in the wallet frontend."
+    "description": "Earlier versions of the encryption architecture used in the wallet frontend, as well as changelog and notes on the evolution of the architecture."
   }
 }

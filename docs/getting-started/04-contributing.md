@@ -1,4 +1,5 @@
 ---
+description: Learn the contribution workflow, community expectations and where to discuss ideas.
 ---
 
 # Contributing
