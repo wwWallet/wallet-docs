@@ -47,7 +47,7 @@ together and how to set up, configure and use the wallet, issuer, verifier and s
     <span className="wwhome-card__more">Development Setup →</span>
   </a>
 
-  <a className="wwhome-card" href="/wallet-docs/docs/getting-started/contribution-guidelines">
+  <a className="wwhome-card" href="/wallet-docs/docs/getting-started/contributing">
     <span className="wwhome-card__title">
       <svg className="wwhome-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
         <line x1="6" y1="3" x2="6" y2="15"></line>
@@ -58,7 +58,7 @@ together and how to set up, configure and use the wallet, issuer, verifier and s
       <span className="wwhome-card__label">Contribute</span>
     </span>
     <span className="wwhome-card__body">Development workflow, pull request practice and how the core team reviews changes.</span>
-    <span className="wwhome-card__more">Contribution Guidelines →</span>
+    <span className="wwhome-card__more">Contributing →</span>
   </a>
 
   <a className="wwhome-card" href="/wallet-docs/docs/category/wallet-handbook">
