@@ -41,7 +41,6 @@ This metadata is surfaced through the normalized credential model and can origin
 ### Metadata Sources
 
 Display metadata may originate from different sources depending on the credential format and deployment configuration.
-Applications may also provide custom metadata for specific issuers or credential types when display metadata is unavailable from standard sources.
 
 Common sources, prioritized by the order in which they are currently used, include:
 
