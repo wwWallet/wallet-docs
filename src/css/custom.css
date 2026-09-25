@@ -353,10 +353,17 @@
 }
 
 .pagination-nav__link--next .pagination-nav__label::after {
-  content: ' ›';
+  flex: 0 0 auto;
+  content: '›';
   font-size: 1.5em;
-  line-height: 0;
-  vertical-align: -0.08em;
+  line-height: 1;
+}
+
+.pagination-nav__link--next .pagination-nav__label {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 0.25em;
 }
 
 @media (max-width: 996px) {
