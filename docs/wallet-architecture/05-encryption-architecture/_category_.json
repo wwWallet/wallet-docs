@@ -1,0 +1,8 @@
+{
+  "label": "Encryption Architecture",
+  "description": "How wallet contents and proof-signing keys are encrypted and protected.",
+  "link": {
+    "type": "doc",
+    "id": "wallet-architecture/encryption-architecture/index"
+  }
+}

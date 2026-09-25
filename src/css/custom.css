@@ -35,6 +35,10 @@
 	justify-content: center;
 }
 
+.row:has(> .col:only-child) {
+  justify-content: flex-start;
+}
+
 .hero__subtitle {
   color: var(--ifm-font-color-base);
   opacity: 0.85;
@@ -42,4 +46,446 @@
 
 .hero__title {
   color: var(--ifm-heading-color);
+}
+
+
+/* ---------------------------------------------------------------------------
+   Welcome page (docs/introduction.md)
+   --------------------------------------------------------------------------- */
+
+/* The welcome page leads with its hero band, so the breadcrumb trail is noise. */
+.docs-doc-id-introduction .theme-doc-breadcrumbs {
+  display: none;
+}
+
+/* Keep the intro prose to a readable measure across the full-width column. */
+.docs-doc-id-introduction .theme-doc-markdown > p {
+  max-width: 52.5rem;
+}
+
+.wwhome-hero {
+  --wwhome-band: #f3f3f3;
+  --wwhome-accent: #1c4587;
+  --wwhome-accent-hover: #4d77bb;
+  --wwhome-on-accent: #ffffff;
+  --wwhome-ghost-hover: rgba(28, 69, 135, 0.08);
+
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  /* Cancel the doc column padding so the band spans the content width. */
+  margin: calc(-1 * var(--ifm-spacing-vertical)) calc(-1 * var(--ifm-spacing-horizontal)) 3rem;
+  padding: 3.25rem 3.5rem;
+  background-color: var(--wwhome-band);
+}
+
+[data-theme='dark'] .wwhome-hero {
+  --wwhome-band: var(--ifm-background-surface-color);
+  --wwhome-accent: #4a99ff;
+  --wwhome-accent-hover: #6aabff;
+  --wwhome-on-accent: var(--ifm-background-color);
+  --wwhome-ghost-hover: rgba(74, 153, 255, 0.14);
+}
+
+.wwhome-hero__copy {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  max-width: 30rem;
+}
+
+.wwhome-hero__title {
+  margin: 0 0 1rem;
+  font-size: 2.5rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  /* color: #ffffff; */
+}
+
+.wwhome-hero__lede {
+  margin: 0 0 1.75rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.wwhome-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.125rem;
+}
+
+.wwhome-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6875rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: var(--ifm-global-radius);
+  font-weight: var(--ifm-font-weight-bold);
+  line-height: 1.5;
+  transition: background-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.wwhome-btn:hover {
+  text-decoration: none;
+}
+
+.wwhome-btn--primary {
+  color: var(--wwhome-on-accent);
+  background-color: var(--wwhome-accent);
+}
+
+.wwhome-btn--primary:hover {
+  color: var(--wwhome-on-accent);
+  background-color: var(--wwhome-accent-hover);
+}
+
+.wwhome-btn--ghost {
+  border-color: var(--wwhome-accent);
+  color: var(--wwhome-accent);
+  background-color: transparent;
+}
+
+.wwhome-btn--ghost:hover {
+  background-color: var(--wwhome-ghost-hover);
+  color: var(--wwhome-accent);
+}
+
+.wwhome-hero__note {
+  font-size: 0.84375rem;
+  color: #9dc3f0;
+}
+
+/* Device lockup. The artwork carries its own bezels on a transparent ground,
+   so it sits directly on the hero band with no frame of ours around it. */
+.wwhome-shot {
+  display: flex;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.wwhome-shot__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Quick actions */
+.wwhome-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.wwhome-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding: 1.375rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: calc(var(--ifm-global-radius) * 2);
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  transition: border-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.wwhome-card:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+/* MDX wraps a stray text run in an unclassed <p>; its margin would knock flex centring askew. */
+.wwhome-hero p:not([class]),
+.wwhome-card p:not([class]) {
+  margin: 0;
+}
+
+.wwhome-card__title {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 1.0625rem;
+  font-weight: var(--ifm-font-weight-bold);
+  line-height: var(--ifm-heading-line-height);
+}
+
+.wwhome-card__icon {
+  flex-shrink: 0;
+  color: var(--ifm-color-primary);
+}
+
+.wwhome-card__body {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--ifm-color-content-secondary);
+}
+
+.wwhome-card__more {
+  font-size: 0.90625rem;
+  font-weight: var(--ifm-font-weight-semibold);
+  color: var(--ifm-color-primary);
+}
+
+.theme-doc-card-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 10.75rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: calc(var(--ifm-global-radius) * 2);
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: none !important;
+  color: var(--ifm-font-color-base);
+  transition: border-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.theme-doc-card-container:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: none !important;
+  color: var(--ifm-font-color-base);
+}
+
+.theme-doc-card-container .theme-doc-card-title {
+  font-size: 1.0625rem;
+  color: var(--ifm-color-primary);
+}
+
+.theme-doc-card-container .theme-doc-card-title::after {
+  content: ' →';
+}
+
+.theme-doc-card-container .theme-doc-card-icon {
+  display: none;
+}
+
+.theme-doc-card-container .theme-doc-card-description {
+  display: block;
+  margin-top: 0.625rem;
+  overflow: visible;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--ifm-color-content-secondary);
+  white-space: normal;
+}
+
+.row > .col:has(> .theme-doc-card-container.wwcard-list) {
+  flex-basis: 100%;
+  max-width: 100%;
+}
+
+.theme-doc-card-container.wwcard-list {
+  flex-direction: row;
+  align-items: center;
+  min-height: 5.5rem;
+  padding: 1.375rem !important;
+}
+
+.theme-doc-card-container.wwcard-list::after {
+  margin-left: auto;
+  padding-left: 1rem;
+  font-size: 1.25rem;
+  color: var(--ifm-navbar-link-color);
+  content: '→';
+  transition: color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.theme-doc-card-container.wwcard-list .theme-doc-card-heading {
+  margin: 0;
+}
+
+.theme-doc-card-container.wwcard-list .theme-doc-card-title {
+  color: var(--ifm-navbar-link-color);
+  transition: color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.theme-doc-card-container.wwcard-list .theme-doc-card-title::after {
+  content: none;
+}
+
+.theme-doc-card-container.wwcard-list:hover .theme-doc-card-title {
+  color: var(--ifm-navbar-link-hover-color);
+}
+
+.theme-doc-card-container.wwcard-list:hover::after {
+  color: var(--ifm-navbar-link-hover-color);
+}
+
+.theme-doc-card-container.wwcard-list .theme-doc-card-description {
+  display: none;
+}
+
+.pagination-nav {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.pagination-nav__link {
+  padding: 0;
+  border: 0;
+  color: var(--ifm-navbar-link-color);
+  line-height: 1.5;
+  transition: color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.pagination-nav__link:hover {
+  background: transparent;
+  color: var(--ifm-navbar-link-hover-color);
+  text-decoration: none;
+}
+
+.pagination-nav__sublabel {
+  display: none;
+}
+
+.pagination-nav__label {
+  font-size: 1.0625rem;
+  font-weight: var(--ifm-font-weight-semibold);
+}
+
+.pagination-nav__link--prev .pagination-nav__label::before {
+  content: '‹ ';
+  font-size: 1.5em;
+  line-height: 0;
+  vertical-align: -0.08em;
+}
+
+.pagination-nav__link--next .pagination-nav__label::after {
+  flex: 0 0 auto;
+  content: '›';
+  font-size: 1.5em;
+  line-height: 1;
+}
+
+.pagination-nav__link--next .pagination-nav__label {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 0.25em;
+}
+
+@media (max-width: 996px) {
+  .wwhome-hero {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2rem;
+    padding: 2.25rem 1.5rem;
+  }
+
+  .wwhome-hero__copy {
+    max-width: none;
+  }
+
+  .wwhome-hero__title {
+    font-size: 2rem;
+  }
+
+  .wwhome-actions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+
+/* ---------------------------------------------------------------------------
+   Repository map (docs/development-setup/01-getting-started.md)
+   --------------------------------------------------------------------------- */
+
+.wwrepos {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  margin-bottom: var(--ifm-leading);
+}
+
+.wwrepos__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.wwrepos__heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  font-size: 0.8125rem;
+  font-weight: var(--ifm-font-weight-bold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ifm-color-content-secondary);
+}
+
+.wwrepos__dot {
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 2px;
+  background-color: var(--wwrepos-dot);
+}
+
+/* Group colours are lifted from static/img/diagrams/repos.d2, so this list reads
+   as a legend for the diagram that follows it. Keep the two in step. */
+.wwrepos__dot--app {
+  --wwrepos-dot: #0284c7;
+}
+
+.wwrepos__dot--common {
+  --wwrepos-dot: #7c3aed;
+}
+
+.wwrepos__dot--protocol {
+  --wwrepos-dot: #16a34a;
+}
+
+.wwrepos__dot--support {
+  --wwrepos-dot: #ca8a04;
+}
+
+.wwrepos__dot--wrapper {
+  --wwrepos-dot: #ea580c;
+}
+
+.wwrepos__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wwrepos__item {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.3125rem 0;
+  font-size: 0.9375rem;
+}
+
+.markdown .wwrepos__item + .wwrepos__item {
+  margin-top: 0;
+}
+
+.wwrepos__name {
+  flex: 0 0 14rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.875rem;
+}
+
+.wwrepos__desc {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--ifm-color-content-secondary);
+}
+
+@media (max-width: 600px) {
+  .wwrepos__item {
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .wwrepos__name {
+    flex: 0 0 auto;
+    align-self: flex-start;
+  }
 }

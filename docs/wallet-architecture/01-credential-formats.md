@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+description: Supported credential formats and how to extend the wallet with additional credential parsers.
 ---
 
 # Credential Formats
