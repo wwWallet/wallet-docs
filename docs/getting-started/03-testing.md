@@ -23,4 +23,4 @@ After installation, you can also run the suite from the repository root with `ya
 
 The suite targets local services by default. To use another environment, copy `e2e/.env.template` to `e2e/.env` and set `WALLET_URL`, `ISSUER_URL`, `WALLET_AS_URL` and `VERIFIER_URL`. The tests do not start these services.
 
-See the [`e2e` README](https://github.com/wwWallet/wwwallet/tree/main/e2e) for more details.
+See the [`e2e` README](https://github.com/wwWallet/wwwallet/tree/master/e2e) for more details.
