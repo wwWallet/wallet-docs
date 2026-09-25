@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+description: How the wallet handles offline operation, local data and caching.
 ---
 
 # Offline support and caching
