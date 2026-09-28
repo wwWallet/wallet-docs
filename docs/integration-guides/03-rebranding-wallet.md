@@ -63,4 +63,4 @@ Define the brand palette in `branding/custom/theme.json`:
 
 HSL is recommended and each value must be a complete CSS color such as `hsl(217 66% 32%)`. Hexadecimal and RGB colors are also supported. Check that text and controls remain readable in both modes.
 
-For supported screenshots and complete implementation details, see the [`wallet-frontend` README](https://github.com/wwWallet/wallet-frontend/blob/master/README.md) and its [branding guide](https://github.com/wwWallet/wallet-frontend/blob/master/branding/README.md).
+For supported screenshots and complete implementation details, see the [wallet-frontend README](https://github.com/wwWallet/wallet-frontend/blob/master/README.md) and its [branding guide](https://github.com/wwWallet/wallet-frontend/blob/master/branding/README.md).
