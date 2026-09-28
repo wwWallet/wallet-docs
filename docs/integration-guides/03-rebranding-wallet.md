@@ -40,7 +40,7 @@ branding/custom/
 
 Custom files take precedence over the default wwWallet assets. Provide both light and dark logos. SVG is recommended, PNG is also supported and should be at least 512 by 512 pixels. Logos should be square and include enough padding to display well as app icons.
 
-PWA screenshots are optional. Mobile screenshots must be 828 by 1792 pixels and tablet screenshots 2160 by 1620 pixels.
+PWA screenshots are optional. If provided, they will appear in the browser’s install prompt to preview the PWA version before installation. Mobile screenshots must be 828 by 1792 pixels and tablet screenshots 2160 by 1620 pixels.
 
 ## Theme colors
 
