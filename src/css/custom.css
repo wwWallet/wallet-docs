@@ -72,10 +72,12 @@
   }
 
   .theme-doc-sidebar-container > div > div {
+    width: auto;
     padding-top: 0;
   }
 
   .theme-doc-sidebar-container nav.menu {
+    padding: 0.5rem;
     overscroll-behavior: contain;
   }
 
