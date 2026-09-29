@@ -28,6 +28,7 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-navbar-background-color: var(--ifm-background-color);
 }
 
 
@@ -48,6 +49,43 @@
   color: var(--ifm-heading-color);
 }
 
+.navbar {
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  box-shadow: none;
+}
+
+@media (min-width: 997px) {
+  aside.theme-doc-sidebar-container {
+    position: fixed;
+    top: var(--ifm-navbar-height);
+    bottom: 0;
+    inset-inline-start: 0;
+    margin-top: 0;
+    background-color: var(--ifm-background-color);
+    z-index: calc(var(--ifm-z-index-fixed) - 1);
+  }
+
+  .theme-doc-sidebar-container > div {
+    position: static;
+    height: 100%;
+    max-height: none;
+  }
+
+  .theme-doc-sidebar-container > div > div {
+    width: auto;
+    padding-top: 0;
+  }
+
+  .theme-doc-sidebar-container nav.menu {
+    padding: 0.5rem;
+    overscroll-behavior: contain;
+  }
+
+  .theme-doc-sidebar-container + main,
+  #__docusaurus:has(.theme-doc-sidebar-container) > .theme-layout-footer {
+    margin-inline-start: var(--doc-sidebar-width);
+  }
+}
 
 /* ---------------------------------------------------------------------------
    Welcome page (docs/introduction.md)
