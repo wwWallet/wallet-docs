@@ -48,6 +48,36 @@
   color: var(--ifm-heading-color);
 }
 
+@media (min-width: 997px) {
+  aside.theme-doc-sidebar-container {
+    position: fixed;
+    top: var(--ifm-navbar-height);
+    bottom: 0;
+    inset-inline-start: 0;
+    margin-top: 0;
+    background-color: var(--ifm-background-surface-color);
+    z-index: calc(var(--ifm-z-index-fixed) - 1);
+  }
+
+  .theme-doc-sidebar-container > div {
+    position: static;
+    height: 100%;
+    max-height: none;
+  }
+
+  .theme-doc-sidebar-container > div > div {
+    padding-top: 0;
+  }
+
+  .theme-doc-sidebar-container nav.menu {
+    overscroll-behavior: contain;
+  }
+
+  .theme-doc-sidebar-container + main,
+  #__docusaurus:has(.theme-doc-sidebar-container) > .theme-layout-footer {
+    margin-inline-start: var(--doc-sidebar-width);
+  }
+}
 
 /* ---------------------------------------------------------------------------
    Welcome page (docs/introduction.md)
