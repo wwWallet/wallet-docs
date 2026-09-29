@@ -49,6 +49,11 @@
   color: var(--ifm-heading-color);
 }
 
+.navbar {
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  box-shadow: none;
+}
+
 @media (min-width: 997px) {
   aside.theme-doc-sidebar-container {
     position: fixed;
