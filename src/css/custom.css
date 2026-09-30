@@ -85,6 +85,10 @@
   #__docusaurus:has(.theme-doc-sidebar-container) > .theme-layout-footer {
     margin-inline-start: var(--doc-sidebar-width);
   }
+
+  .theme-doc-sidebar-container + main {
+    padding-inline-start: var(--ifm-spacing-horizontal);
+  }
 }
 
 /* ---------------------------------------------------------------------------

@@ -2,7 +2,7 @@
 description: How the wallet handles offline operation, local data and caching.
 ---
 
-# Offline support and caching
+# Offline Functionality and Caching
 
 Offline login is available only after the user has successfully logged in or created an account online on the same browser. That first online session stores the account information needed for local access. If the account has never been used on that browser, it cannot be opened offline.
 
