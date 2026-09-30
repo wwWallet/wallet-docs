@@ -4,11 +4,55 @@ description: Run the complete wwWallet ecosystem locally with the wwwallet orche
 
 # Development Setup
 
-Use the `wwwallet` repository as the entry point for local development. It is the orchestration repository for the current wwWallet stack and is intended to bring the individual components together into a working development environment.
+Use the `wwwallet` [repository](https://github.com/wwWallet/wwwallet) as the entry point for local development. It is the orchestration repository for the current wwWallet stack and is intended to bring the individual components together into a working development environment.
+Read the [Repositories](#the-repositories) section for information about how they are split.
 
-The setup pulls together the wallet application core, the credential protocol services and the supporting infrastructure shown in the diagram below.
+## Quick Guide
 
-Developers should follow the setup instructions in `wwwallet` instead of configuring each repository manually. The individual repositories can still be developed independently, but `wwwallet` provides the easiest way to run the full ecosystem and test end-to-end issuance and presentation flows.
+After completing this Quick Guide, you will have a working development setup installed locally. You will be able to
+create users and try out all the issuance and presentation flows end to end.
+
+### Requirements
+
+- **Git** with an SSH key added to GitHub (the submodules are cloned over SSH)
+- **Node.js 24**
+- **Yarn 1.x** (`npm i -g yarn`)
+- **Docker** with Compose v2 (`docker compose`)
+- **OpenSSL**
+
+### Setup
+
+```sh
+git clone --recurse-submodules git@github.com:wwWallet/wwwallet.git
+cd wwwallet
+nvm use        # optional, switches to the pinned Node version
+yarn install   # installs dependencies for every service
+yarn setup     # creates .env files, keys and certificates
+yarn start     # starts the databases in Docker and all services in watch mode
+```
+
+**First run only:** while `yarn start` is running, open a second terminal and run:
+
+```sh
+yarn init-db   # runs migrations and registers the local issuer, verifier and trusted certificate
+```
+
+### Done
+
+| Service | URL |
+|---|---|
+| Wallet | http://localhost:3000 |
+| Wallet backend | http://localhost:8002 |
+| Issuer | http://localhost:8003 |
+| Verifier | http://localhost:8005 |
+| Authorization server | http://localhost:6060 |
+| VCT registry | http://localhost:8097 |
+
+Stop the services with `Ctrl+C`, then run `yarn down` to stop the Docker containers.
+
+:::warning
+`yarn setup` overwrites every `.env` file and regenerates all keys, so run it again only if you want a clean configuration.
+:::
 
 ## The repositories
 
