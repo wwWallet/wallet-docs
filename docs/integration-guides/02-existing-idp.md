@@ -6,7 +6,7 @@ description: Delegate credential-issuance authentication to an existing OpenID C
 
 # Connecting the Authorization Server to an Existing IdP
 
-The `wallet-as` component can delegate user authentication to an existing OpenID Connect (OIDC) identity provider. This lets users sign in with an account they already have while `wallet-as` continues to provide the OAuth 2.0 authorization endpoints used by the credential issuer.
+The `wallet-as` component can delegate user authentication to an existing OpenID Connect (OIDC) identity provider. This lets users sign in with an account they already have while `wallet-as` acts as the OAuth 2.0 authorization server for `wallet-issuer` or other OpenID4VCI issuers that support the required authorization-server metadata, matching scopes and OAuth 2.0 token introspection.
 
 ## Authentication modes
 
@@ -21,7 +21,9 @@ Use `auth-broker` when an organization already operates an IdP and wants it to r
 
 During an authorization-code flow, `wallet-as` redirects the user to the external IdP. The IdP authenticates the user and returns an authorization code to the broker callback. `wallet-as` exchanges the code, validates the response and uses the `sub` claim from the returned ID token as the authenticated account identifier. It then resumes the original authorization request.
 
-The current broker implementation uses only `sub` from the upstream ID token. Choose an IdP client configuration that returns a stable subject identifier and ensure that issuer-side records use the same identifier where the authenticated subject is used to select credential data.
+When the wallet later requests a credential, the issuer introspects the access token with `wallet-as` to confirm that it is active and obtain the authenticated subject and authorized scopes.
+
+The current broker implementation uses only `sub` from the external IdP's ID token. Choose an IdP client configuration that returns a stable subject identifier and ensure that issuer-side records use the same identifier where the authenticated subject is used to select credential data.
 
 ## Register `wallet-as` at the IdP
 
@@ -32,13 +34,13 @@ Create an OIDC client at the existing IdP with:
 - the exact broker callback URI as a redirect URI
 - a client secret for a confidential client or no client secret for a public client.
 
-Also decide whether `wallet-as` should end the upstream IdP session after authentication. Upstream logout is attempted by default when the IdP advertises an end-session endpoint. If you keep it enabled, confirm that the client registration permits RP-initiated logout and accepts the `post_logout_redirect_uri` sent by `wallet-as`. Otherwise, set `AUTH_BROKER_SKIP_LOGOUT=true` to preserve the upstream session so the IdP can reuse it for later authentication requests.
-
 For a deployment exposed at `https://issuer.example.org/as`, register this redirect URI:
 
 ```text
 https://issuer.example.org/as/interaction/authBroker/callback
 ```
+
+If the external IdP supports RP-initiated logout, confirm that the client registration permits it and accepts the `post_logout_redirect_uri` sent by `wallet-as`.
 
 The provider must publish OIDC discovery metadata and its token response must include an ID token containing `sub`. The discovery, token and JWKS endpoints must be reachable from `wallet-as`.
 
@@ -69,7 +71,7 @@ AUTH_BROKER_SKIP_LOGOUT=true
 
 - `AUTH_BROKER_REDIRECT_URI` defaults to `SERVICE_URL` followed by `/interaction/authBroker/callback`. Set it explicitly when proxy routing changes the public URL. It must exactly match both the public callback route and the redirect URI registered at the IdP.
 
-- `AUTH_BROKER_SKIP_LOGOUT` defaults to `false`. In that mode, `wallet-as` attempts an upstream logout after authentication if the IdP advertises an end-session endpoint and returned an ID token. Set it to `true` to let the IdP reuse its session for later authentication requests, or if the provider does not accept the generated post-logout redirect.
+- `AUTH_BROKER_SKIP_LOGOUT` defaults to `false`, allowing `wallet-as` to end the external IdP session after authentication when logout is supported. Set it to `true` to preserve that session for later authentication requests or to disable external IdP logout.
 
 The broker stores its pending request state in the same Valkey-compatible data store used for `wallet-as` OIDC state. In a multi-instance deployment, all instances must use the same data store so that a callback can be handled by a different instance from the one that started the flow.
 
@@ -79,9 +81,9 @@ For all authorization-server settings, see the [wallet-as README](https://github
 
 Restart `wallet-as`, then start an issuance flow that uses the authorization code grant. A successful integration should:
 
-1. redirect the wallet or browser from `wallet-as` to the configured IdP;
-2. return to `/interaction/authBroker/callback` after authentication;
+1. redirect the wallet or browser from `wallet-as` to the configured IdP
+2. return to `/interaction/authBroker/callback` after authentication
 3. resume the original `wallet-as` authorization request
 4. return to the issuance flow with an authorization code.
 
-Test with a user whose upstream `sub` is known and confirm that the expected credential data is selected. Also test an expired IdP session, a rejected login and a repeated sign-in to verify the desired logout or session-reuse behavior.
+Test with a user whose external IdP `sub` is known and confirm that the expected credential data is selected. Also test an expired IdP session, a rejected login and a repeated sign-in to verify the desired logout or session-reuse behavior.
