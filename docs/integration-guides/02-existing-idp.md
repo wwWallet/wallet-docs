@@ -8,6 +8,8 @@ description: Delegate credential-issuance authentication to an existing OpenID C
 
 The `wallet-as` component can delegate user authentication to an existing OpenID Connect (OIDC) identity provider. This lets users sign in with an account they already have while `wallet-as` acts as the OAuth 2.0 authorization server for `wallet-issuer` or other OpenID4VCI issuers that support the required authorization-server metadata, matching scopes and OAuth 2.0 token introspection.
 
+The mode described here is part of the Authorization Code Grant flow.
+
 ## Authentication modes
 
 `wallet-as` provides two authentication modes. Select one with the `AUTHENTICATOR` environment variable:
