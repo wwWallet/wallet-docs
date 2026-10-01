@@ -84,12 +84,12 @@ const config = {
             title: 'Get Started',
             items: [
               {
-                label: 'Development Setup',
-                to: '/wallet-docs/docs/category/development-setup',
+                label: 'Getting Started',
+                to: '/wallet-docs/docs/category/getting-started',
               },
               {
-                label: 'Getting Started',
-                to: '/wallet-docs/docs/development-setup/getting-started',
+                label: 'Development Setup',
+                to: '/wallet-docs/docs/getting-started/development-setup',
               },
             ],
           },
