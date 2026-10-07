@@ -1,3 +1,8 @@
+@import '@fontsource/lato/400.css';
+@import '@fontsource/lato/400-italic.css';
+@import '@fontsource/lato/700.css';
+@import '@fontsource/lato/700-italic.css';
+
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -6,6 +11,15 @@
 
 /* You can override the default Infima variables here. */
 :root {
+  --ifm-font-family-base: 'Lato', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ifm-heading-font-family: var(--ifm-font-family-base);
+  --ifm-font-size-base: 106.25%;
+  --ifm-h1-font-size: 1.7rem;
+  --ifm-h2-font-size: 1.35rem;
+  --ifm-h3-font-size: 1.15rem;
+  --ifm-h4-font-size: 0.9rem;
+  --ifm-h5-font-size: 0.78rem;
+  --ifm-h6-font-size: 0.75rem;
   --ifm-color-primary: #0690e1;
   --ifm-color-primary-dark: #29784c;
   --ifm-color-primary-darker: #277148;
@@ -16,6 +30,19 @@
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
+}
+
+/* Infima gives documentation headings a larger scale than its global defaults. */
+.theme-doc-markdown.markdown h1 {
+  --ifm-h1-font-size: inherit;
+}
+
+.theme-doc-markdown.markdown h2 {
+  --ifm-h2-font-size: inherit;
+}
+
+.theme-doc-markdown.markdown h3 {
+  --ifm-h3-font-size: inherit;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
