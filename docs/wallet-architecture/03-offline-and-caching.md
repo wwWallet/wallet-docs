@@ -72,7 +72,7 @@ After the user logs in online for the first time, the browser stores:
 
 When offline, the wallet does not contact the backend. The user unlocks the locally stored wallet with WebAuthn and the authenticator's PRF output is used to decrypt it. This is only a local unlock, not an online login verified by the backend.
 
-Credentials and proof-signing keys remain encrypted. Display names, account identifiers, metadata and images are cached separately. The decryption key is kept only for the active browser session. See [Encryption Architecture](./06-encryption-architecture.md) for details.
+Credentials and proof-signing keys remain encrypted. Display names, account identifiers, metadata and images are cached separately. The decryption key is kept only for the active browser session. See [Encryption Architecture](./05-encryption-architecture/index.md) for details.
 
 ## Reconnecting and synchronizing
 
