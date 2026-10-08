@@ -22,7 +22,7 @@ The service worker is limited to application delivery. Authenticated API respons
 | --- | --- | --- |
 | Content-hashed JavaScript, CSS and other build files | Workbox precache | A new build produces new revisions, so outdated files can be removed safely. |
 | Manifest, theme, logos, icons and PWA screenshots | Runtime-generated precache | URLs include a manifest or branding hash. Branding can therefore be updated when runtime configuration is injected, without rebuilding the application bundle. |
-| `index.html` | Network-first | The worker waits up to three seconds for the network, then falls back to the app-shell cache. The cache is scoped by the configured base path. |
+| `index.html` | Network-first | Installation requires a successful fetch. Navigations fall back to the scoped app-shell cache after three seconds or on network and `5xx` failures. |
 | Images | Stale-while-revalidate | The image cache holds up to 200 entries. Versioned branding images use the precache instead. |
 | Fonts | Cache-first | The font cache holds up to 50 entries. |
 | Issuer and verifier lists, account information and related backend data | IndexedDB | Depending on the caller, data is read from the cache first or refreshed from the network. Cached data is also used when a request fails. |
@@ -38,6 +38,8 @@ When the wallet is offline, the proxy skips the network and returns the persiste
 ## Service worker registration and updates
 
 The production build uses a custom Workbox service worker generated through Vite's `injectManifest` strategy. Registration happens after the page loads and is scoped to the wallet's configured base path. Before registering, the client verifies that the worker URL returns JavaScript. This prevents the development server's HTML fallback from being registered as a service worker.
+
+Installation fails if the current `index.html` cannot be cached, leaving the existing worker active.
 
 When an update is found, the new worker activates immediately, takes control of open clients and removes outdated caches. Existing wallet tabs are then navigated to their current URL so they load the new application files. This navigation is skipped when the service worker is installed for the first time.
 
@@ -70,7 +72,7 @@ After the user logs in online for the first time, the browser stores:
 
 When offline, the wallet does not contact the backend. The user unlocks the locally stored wallet with WebAuthn and the authenticator's PRF output is used to decrypt it. This is only a local unlock, not an online login verified by the backend.
 
-Credentials and proof-signing keys remain encrypted. Display names, account identifiers, metadata and images are cached separately. The decryption key is kept only for the active browser session. See [Encryption Architecture](./06-encryption-architecture.md) for details.
+Credentials and proof-signing keys remain encrypted. Display names, account identifiers, metadata and images are cached separately. The decryption key is kept only for the active browser session. See [Encryption Architecture](./05-encryption-architecture/index.md) for details.
 
 ## Reconnecting and synchronizing
 
@@ -88,7 +90,7 @@ An unfinished synchronization is remembered for the browser session, so reloadin
 ## Limitations
 
 - Offline access works only after the account has been used online in the same browser with a compatible WebAuthn authenticator.
-- After the service worker takes control, the wallet must be opened online once to cache the main page reliably.
+- Offline loading requires one successful service-worker installation while online.
 - Features that depend on a server still require an internet connection. These include signup, credential issuance, remote verifier redirects and passkey management.
 - Browser storage is separated by origin. The app-shell cache is also separated by base path, but other stored data may not be.
 - Cached data may be removed when the user clears site data, uses private browsing, or the browser runs out of storage. Resources that were never downloaded are not available offline.

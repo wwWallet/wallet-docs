@@ -138,9 +138,14 @@
   --wwhome-on-accent: #ffffff;
   --wwhome-ghost-hover: rgba(28, 69, 135, 0.08);
 
-  display: flex;
-  align-items: center;
-  gap: 3rem;
+  display: grid;
+  grid-template-areas:
+    'title shot'
+    'lede shot'
+    'actions shot';
+  grid-template-columns: minmax(0, 30rem) minmax(0, 1fr);
+  align-content: center;
+  column-gap: 3rem;
   /* Cancel the doc column padding so the band spans the content width. */
   margin: calc(-1 * var(--ifm-spacing-vertical)) calc(-1 * var(--ifm-spacing-horizontal)) 3rem;
   padding: 3.25rem 3.5rem;
@@ -155,14 +160,8 @@
   --wwhome-ghost-hover: rgba(74, 153, 255, 0.14);
 }
 
-.wwhome-hero__copy {
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-  max-width: 30rem;
-}
-
 .wwhome-hero__title {
+  grid-area: title;
   margin: 0 0 1rem;
   font-size: 2.5rem;
   line-height: 1.15;
@@ -171,6 +170,7 @@
 }
 
 .wwhome-hero__lede {
+  grid-area: lede;
   margin: 0 0 1.75rem;
   font-size: 1.125rem;
   line-height: 1.6;
@@ -178,6 +178,7 @@
 }
 
 .wwhome-hero__actions {
+  grid-area: actions;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -229,7 +230,9 @@
 /* Device lockup. The artwork carries its own bezels on a transparent ground,
    so it sits directly on the hero band with no frame of ours around it. */
 .wwhome-shot {
+  grid-area: shot;
   display: flex;
+  align-self: center;
   flex-grow: 1;
   min-width: 0;
 }
@@ -436,14 +439,17 @@
 
 @media (max-width: 996px) {
   .wwhome-hero {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 2rem;
+    grid-template-areas:
+      'title'
+      'lede'
+      'actions'
+      'shot';
+    grid-template-columns: minmax(0, 1fr);
     padding: 2.25rem 1.5rem;
   }
 
-  .wwhome-hero__copy {
-    max-width: none;
+  .wwhome-shot {
+    margin-top: 0.875rem;
   }
 
   .wwhome-hero__title {
