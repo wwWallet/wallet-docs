@@ -7,21 +7,19 @@ pagination_next: null
 pagination_prev: null
 ---
 
-<div className="wwhome-hero">
-  <div className="wwhome-hero__copy">
-    <h1 className="wwhome-hero__title">Welcome to wwWallet</h1>
-    {/* Keep the text on one line: a text run on its own line is parsed as Markdown and escapes into a sibling <p>. */}
-    <p className="wwhome-hero__lede">wwWallet is an open-source, web-based digital identity wallet for securely storing, managing and presenting verifiable credentials</p>
-    <div className="wwhome-hero__actions">
-      <a className="wwhome-btn wwhome-btn--primary" target="_blank" href="https://demo.wwwallet.org">Open the demo wallet</a>
-      <a className="wwhome-btn wwhome-btn--ghost" href="/wallet-docs/docs/getting-started/development-setup">Get started</a>
-    </div>
+<header className="wwhome-hero">
+  <h1 className="wwhome-hero__title">Welcome to wwWallet</h1>
+  {/* Keep the text on one line: a text run on its own line is parsed as Markdown and escapes into a sibling <p>. */}
+  <p className="wwhome-hero__lede">wwWallet is an open-source, web-based digital identity wallet for securely storing, managing and presenting verifiable credentials</p>
+  <div className="wwhome-hero__actions">
+    <a className="wwhome-btn wwhome-btn--primary" target="_blank" href="https://demo.wwwallet.org">Open the demo wallet</a>
+    <a className="wwhome-btn wwhome-btn--ghost" href="/wallet-docs/docs/getting-started/development-setup">Get started</a>
   </div>
 
   <div className="wwhome-shot">
     <img className="wwhome-shot__image" src="/wallet-docs/img/devices.png" alt="wwWallet open in a laptop browser and on a phone, both showing a list of stored credentials" />
   </div>
-</div>
+</header>
 
 The project takes a browser-first approach to digital identity wallets, using Progressive Web
 Applications, WebCrypto, WebAuthn, CTAP2 and related standards to provide wallet functionality
