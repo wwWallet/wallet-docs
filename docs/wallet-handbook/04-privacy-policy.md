@@ -1,5 +1,6 @@
 ---
-sidebar_position: 1
+sidebar_position: 4
+description: Learn how wwWallet protects your wallet data and gives you control over what you share.
 ---
 
 # Privacy Policy
@@ -8,7 +9,7 @@ The wallet is designed with privacy and security as top priorities, ensuring tha
 
 ## Key Pairs and Encryption
 
-- In its current phase, wwWallet enhances privacy by generating unique, unrelated key pairs for each credential. This ensures that cryptographic keys do not compromise unlinkability, preventing tracking by relying parties, provided the holder does not use the same credential instance for every presentation. All key pairs are stored securely on the user's device in an encrypted format.
+In its current phase, wwWallet enhances privacy by generating unique, unrelated key pairs for each credential. This ensures that cryptographic keys do not compromise unlinkability, preventing tracking by relying parties, provided the holder does not use the same credential instance for every presentation. All key pairs are stored securely on the user's device in an encrypted format.
 
 ## Data Sharing
 
