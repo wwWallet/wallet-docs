@@ -4,10 +4,6 @@ description: Authentication, cryptographic binding and the wallet's security mod
 
 # Security
 
-## Benchmark
-
-Can we safely use our web-wallet on a public kiosk using a Ybikey, or any other certified authenticator?
-
 ## Security and Trustworthiness
 
 To ensure the security of the wallet, a high level of trust in their authentication and cryptographic binding mechanisms and integrity of digital wallets is essential. This trust is built upon two core wallet processes:
