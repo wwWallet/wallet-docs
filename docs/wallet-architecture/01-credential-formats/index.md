@@ -15,7 +15,7 @@ This separation allows new credential formats to be added without changing the c
 | Name                 | Format      | Parser          | Verifier          |
 | -------------------- | ----------- | --------------- | ----------------- |
 | SD-JWT VC            | `dc+sd-jwt` | `SDJWTVCParser` | `SDJWTVCVerifier` |
-| ISO/IEC 23220-1:2023 | `mso_mdoc`  | `MsoMdocParser` | `MsoMdocVerifier` |
+| ISO/IEC 18013-5:2021 | `mso_mdoc`  | `MsoMdocParser` | `MsoMdocVerifier` |
 
 Both parsers and verifiers are registered during credential engine initialization.
 
@@ -23,9 +23,9 @@ Both parsers and verifiers are registered during credential engine initializatio
 
 Supporting a new credential format typically requires:
 
-1. Implementing a `CredentialParser`
-2. Implementing a `CredentialVerifier`
-3. Registering the parser with the `ParsingEngine`
-4. Exposing the verifier through the application
+1. Implementing a [CredentialParser](https://github.com/wwWallet/wallet-common/tree/master/src/credential-parsers).
+2. Implementing a [CredentialVerifier](https://github.com/wwWallet/wallet-common/tree/master/src/credential-verifiers).
+3. Registering the parser with the [ParsingEngine](https://github.com/wwWallet/wallet-common/blob/master/src/ParsingEngine.ts).
+4. Exposing the verifier through the application.
 
 Once registered, the new format becomes a first-class participant in credential issuance, storage, display, presentation, and verification workflows without requiring changes to existing format implementations.
