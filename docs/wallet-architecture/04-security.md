@@ -48,3 +48,35 @@ Combined with the new "[**Key Attestation**](https://openid.net/specs/openid-4-v
 
 ## Web App Security
 
+Since wwWallet is a web application, it is subject to the threat model of the web platform.
+Deployments should harden the browser environment to limit what can run in the wallet's origin and how other origins can interact with it.
+
+### Recommended Webserver Headers
+
+The headers below restrict script sources and enforce Trusted Types to mitigate XSS. 
+They also prevent the wallet from being framed by other sites and isolate it from cross-origin documents to reduce side-channel exposure.
+
+**Content Security Policy**
+```
+Content-Security-Policy: base-uri 'none';
+                         default-src 'self';
+                         object-src 'none';
+                         frame-src 'self' https: blob: data:;
+                         connect-src 'self' https: wss: blob: data:;
+                         script-src 'self' 'wasm-unsafe-eval';
+                         img-src 'self' https: blob: data:;
+                         media-src 'self' https: blob: data:;
+                         font-src 'self' blob: data:;
+                         style-src 'self' 'unsafe-inline';
+                         require-trusted-types-for 'script';
+```
+
+**Cross Origin Isolation**
+```
+Cross-Origin-Opener-Policy: same-origin
+Cross-Origin-Embedder-Policy: require-corp
+Cross-Origin-Resource-Policy: same-origin
+Content-Security-Policy: frame-ancestors 'self'
+```
+
+The recommendation is compatible with the headers required by [Isolated Web Apps](https://github.com/WICG/isolated-web-apps).
