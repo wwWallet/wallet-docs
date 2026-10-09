@@ -1,9 +1,9 @@
 ---
-sidebar_position: 2
+sidebar_position: 1
 ---
-# Credential Engine
+# Credential Formats
 
-The Credential Engine provides a pluggable framework for supporting multiple Verifiable Credential formats. Each format is integrated through two independent components:
+wwWallet provides a pluggable framework for supporting multiple Verifiable Credential formats. Each format is integrated through two independent components:
 
 * **[Credential Parser](./credential-parsing)**  — Converts a raw credential into the wallet's normalized credential model.
 * **[Credential Verifier](./credential-verification)** — Validates the authenticity and integrity of a credential.
