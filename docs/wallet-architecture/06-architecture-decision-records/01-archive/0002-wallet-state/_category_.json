@@ -1,0 +1,8 @@
+{
+  "label": "ADR 2. Wallet state model",
+  "className": "wwcard-list",
+  "link": {
+    "type": "doc",
+    "id": "wallet-architecture/architecture-decision-records/archive/wallet-state/index"
+  }
+}

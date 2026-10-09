@@ -58,11 +58,25 @@ const config = {
     ],
   ],
 
+  themes: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        hashed: true,
+      },
+    ],
+  ],
+
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
       image: 'img/logo.svg',
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
+      },
       navbar: {
         title: 'wwWallet Docs',
         logo: {
@@ -84,12 +98,12 @@ const config = {
             title: 'Get Started',
             items: [
               {
-                label: 'Development Setup',
-                to: '/wallet-docs/docs/category/development-setup',
+                label: 'Getting Started',
+                to: '/wallet-docs/docs/category/getting-started',
               },
               {
-                label: 'Getting Started',
-                to: '/wallet-docs/docs/development-setup/getting-started',
+                label: 'Development Setup',
+                to: '/wallet-docs/docs/getting-started/development-setup',
               },
             ],
           },

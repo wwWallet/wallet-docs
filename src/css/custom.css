@@ -1,3 +1,8 @@
+@import '@fontsource/lato/400.css';
+@import '@fontsource/lato/400-italic.css';
+@import '@fontsource/lato/700.css';
+@import '@fontsource/lato/700-italic.css';
+
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
@@ -6,6 +11,15 @@
 
 /* You can override the default Infima variables here. */
 :root {
+  --ifm-font-family-base: 'Lato', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --ifm-heading-font-family: var(--ifm-font-family-base);
+  --ifm-font-size-base: 106.25%;
+  --ifm-h1-font-size: 1.7rem;
+  --ifm-h2-font-size: 1.35rem;
+  --ifm-h3-font-size: 1.15rem;
+  --ifm-h4-font-size: 0.9rem;
+  --ifm-h5-font-size: 0.78rem;
+  --ifm-h6-font-size: 0.75rem;
   --ifm-color-primary: #0690e1;
   --ifm-color-primary-dark: #29784c;
   --ifm-color-primary-darker: #277148;
@@ -13,9 +27,26 @@
   --ifm-color-primary-light: #33925d;
   --ifm-color-primary-lighter: #359962;
   --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
+  --ifm-code-font-size: 80%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
 
+/* Override the theme's later :root declaration for the collapsed sidebar. */
+:root:root {
+  --doc-sidebar-hidden-width: 4rem;
+}
+
+/* Infima gives documentation headings a larger scale than its global defaults. */
+.theme-doc-markdown.markdown h1 {
+  --ifm-h1-font-size: inherit;
+}
+
+.theme-doc-markdown.markdown h2 {
+  --ifm-h2-font-size: inherit;
+}
+
+.theme-doc-markdown.markdown h3 {
+  --ifm-h3-font-size: inherit;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -28,11 +59,16 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+  --ifm-navbar-background-color: var(--ifm-background-color);
 }
 
 
 .row {
 	justify-content: center;
+}
+
+.row:has(> .col:only-child) {
+  justify-content: flex-start;
 }
 
 .hero__subtitle {
@@ -42,4 +78,627 @@
 
 .hero__title {
   color: var(--ifm-heading-color);
+}
+
+.navbar {
+  border-bottom: 1px solid var(--ifm-toc-border-color);
+  box-shadow: none;
+}
+
+@media (min-width: 997px) {
+  aside.theme-doc-sidebar-container {
+    position: fixed;
+    top: var(--ifm-navbar-height);
+    bottom: 0;
+    inset-inline-start: 0;
+    margin-top: 0;
+    background-color: var(--ifm-background-color);
+    z-index: calc(var(--ifm-z-index-fixed) - 1);
+    transition: width 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .theme-doc-sidebar-container > div {
+    position: static;
+    height: 100%;
+    max-height: none;
+  }
+
+  .theme-doc-sidebar-container > div > div:first-child {
+    position: relative;
+    width: var(--doc-sidebar-width);
+    padding-top: 0;
+    transition: opacity 120ms ease;
+  }
+
+  .theme-doc-sidebar-container > div > div:first-child::after {
+    content: '';
+    position: absolute;
+    right: 0.75rem;
+    bottom: 3.5rem;
+    left: 0.75rem;
+    height: 1px;
+    background: var(--ifm-toc-border-color);
+    opacity: 0.7;
+    pointer-events: none;
+  }
+
+  .theme-doc-sidebar-container nav.menu {
+    padding: 0.5rem;
+    overscroll-behavior: contain;
+  }
+
+  /* Keep the native sidebar toggle compact and anchored to the bottom edge. */
+  .theme-doc-sidebar-container button[class*='collapseSidebarButton'] {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    align-self: flex-end;
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0.5rem;
+    padding: 0.375rem;
+    border: 0;
+    border-radius: 0.3rem;
+    color: var(--ifm-color-black);
+  }
+
+  .theme-doc-sidebar-container button[class*='collapseSidebarButton'] svg {
+    display: none;
+  }
+
+  .theme-doc-sidebar-container button[class*='collapseSidebarButton']::before,
+  .theme-doc-sidebar-container [class*='expandButton']::before {
+    content: '';
+    width: 1rem;
+    height: 0.875rem;
+    border: 1px solid currentColor;
+    border-radius: 2px;
+    background: linear-gradient(
+      to right,
+      transparent 0.3rem,
+      currentColor 0.3rem,
+      currentColor calc(0.3rem + 1px),
+      transparent calc(0.3rem + 1px)
+    );
+  }
+
+  .theme-doc-sidebar-container button[class*='collapseSidebarButton']::after,
+  .theme-doc-sidebar-container [class*='expandButton']::after {
+    content: '';
+    position: absolute;
+    width: 0.3rem;
+    height: 0.5rem;
+    background: currentColor;
+    clip-path: polygon(100% 0, 25% 50%, 100% 100%, 65% 100%, 0 50%, 65% 0);
+    transform: translateX(0.2rem);
+  }
+
+  .theme-doc-sidebar-container button[class*='collapseSidebarButton'] {
+    position: relative;
+  }
+
+  .theme-doc-sidebar-container [class*='expandButton'] {
+    top: auto;
+    right: auto;
+    bottom: 0.5rem;
+    left: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.375rem;
+    border: 0;
+    border-radius: 0.3rem;
+    background: transparent;
+    color: var(--ifm-color-black);
+    box-shadow: none;
+    transform: translateX(-50%);
+  }
+
+  .theme-doc-sidebar-container [class*='expandButton'] svg {
+    display: none;
+  }
+
+  .theme-doc-sidebar-container [class*='expandButton']::before {
+    transform: scaleX(-1);
+  }
+
+  .theme-doc-sidebar-container [class*='expandButton']::after {
+    transform: translateX(-0.2rem) scaleX(-1);
+  }
+
+  .theme-doc-sidebar-container button[class*='collapseSidebarButton']:hover,
+  .theme-doc-sidebar-container button[class*='collapseSidebarButton']:focus-visible,
+  .theme-doc-sidebar-container [class*='expandButton']:hover,
+  .theme-doc-sidebar-container [class*='expandButton']:focus-visible {
+    background: var(--ifm-hover-overlay);
+    color: var(--ifm-color-black);
+    box-shadow: none;
+  }
+
+  .theme-doc-sidebar-container + main {
+    margin-inline-start: var(--doc-sidebar-width);
+    transition: margin-inline-start 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  aside[class*='docSidebarContainerHidden'] + main {
+    margin-inline-start: var(--doc-sidebar-hidden-width);
+  }
+
+  #__docusaurus:has(.theme-doc-sidebar-container) > .theme-layout-footer {
+    position: relative;
+    z-index: calc(var(--ifm-z-index-fixed) - 1);
+    margin-inline-start: var(--doc-sidebar-width);
+    transition:
+      margin-inline-start 180ms cubic-bezier(0.4, 0, 0.2, 1),
+      padding-inline-start 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  #__docusaurus:has(aside[class*='docSidebarContainerHidden'])
+    > .theme-layout-footer {
+    margin-inline-start: 0;
+    padding-inline-start: calc(
+      var(--doc-sidebar-hidden-width) + var(--ifm-footer-padding-horizontal)
+    );
+  }
+
+  aside[class*='docSidebarContainerHidden'] {
+    background-color: transparent;
+    border-right-color: transparent;
+    z-index: var(--ifm-z-index-fixed);
+  }
+
+  aside[class*='docSidebarContainerHidden'] > div > div:first-child {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .theme-doc-sidebar-container + main {
+    padding-inline-start: var(--ifm-spacing-horizontal);
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Welcome page (docs/introduction.md)
+   --------------------------------------------------------------------------- */
+
+/* The welcome page leads with its hero band, so the breadcrumb trail is noise. */
+.docs-doc-id-introduction .theme-doc-breadcrumbs {
+  display: none;
+}
+
+/* Keep the intro prose to a readable measure across the full-width column. */
+.docs-doc-id-introduction .theme-doc-markdown > p {
+  max-width: 52.5rem;
+}
+
+.wwhome-hero {
+  --wwhome-band: #f3f3f3;
+  --wwhome-accent: #1c4587;
+  --wwhome-accent-hover: #4d77bb;
+  --wwhome-on-accent: #ffffff;
+  --wwhome-ghost-hover: rgba(28, 69, 135, 0.08);
+
+  display: grid;
+  grid-template-areas:
+    'title shot'
+    'lede shot'
+    'actions shot';
+  grid-template-columns: minmax(0, 30rem) minmax(0, 1fr);
+  align-content: center;
+  column-gap: 3rem;
+  /* Cancel the doc column padding so the band spans the content width. */
+  margin: calc(-1 * var(--ifm-spacing-vertical)) calc(-1 * var(--ifm-spacing-horizontal)) 3rem;
+  padding: 3.25rem 3.5rem;
+  background-color: var(--wwhome-band);
+}
+
+[data-theme='dark'] .wwhome-hero {
+  --wwhome-band: var(--ifm-background-surface-color);
+  --wwhome-accent: #4a99ff;
+  --wwhome-accent-hover: #6aabff;
+  --wwhome-on-accent: var(--ifm-background-color);
+  --wwhome-ghost-hover: rgba(74, 153, 255, 0.14);
+}
+
+.wwhome-hero__title {
+  grid-area: title;
+  margin: 0 0 1rem;
+  font-size: 2.5rem;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  /* color: #ffffff; */
+}
+
+.wwhome-hero__lede {
+  grid-area: lede;
+  margin: 0 0 1.75rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  text-wrap: pretty;
+}
+
+.wwhome-hero__actions {
+  grid-area: actions;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1.125rem;
+}
+
+.wwhome-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.6875rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: var(--ifm-global-radius);
+  font-weight: var(--ifm-font-weight-bold);
+  line-height: 1.5;
+  transition: background-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.wwhome-btn:hover {
+  text-decoration: none;
+}
+
+.wwhome-btn--primary {
+  color: var(--wwhome-on-accent);
+  background-color: var(--wwhome-accent);
+}
+
+.wwhome-btn--primary:hover {
+  color: var(--wwhome-on-accent);
+  background-color: var(--wwhome-accent-hover);
+}
+
+.wwhome-btn--ghost {
+  border-color: var(--wwhome-accent);
+  color: var(--wwhome-accent);
+  background-color: transparent;
+}
+
+.wwhome-btn--ghost:hover {
+  background-color: var(--wwhome-ghost-hover);
+  color: var(--wwhome-accent);
+}
+
+.wwhome-hero__note {
+  font-size: 0.84375rem;
+  color: #9dc3f0;
+}
+
+/* Device lockup. The artwork carries its own bezels on a transparent ground,
+   so it sits directly on the hero band with no frame of ours around it. */
+.wwhome-shot {
+  grid-area: shot;
+  display: flex;
+  align-self: center;
+  flex-grow: 1;
+  min-width: 0;
+}
+
+.wwhome-shot__image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Quick actions */
+.wwhome-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.wwhome-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  padding: 1.375rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: calc(var(--ifm-global-radius) * 2);
+  background-color: var(--ifm-background-surface-color);
+  color: var(--ifm-font-color-base);
+  transition: border-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.wwhome-card:hover {
+  border-color: var(--ifm-color-primary);
+  color: var(--ifm-font-color-base);
+  text-decoration: none;
+}
+
+/* MDX wraps a stray text run in an unclassed <p>; its margin would knock flex centring askew. */
+.wwhome-hero p:not([class]),
+.wwhome-card p:not([class]) {
+  margin: 0;
+}
+
+.wwhome-card__title {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 1.0625rem;
+  font-weight: var(--ifm-font-weight-bold);
+  line-height: var(--ifm-heading-line-height);
+}
+
+.wwhome-card__icon {
+  flex-shrink: 0;
+  color: var(--ifm-color-primary);
+}
+
+.wwhome-card__body {
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--ifm-color-content-secondary);
+}
+
+.wwhome-card__more {
+  font-size: 0.90625rem;
+  font-weight: var(--ifm-font-weight-semibold);
+  color: var(--ifm-color-primary);
+}
+
+.theme-doc-card-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 10.75rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: calc(var(--ifm-global-radius) * 2);
+  background-color: var(--ifm-background-surface-color);
+  box-shadow: none !important;
+  color: var(--ifm-font-color-base);
+  transition: border-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.theme-doc-card-container:hover {
+  border-color: var(--ifm-color-primary);
+  box-shadow: none !important;
+  color: var(--ifm-font-color-base);
+}
+
+.theme-doc-card-container .theme-doc-card-title {
+  font-size: 1.0625rem;
+  color: var(--ifm-color-primary);
+}
+
+.theme-doc-card-container .theme-doc-card-title::after {
+  content: ' →';
+}
+
+.theme-doc-card-container .theme-doc-card-icon {
+  display: none;
+}
+
+.theme-doc-card-container .theme-doc-card-description {
+  display: block;
+  margin-top: 0.625rem;
+  overflow: visible;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--ifm-color-content-secondary);
+  white-space: normal;
+}
+
+.row > .col:has(> .theme-doc-card-container.wwcard-list) {
+  flex-basis: 100%;
+  max-width: 100%;
+}
+
+.theme-doc-card-container.wwcard-list {
+  flex-direction: row;
+  align-items: center;
+  min-height: 5.5rem;
+  padding: 1.375rem !important;
+}
+
+.theme-doc-card-container.wwcard-list::after {
+  margin-left: auto;
+  padding-left: 1rem;
+  font-size: 1.25rem;
+  color: var(--ifm-navbar-link-color);
+  content: '→';
+  transition: color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.theme-doc-card-container.wwcard-list .theme-doc-card-heading {
+  margin: 0;
+}
+
+.theme-doc-card-container.wwcard-list .theme-doc-card-title {
+  color: var(--ifm-navbar-link-color);
+  transition: color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.theme-doc-card-container.wwcard-list .theme-doc-card-title::after {
+  content: none;
+}
+
+.theme-doc-card-container.wwcard-list:hover .theme-doc-card-title {
+  color: var(--ifm-navbar-link-hover-color);
+}
+
+.theme-doc-card-container.wwcard-list:hover::after {
+  color: var(--ifm-navbar-link-hover-color);
+}
+
+.theme-doc-card-container.wwcard-list .theme-doc-card-description {
+  display: none;
+}
+
+.pagination-nav {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--ifm-color-emphasis-200);
+}
+
+.pagination-nav__link {
+  padding: 0;
+  border: 0;
+  color: var(--ifm-navbar-link-color);
+  line-height: 1.5;
+  transition: color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+}
+
+.pagination-nav__link:hover {
+  background: transparent;
+  color: var(--ifm-navbar-link-hover-color);
+  text-decoration: none;
+}
+
+.pagination-nav__sublabel {
+  display: none;
+}
+
+.pagination-nav__label {
+  font-size: 1.0625rem;
+  font-weight: var(--ifm-font-weight-semibold);
+}
+
+.pagination-nav__link--prev .pagination-nav__label::before {
+  content: '‹ ';
+  font-size: 1.5em;
+  line-height: 0;
+  vertical-align: -0.08em;
+}
+
+.pagination-nav__link--next .pagination-nav__label::after {
+  flex: 0 0 auto;
+  content: '›';
+  font-size: 1.5em;
+  line-height: 1;
+}
+
+.pagination-nav__link--next .pagination-nav__label {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 0.25em;
+}
+
+@media (max-width: 996px) {
+  .wwhome-hero {
+    grid-template-areas:
+      'title'
+      'lede'
+      'actions'
+      'shot';
+    grid-template-columns: minmax(0, 1fr);
+    padding: 2.25rem 1.5rem;
+  }
+
+  .wwhome-shot {
+    margin-top: 0.875rem;
+  }
+
+  .wwhome-hero__title {
+    font-size: 2rem;
+  }
+
+  .wwhome-actions {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+
+/* ---------------------------------------------------------------------------
+   Repository map (docs/development-setup/01-getting-started.md)
+   --------------------------------------------------------------------------- */
+
+.wwrepos {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  margin-bottom: var(--ifm-leading);
+}
+
+.wwrepos__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.wwrepos__heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--ifm-color-emphasis-200);
+  font-size: 0.8125rem;
+  font-weight: var(--ifm-font-weight-bold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ifm-color-content-secondary);
+}
+
+.wwrepos__dot {
+  flex-shrink: 0;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 2px;
+  background-color: var(--wwrepos-dot);
+}
+
+/* Group colours are lifted from static/img/diagrams/repos.d2, so this list reads
+   as a legend for the diagram that follows it. Keep the two in step. */
+.wwrepos__dot--app {
+  --wwrepos-dot: #0284c7;
+}
+
+.wwrepos__dot--common {
+  --wwrepos-dot: #7c3aed;
+}
+
+.wwrepos__dot--protocol {
+  --wwrepos-dot: #16a34a;
+}
+
+.wwrepos__dot--support {
+  --wwrepos-dot: #ca8a04;
+}
+
+.wwrepos__dot--wrapper {
+  --wwrepos-dot: #ea580c;
+}
+
+.wwrepos__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.wwrepos__item {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.3125rem 0;
+  font-size: 0.9375rem;
+}
+
+.markdown .wwrepos__item + .wwrepos__item {
+  margin-top: 0;
+}
+
+.wwrepos__name {
+  flex: 0 0 14rem;
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.875rem;
+}
+
+.wwrepos__desc {
+  flex: 1 1 auto;
+  min-width: 0;
+  color: var(--ifm-color-content-secondary);
+}
+
+@media (max-width: 600px) {
+  .wwrepos__item {
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .wwrepos__name {
+    flex: 0 0 auto;
+    align-self: flex-start;
+  }
 }
