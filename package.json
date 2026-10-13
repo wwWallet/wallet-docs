@@ -15,10 +15,10 @@
     "write-heading-ids": "docusaurus write-heading-ids"
   },
   "dependencies": {
-    "@docusaurus/core": "^3.10.0",
-    "@docusaurus/preset-classic": "^3.10.0",
-    "@fontsource/lato": "^5.3.0",
+    "@docusaurus/core": "^3.10.2",
+    "@docusaurus/preset-classic": "^3.10.2",
     "@easyops-cn/docusaurus-search-local": "^0.55.3",
+    "@fontsource/lato": "^5.3.0",
     "@mdx-js/react": "^3.1.1",
     "clsx": "^1.2.1",
     "nomnoml": "^1.6.2",
@@ -28,10 +28,14 @@
     "react-player": "^2.11.2"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^3.10.0"
+    "@docusaurus/module-type-aliases": "^3.10.2"
   },
   "resolutions": {
-    "webpackbar": "^7.0.0"
+    "webpackbar": "^7.0.0",
+    "tinypool": "2.1.2",
+    "serialize-javascript": "7.0.5",
+    "postcss-selector-parser": "7.1.6",
+    "uuid": "11.1.1"
   },
   "browserslist": {
     "production": [
@@ -46,6 +50,6 @@
     ]
   },
   "engines": {
-    "node": ">=16.14"
+    "node": ">=24"
   }
 }
