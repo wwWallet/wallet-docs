@@ -44,6 +44,6 @@ Display metadata may originate from different sources depending on the credentia
 
 Common sources, prioritized by the order in which they are currently used, include:
 
-1. External, format-specific configured VC Type Metadata registries (example, [wwWallet's VCT Registry](https://registry.wwwallet.org/) for [SD-JWT VC Type Metadata (VCT Metadata)](https://www.ietf.org/archive/id/draft-ietf-oauth-sd-jwt-vc-16.html#name-display-metadata) for the `dc+sd-jwt` credential format).
+1. External, format-specific configured VC Type Metadata registries (e.g., [wwWallet's VCT Registry](https://registry.wwwallet.org/) for [SD-JWT VC Type Metadata (VCT Metadata)](https://www.ietf.org/archive/id/draft-ietf-oauth-sd-jwt-vc-16.html#name-display-metadata) for the `dc+sd-jwt` credential format).
 2. [OID4VCI Credential Issuer Metadata](https://openid.net/specs/openid-4-verifiable-credential-issuance-1_0.html#name-credential-issuer-metadata) for all credential formats.
 3. Application-defined metadata overrides.

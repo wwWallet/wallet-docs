@@ -1,3 +1,8 @@
+---
+sidebar_label: ADR 3. Splitting wallet-enterprise into wallet-as, wallet-verifier, wallet-issuer
+sidebar_class_name: wwcard-list
+---
+
 # 3. Splitting wallet-enterprise into wallet-as, wallet-verifier, wallet-issuer
 
 Date: 2026-02-09

@@ -1,3 +1,8 @@
+---
+sidebar_label: ADR 1. Oblivious HTTP as a Proxy Protocol
+sidebar_class_name: wwcard-list
+---
+
 # 1. Oblivious HTTP as a Proxy Protocol
 
 Date: 2025-10-23
@@ -26,4 +31,3 @@ We will implement Oblivious HTTP ([RFC 9458](https://www.ietf.org/rfc/rfc9458.ht
 - A new step is added on each request, hurting perfomance.
 - The gateway, a new part of the stack managed by a third-party, has access to the request's target and body, as well as the response from issuers and verifiers. This can be mitigated by implementing more privacy-centric profiles of OID specifications.
 - Users can still be tracked in some cases. RFC 9458 has a section on [Privacy Considerations](https://www.ietf.org/rfc/rfc9458.html#name-privacy-considerations)
-

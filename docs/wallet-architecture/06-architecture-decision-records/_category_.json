@@ -1,0 +1,8 @@
+{
+  "label": "Architecture Decision Records",
+  "description": "The significant architectural decisions that shape the wwWallet stack.",
+  "link": {
+    "type": "doc",
+    "id": "wallet-architecture/architecture-decision-records/index"
+  }
+}
