@@ -1,0 +1,8 @@
+{
+  "label": "Credential Formats",
+  "description": "Supported credential formats, data parsing, visualization using metadata, verification and instructions on adding a new format.",
+  "link": {
+    "type": "doc",
+    "id": "wallet-architecture/credential-formats/index"
+  }
+}
