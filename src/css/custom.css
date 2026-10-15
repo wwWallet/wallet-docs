@@ -254,6 +254,11 @@
   .theme-doc-sidebar-container + main {
     padding-inline-start: var(--ifm-spacing-horizontal);
   }
+
+  .theme-doc-sidebar-container + main .wwhome-hero {
+    margin-inline-start: calc(-2 * var(--ifm-spacing-horizontal));
+    padding-inline-start: calc(3.5rem + var(--ifm-spacing-horizontal));
+  }
 }
 
 /* ---------------------------------------------------------------------------
