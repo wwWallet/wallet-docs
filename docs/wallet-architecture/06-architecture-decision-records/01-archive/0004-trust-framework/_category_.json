@@ -1,0 +1,8 @@
+{
+  "label": "ADR 4. Trust framework",
+  "className": "wwcard-list",
+  "link": {
+    "type": "doc",
+    "id": "wallet-architecture/architecture-decision-records/archive/trust-framework/index"
+  }
+}
